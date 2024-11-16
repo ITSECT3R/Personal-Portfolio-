@@ -1,3 +1,0 @@
-ITSECT3R
-
-practice of git gui.

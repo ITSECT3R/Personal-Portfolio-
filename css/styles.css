@@ -147,13 +147,30 @@ header:hover{
     float: left;
     margin-right: 0px; 
     transition: .3s ease-in-out;
+    margin-bottom: 30px;
 }
 
 .profile-picture:hover{
     box-shadow: 0 0 44px rgba(77, 255, 0, 0.774);
 }
 
+#download-btn{
+    color: #000000;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-color: #fff01b;
+    margin-inline: auto;
+    display: block;
+    padding: 10px 30px;
+    border-radius: 30px;
+    transition: .5s;
+    width: 300px;
+    height: 60px;
+}
 
+#download-btn:hover{
+    background-color:#ff8000 ;
+}
 
 .section1-div2 p{
     font-size: 1.6rem;

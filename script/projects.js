@@ -33,8 +33,6 @@ const createProjectElement = (project) => {
 
 // Load initial personal projects
 const loadPersonalProjects = () => {
-    // Clear current grid
-    grid1.innerHTML = '';
     
     // Load first set of projects
     for (let i = 0; i < Math.min(personalStartLoad, personalProjects.length); i++) {
@@ -52,8 +50,6 @@ const loadPersonalProjects = () => {
 
 // Load initial FreeCodeCamp projects
 const loadFCCProjects = () => {
-    // Clear current grid
-    grid2.innerHTML = '';
     
     // Load first set of projects
     for (let i = 0; i < Math.min(fccStartLoad, freeCodeCampProjects.length); i++) {

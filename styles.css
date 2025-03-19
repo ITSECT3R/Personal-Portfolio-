@@ -155,7 +155,8 @@ header:hover{
     box-shadow: 0 0 44px rgba(77, 255, 0, 0.774);
 }
 
-#download-btn{
+#download-btn,
+.btn-load-projects{
     color: #000000;
     font-weight: 700;
     font-size: 1.2rem;
@@ -169,7 +170,8 @@ header:hover{
     height: 60px;
 }
 
-#download-btn:hover{
+#download-btn:hover,
+.btn-load-projects:hover{
     background-color:#ff8000 ;
 }
 
@@ -379,6 +381,14 @@ header:hover{
     text-shadow: 0 0 3px rgb(0, 0, 0),1px 1px 2px rgb(255, 208, 0), 0 0 25px rgb(147, 96, 0);
 }
 
+.section3-h3{
+    font-size: 1.9rem;
+    margin-left: 30px;
+    margin-bottom: 40px;
+    color: #00ff1e;
+    text-shadow: 0 0 3px rgb(0, 0, 0),1px 1px 2px rgb(255, 208, 0), 0 0 25px rgb(147, 96, 0);
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -437,6 +447,10 @@ header:hover{
 
 .Technologies span{
     margin-right: 10px;
+}
+
+.btn-load-projects{
+    margin-bottom: 30px;
 }
 
 /* section3 Projects settings.  End -------------------------------------------------------------------------------------------------------------------------------------------------------- */

@@ -9,7 +9,7 @@ const loadMoreBtn2 = document.getElementById('btn-loadmore-2');
 
 // Initial display counts and increment values
 let personalStartLoad = 2;
-let fccStartLoad = 3;
+let fccStartLoad = window.innerWidth < 1368 ? 2 : 3;
 const loadMore = 3;
 
 // Creates project HTML and adds it to the grid
@@ -108,6 +108,17 @@ const loadMoreFCCProjects = () => {
 // Add event listeners to load more buttons
 loadMoreBtn1.addEventListener('click', loadMorePersonalProjects);
 loadMoreBtn2.addEventListener('click', loadMoreFCCProjects);
+
+// Update fccStartLoad on resize for better responsiveness
+window.addEventListener('resize', () => {
+    const newFccStartLoad = window.innerWidth < 1368 ? 2 : 3;
+    if (newFccStartLoad !== fccStartLoad) {
+        fccStartLoad = newFccStartLoad;
+        // Clear and reload FCC projects
+        grid2.innerHTML = '';
+        loadFCCProjects();
+    }
+});
 
 // Initialize by loading projects when page loads
 document.addEventListener('DOMContentLoaded', () => {

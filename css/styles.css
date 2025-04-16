@@ -25,6 +25,8 @@ body {
 
 }
 
+
+
 /* General settings.  end -------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Header settings.  begin -------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -81,9 +83,8 @@ header:hover{
 }
 
 
-.crown-logo{
+#navbar svg{
     margin-left: 25px;
-
 }
 
 .logo-name{
@@ -443,10 +444,7 @@ header:hover{
     justify-content: right;
     margin-right: 20px;
     margin-bottom: 15px;
-}
-
-.Technologies span{
-    margin-right: 10px;
+    gap: 10px;
 }
 
 .btn-load-projects{
@@ -466,9 +464,17 @@ header:hover{
     text-shadow: 0 0 3px #000000, 0 0 12px rgb(235, 35, 0);
 }
 
-.section3-sub-title{
+.section4-sub-title{
     font-size: 2.3rem;
     text-shadow: 0 0 3px #000000, 0 0 15px rgb(0, 255, 89);
+}
+
+#programming-languages,
+#front-end,
+#other-tools,
+#other-programs{
+    display: flex;
+    gap: 4px;
 }
 
 .wrapper_skills{

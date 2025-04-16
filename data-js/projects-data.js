@@ -1,4 +1,4 @@
-import { svgs } from './svgs-projects.js';
+import { svgs } from './svgs-data.js';
 
 export const personalProjects = [
     {

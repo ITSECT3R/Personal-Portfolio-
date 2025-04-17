@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Survey form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+ 
+    <h1 id="title"><span class="brand-color">PhoneMania</span> Survey Form</h1>
+        <p id="description">Please help us improve the platform by answering this quick survey</p>
+    <div class="wrapper">  
+        
+        <form id="survey-form">
+            <label id="name-label">Name<input type="text"  id="name" placeholder="Enter your name" required></label>
+            <label id="email-label">Email<input type="email"  id="email" placeholder="Enter your Email"  required></label>
+            <label id="number-label">Age <span>(optional)</span><input type="number"  id="number" min="10" max="99" placeholder="Age"></label>
+        
+        
+            <label id="dropdown-label">How much would you be willing to pay for a new Phone?
+                <select id="dropdown">
+                    <option disabled selected value>Select an amount</option>
+                    <option >100$ or less</option>
+                    <option >100$ to 300$</option>
+                    <option >300$ to 500$</option>
+                    <option >500$ to 800$</option>
+                    <option >800$ to 1200$</option>
+                    <option >over 1200$</option>
+                </select>
+            </label>
+        
+            <label id="radio">Where do you prefer to buy a Phone?<br>
+                <input name="radio-button" type="radio" value="1" class="radio-1"> In a physical store  <br>
+                <input name="radio-button" type="radio" value="2" class="radio-2"> 
+                Online<br>
+                <input name="radio-button" type="radio" value="3" class="radio-3" > 
+                Online or at a physical store<br>
+                <input name="radio-button" type="radio" value="4" class="radio-4" > 
+                Other
+            </label>
+        
+            <label id="checkboxs">
+                <p>Which Brands do you prefer? <span>(check all that apply)</span></p>
+                <input type="checkbox"  value="Apple">Apple <br>
+                <input type="checkbox"  value="Samsung">Samsung <br>
+                <input type="checkbox"  value="OnePlus">OnePlus <br>
+                <input type="checkbox"  value="Xiaomi">Xiaomi <br>
+                <input type="checkbox"  value="Motorola">Motorola <br>
+                <input type="checkbox"  value="Oppo">Oppo <br>
+                <input type="checkbox"  value="Honor">Honor <br>
+                <input type="checkbox"  value="Huawei">Huawei <br>
+                <input type="checkbox"  value="Movistar">Movistar <br>
+                <input type="checkbox"  value="Nokia">Nokia <br>
+                <input type="checkbox"  value="Others">Others <br>
+            </label>
+        
+            <label id="comments" >
+                <p>Any additional comments or suggestions?</p>
+                <textarea name="" id="textarea" cols="30" rows="10" placeholder="Enter you comments here..."></textarea>
+            </label>
+        
+            <label >
+                <input type="submit" id="submit">
+            </label>
+        </form>
+    </div>
+</body>
+</html>

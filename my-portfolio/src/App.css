@@ -445,6 +445,7 @@ header:hover{
   margin-right: 20px;
   margin-bottom: 15px;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .btn-load-projects{

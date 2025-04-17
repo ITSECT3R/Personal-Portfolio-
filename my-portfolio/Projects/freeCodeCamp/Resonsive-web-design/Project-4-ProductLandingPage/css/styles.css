@@ -1,0 +1,624 @@
+/* General setting.  begin -------------------------------------------------------------------------------------------------------------------------------------------------------- */
+:root{
+    --primary-color: #333;
+    --secondary-color: #444;
+    --accent-color: #6200ff;
+    --hover-color: #ff7300;
+    --text-color: #ffffff;
+    --highlight-color: #fbff00;
+    --shadow-color: rgba(0, 0, 0, 1);
+    --background-color: rgb(112, 112, 112);
+    --card-background: rgba(0, 0, 0, 0.4);
+    --card-shadow: rgba(227, 227, 227, 0.25);
+    --form-background: rgb(55, 55, 55);
+    --form-border: #6200ff;
+    --form-hover-border: #ff7300;
+    --form-input-background: #cdcdcd;
+    --form-input-hover-background: #ffffff;
+    --footer-background: #000000;
+    --footer-icon-color: #0284c7;
+}
+
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0; 
+    padding-top: 100px; 
+    background-color: var(--background-color);
+
+}
+
+/* General setting.  end -------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* Header settings. begin
+-------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px 20px 10px; 
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 8px 14px var(--shadow-color);
+    border-bottom: 4px solid var(--accent-color);
+    transition: 0.3s ease;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    margin: 0; 
+    z-index: 1000; 
+    
+}
+
+header:hover{
+    background-color: var(--secondary-color);
+}
+
+.ul-nav{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    text-shadow: 1px 1px 2px red, 0 0 2em blue, 0 0 0.4em rgb(0, 166, 255);
+
+}
+
+
+.ul-nav  a{
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.ul-nav a:hover{
+    color: #aaa;
+}
+
+.crown-logo{
+    margin-left: 15px;
+}
+
+.logo-name{
+    font-family: serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: var(--highlight-color);
+    text-shadow: #FC0 1px 0 10px;
+    margin-left: 25px;
+    position: absolute;
+    top: 10px;
+
+}
+
+.logos-box{
+    min-width: fit-content;
+    position: relative;
+}
+
+/* Header settings. end
+-------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Section settings. begin 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.main-body{
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.h2_section{
+    font-size: 2.3rem;
+    text-shadow: 1px 1px 2px rgb(255, 208, 0), 0 0 25px rgb(147, 96, 0), 0 0 5px rgb(0, 0, 0);
+    text-align: center;
+    
+}
+
+.galery-container {
+    padding: 1px;
+}
+
+.pc-galery  {
+    padding: 1px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    flex-wrap: wrap; 
+    margin-bottom: 30px;
+}
+
+.cards {
+    border: solid 3px rgb(98, 98, 98);
+    padding: 10px;
+    height: 500px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 6px var(--card-shadow);
+    background-position: center center;
+    background-size: cover;
+}
+
+.cards h3{
+    font-weight: 800;
+    font-size: clamp(1.8rem, 2vw, 3rem);
+    margin-top: 10px;
+    text-shadow: rgb(255, 0, 0) 1px 1px 10px,rgb(255, 0, 0) 1px 1px 10px,rgb(255, 0, 0) 1px 1px 10px;
+    color: #ffffff;
+}
+
+.card1_main{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),url(../resources/P1-demo.webp);
+}
+
+.card2_main{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P2-demo.webp);
+}
+
+.card3_main{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P3-demo.webp);
+}
+
+.card_discription{
+    background-color: rgb(88, 88, 88);
+    margin-top: -45px;
+    padding-top: 50px;
+    padding-bottom: 7px;
+    position: relative;
+    border-radius: 0 0 20px 20px; 
+    z-index: -1;
+    box-shadow: 0 8px 14px var(--shadow-color),6px 8px 14px var(--shadow-color);
+}
+
+.card_discription li{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px red, 0 0 2em blue, 0 0 0.4em rgb(0, 166, 255);
+}
+ 
+.galery-container{
+    margin-bottom: 40px;
+}
+
+.full_card_container{
+    transition: .3s ease-in-out;
+}
+
+
+.full_card_container:hover{
+    transform: scale(1.02);
+}
+
+/* section 1. begin 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.logo-title-section1{
+    color: #fbff00;
+    text-shadow: #FC0 1px 0 10px;
+}
+
+.li_assets{
+    display: flex;
+}
+
+.li_assets svg{
+    margin-right: 20px;
+    height: 3.8rem;
+    width: 3.8rem;
+    min-width: 3.8rem;
+}
+
+.h3_section1{
+    text-align: center;
+    text-shadow: rgb(255, 0, 0) 1px 1px 10px,rgb(255, 0, 0) 1px 1px 10px;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.wrapper_assets{
+    margin-bottom: 40px;
+}
+
+.wrapper_assets h3{
+    font-size: 1.6rem;
+    margin-left: 70px;
+    margin-bottom: -5px;
+    color: var(--accent-color);
+    text-shadow:  0 0px 1px rgba(0, 0, 0, 1);
+}
+
+.wrapper_assets p{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.div_video1{
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 90px;
+
+}
+
+.video_1{
+    width: 70%;
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 14px var(--shadow-color),6px 8px 14px var(--shadow-color);
+    border-radius: 40px;
+}
+
+/* section 1. end 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* section 2 catalog. begin 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.Catalog_h3{
+    color: var(--accent-color);
+    text-shadow:  0 0px 1px rgba(0, 0, 0, 1);
+
+}
+
+.card1_beginner{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P1-Beginner.webp);
+    background-color: #444;
+
+}
+
+.card2_beginner{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P2-Beginner.webp);
+    
+}
+
+.card3_beginner{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P3-Beginner.webp);
+    background-color: #444;
+
+}
+
+.card1_I{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P1-Interm.webp);
+    background-color: #444;
+
+}
+
+.card2_I{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P2-Interm.webp);
+    
+}
+
+.card3_I{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P3-Interm.webp);
+    background-color: #444;
+
+}
+
+.card1_A{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P1-Advanced.webp);
+    background-color: #444;
+
+}
+
+.card2_A{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P2-Advanced.webp);
+    
+}
+
+.card3_A{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P3-Advanced.webp);
+    background-color: #444;
+
+}
+
+.card1_E{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P1-Elite.webp);
+    background-color: #444;
+
+}
+
+.card2_E{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P2-Elite.webp);
+    
+}
+
+.card3_E{
+    background-image: linear-gradient(
+        0deg,
+        var(--card-background),
+        var(--card-background)
+    ),
+    url(../resources/P3-Elite.webp);
+    background-color: #444;
+
+}
+
+
+
+/* section 2 catalog. end 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* section 3 form. begin 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.wrapper_form{
+    /* border: solid red 4px; */
+    padding: 10px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto ;
+    margin-bottom: 50px;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--form-background);
+    box-shadow: 0 8px 14px var(--shadow-color),6px 8px 14px var(--shadow-color);
+    border: var(--form-border) solid 4px;
+    padding: 20px;
+    border-radius: 30px;
+    transition: .3s ease-in-out;
+}
+
+#form:hover{
+    border: var(--form-hover-border) solid 4px;
+
+}
+
+.input_form{
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 45px;
+    border: solid 3px var(--form-border);
+    border-radius: 20px;
+    font-size: 1.1rem;
+    padding: 10px;
+    background-color:  var(--form-input-background);
+    font-weight: 600;
+    transition: .3s ease-in-out;
+    
+}
+
+.input_form:hover{
+    background-color:  var(--form-input-hover-background);
+    border: solid 3px  var(--form-hover-border);
+
+}
+
+#phone{
+    width: 100%;
+    max-width: 300px;
+}
+
+#dropdown{
+    width: 100%;
+    max-width: 300px;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#pc_details{
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    font-size: 1.3rem;
+    
+}
+
+#submit{
+    width: 100%;
+    max-width: 400px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px red, 0 0 2em blue, 0 0 0.4em rgb(0, 166, 255);
+    background-color: var(--accent-color);
+    font-size: 1.5rem;
+    transition: .4s ease-in-out;
+}
+
+#submit:hover{
+    background-color: var(--hover-color);
+
+
+}
+
+form label{
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px red, 0 0 2em blue, 0 0 0.4em rgb(0, 166, 255);
+
+}
+
+
+/* section 3 form. end 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* section 4 Contacts. begin 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#Contacts{
+    background-color: var(--footer-background);
+    padding-top: 1px;
+    padding-bottom: .1px;
+    
+    
+}
+
+.wrapper_footer{
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.contact_list{
+    margin-bottom: 40px;
+    
+}
+
+.contact_list ul{
+    align-items: center;
+    justify-content: center;
+}
+
+.svg_footer{
+    margin-bottom: -20px;
+    width: 40px;
+}
+
+.ul_footer li{
+    transition: .3s ease-in-out;
+}
+
+.ul_footer li:hover{
+    margin-top: -10px;
+}
+
+.svg_footer{
+    width: 4rem;
+    fill: var(--footer-icon-color);
+
+}
+
+
+/* section 4 Contacts. end 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* Responsive Web design begin. 
+--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media(max-width: 950px){
+
+    header {
+        display: initial;
+        position: absolute;      
+    }
+
+
+
+    body {
+        padding-top: 300px; 
+    }
+
+    .pc-galery {
+        grid-template-columns: initial; 
+    }
+
+
+    .ul-nav{
+        display: initial;
+    }
+
+    .ul-nav  a{
+        margin-bottom: 20px;
+        display: block;
+        font-size: 1.4rem;
+        text-align: center;
+        
+    }
+
+    .ul_footer li:hover{
+        margin-top: 0;
+        transform: scale(1.2);
+    }
+
+    .video_1{
+        height: 300px;
+    }
+
+
+
+}

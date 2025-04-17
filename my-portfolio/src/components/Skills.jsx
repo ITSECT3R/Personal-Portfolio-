@@ -14,7 +14,7 @@ const certifications = [
     links: [
       { label: 'Responsive Web Design', url: 'https://freecodecamp.org/certification/ITSECT3R/responsive-web-design' },
       { label: 'JavaScript Algorithms and Data Structures', url: 'https://www.freecodecamp.org/certification/ITSECT3R/javascript-algorithms-and-data-structures-v8' },
-      { label: 'Front End Development Libraries', url: 'https://www.freecodecamp.org/certification/ITSECT3R/front-end-development-libraries-v8' },
+      { label: 'Front End Development Libraries', url: 'https://www.freecodecamp.org/certification/ITSECT3R/front-end-development-libraries' },
     ]
   },
   {

@@ -1,0 +1,359 @@
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html{
+    background-color: #0E0E10;
+    font-family: sans-serif;
+    color: white;
+}
+
+body {
+    display: block;
+    margin: 8px;
+
+
+}
+
+h3{
+    color: rgb(255, 145, 10);
+}
+
+#main-doc {
+    position: absolute;
+    margin-left: 280px;
+    padding: 20px;
+    font-size: 1.3rem;
+}
+
+#navbar {
+    position: fixed;
+    min-width: 280px;
+    top: 0px;
+    left: 0px;
+    width: 280px;
+    height: 100%;
+    border-right: solid;
+    border-color: rgb(17, 120, 255);
+    padding-left: 7px;
+    padding-right: 7px;
+    transition: .5s;
+}
+
+#navbar:hover{
+    background-color: #000000;
+}
+
+
+
+.navbarh1{
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-bottom: 25px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    color: white;
+    border: none;
+}
+
+.bordernavh1{
+    border: solid 2px ;
+    border-color: rgb(17, 120, 255);
+    display: block;
+    width: 103%;
+    margin-bottom: 25px;
+
+}
+
+.navul{
+    background-color: #43454D;
+    border-radius: 25px;
+    padding-top: 15px;
+    padding-bottom: .1px;
+    margin-bottom: 110px;
+
+}
+
+.navul a{
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: rgb(83, 255, 10);
+    text-decoration: none;
+    box-shadow: inset 0 0 0 0 rgb(17, 120, 255);;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    
+}
+
+.navul2{
+    background-color: #43454D;
+    border-radius: 25px;
+    padding-top: 25px;
+    padding-bottom: .1px;
+    
+}
+
+.nav2h3{
+    font-size: 2rem;
+    margin-left: 10px;
+}
+
+
+.navul a:hover {
+    box-shadow: inset 300px 0 50px 0 rgb(17, 120, 255);
+    color: white;
+}
+
+.navul li{
+    margin-bottom: 25px;
+    padding-right: 8px;
+    margin-left: -20px;
+    display: block;
+}
+
+
+
+.nav-bottom{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* navbar style end ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.product-price{
+    margin-left: 30px;
+    color: rgb(255, 145, 10);
+}
+
+.produt-link-style li{
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    
+}
+
+
+
+.produt-link-style a{
+    color: #44c2f8;
+    transition: .5s;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 15px;
+    padding: 3px;
+}
+
+
+.produt-link-style a:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(238, 186, 0);
+    box-shadow: 0px 10px 25px rgb(55, 0, 255),0px -10px 25px rgb(25, 0, 255);
+
+}
+
+p .clickhere{
+    color: #48bbfe;
+    transition: .5s;
+    text-decoration: none;
+    font-weight: 800;
+
+}
+
+
+p .clickhere:hover {
+    color: rgb(0, 255, 0);
+    background-color: rgb(34, 13, 223);
+    box-shadow: 10px 5px 5px red;
+}
+
+
+.main-ul-section1{
+    padding-left: 4px;
+}
+
+
+.galery-container {
+    padding: 1px;
+}
+
+.pc-galery {
+    padding: 1px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    flex-wrap: wrap; 
+}
+
+.cards {
+    border: solid 3px rgb(98, 98, 98);
+    padding: 10px;
+    height: 500px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 6px rgba(227, 227, 227, 0.25);
+}
+
+.cards h3{
+    font-weight: 800;
+    font-size: clamp(1.8rem, 2vw, 3rem);
+    margin-top: 10px;
+    text-shadow: rgb(106, 0, 255) 1px 1px 10px;
+}
+
+.cards:first-child{
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.275),
+        rgba(0,0,0,0.275)
+        ),
+    url(../resources/P1-demo.webp);
+    background-position: center center;
+    background-size: cover;
+}
+
+.cards:nth-child(2){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.275),
+        rgba(0,0,0,.275)
+    ),
+    url(../resources/P2-demo.webp);
+    background-position: center center;
+    background-size: cover;
+}
+
+.cards:nth-child(3){
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.275),
+        rgba(0, 0, 0, 0.275)
+    ),
+    url(../resources/P3-demo.webp);
+    background-position: center center;
+    background-size: cover;
+}
+
+
+
+
+header{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgb(83, 255, 10);
+    margin-bottom: 15px;
+    border-bottom: #9a9dab 4px solid;
+    padding-bottom: 7px;
+}
+
+.note{
+    color: rgb(255, 255, 0);
+}
+
+
+
+
+/*  */
+@media only screen and (max-width: 815px){
+#navbar {
+
+    position: inherit;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    max-height: 275px;
+    border: none;
+    height: 800px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#main-doc {
+    position: absolute;
+    margin-left: 0px;
+    padding: 20px;
+    margin-top: 360px;
+    font-size: 1.3rem;
+}
+
+.navbarh1{
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: white;
+    border: none;
+}
+
+#How_to_Build_your_own_PC ul{
+    margin-left: -20px;
+}
+
+.navul2hidden{
+    visibility: hidden;
+}
+
+.navul-bottom{
+    visibility: inherit;
+    text-align: center;
+}
+
+
+.main-ul-section1{
+    padding-left: 15px;
+}
+
+.pc-galery {
+    grid-template-columns: initial; 
+}
+
+.cards {
+    height: 250px;
+    border-radius: 25px;    
+    margin-bottom: 15px;
+}
+
+.cards h3{
+    font-size: 2rem;
+}
+
+}
+
+
+
+
+@media only screen and (max-width: 460px){
+    #main-doc {
+        position: absolute;
+        margin-left: 0px;
+        padding: 20px;
+        margin-top: 470px;
+        font-size: 1.3rem;
+    }
+
+    
+
+
+}
+
+@media only screen and (min-width: 815px){
+    .nav-bottom{
+        visibility: collapse;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #Contacts{
+    visibility: collapse;
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+    
+}

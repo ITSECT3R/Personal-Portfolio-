@@ -1,0 +1,270 @@
+:root {
+    --background-color: rgb(42, 42, 42);
+    --main-background-color: rgb(62, 62, 62);
+    --border-color: black;
+    --title-color: rgb(255, 221, 72);
+    --title-border-color: white;
+    --title-text-color: rgb(219, 219, 219);
+    --image-border-color: rgb(255, 221, 72);
+    --figcaption-color: rgb(255, 255, 255);
+    --section-title-color: rgb(69, 255, 75);
+    --link-color: #54b3d6;
+    --link-hover-color: #000;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+main{
+    background-color: var(--main-background-color);
+    margin: 15px 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 5px solid black;
+}
+
+h2{
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h3{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+}
+
+li{
+    margin-bottom: 35px;
+    font-size: 1.7rem;
+    font-family: sans-serif;
+    text-align: left;
+}
+
+
+
+#title{ 
+    text-align: center;
+    margin-bottom: 30px;
+    border: 3px solid var(--title-border-color);
+    border-radius: 10px;
+    max-width:1300px;
+    margin: auto;
+    padding-bottom: 10px;
+    z-index: 2;
+    position: relative;
+    margin-top: 1px;
+}
+
+#title h1{
+    color: var(--title-color);
+    font-size: 6rem;
+}
+
+#title p{
+    color: var(--title-text-color);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#img-div{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#image{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    border: var(--image-border-color) 5px solid;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+#img-div figcaption{
+    color: var(--figcaption-color);
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+.musk-name{
+    color: rgb(255, 221, 72);
+}
+
+.wrapper-title{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.img-2{
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    z-index: 1;
+}
+
+.wrapper-tribute{
+    color: white;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    max-width: 2000px;
+    margin: auto;
+
+}
+
+#tribute-info{
+    grid-column-start: 2 ;
+    grid-column-end: 3 ;
+    grid-row-start: 1;
+    grid-row-end: -4;
+}
+
+.div1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: -4;
+}
+
+.div2{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: -4;
+}
+
+/* section 1 of tribute page introduction to elon musk */
+
+.time-line{
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.video-1{
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 30px;   
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 1),6px 8px 14px rgba(0, 0, 0, 1);
+    border-radius: 40px;
+
+}
+
+/* section 2 of elon musk  */
+
+.title-section2{
+    color: var(--section-title-color);
+    font-style: bold;
+}
+
+/* images that right and left side for fullscreen PC */
+
+.left-side, .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.left-side img, .right-side img {
+    width: 90%;
+    max-width: 300px;
+    border-radius: 20px;
+    max-height: 500px;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 1), 6px 8px 14px rgba(0, 0, 0, 1);
+    margin: 10px auto;
+}
+
+/* Remove media queries */
+
+a {
+    background-image: linear-gradient(
+      to right,
+      var(--link-color),
+      var(--link-color) 50%,
+      var(--link-hover-color) 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    display: inline-block;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+a:before{
+    content: '';
+    background: var(--link-color);
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    transition: all 0.3s ease-in-out;
+}
+  
+a:hover {
+   background-position: 0;
+}
+  
+a:hover::before{
+    width: 100%;
+}
+
+@media (max-width: 1000px){
+    .wrapper-tribute{
+        grid-template-columns: 75% 25%;
+    }
+
+    #tribute-info{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    
+    .div1{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: -1;
+        grid-row-end: -3;
+    }
+    
+    .div2{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: -3;
+        grid-row-end: -4;
+    }
+
+}

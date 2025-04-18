@@ -476,6 +476,7 @@ header:hover{
 #other-programs{
   display: flex;
   gap: 4px;
+  flex-wrap: wrap;
 }
 
 .wrapper_skills{

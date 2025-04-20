@@ -5,7 +5,9 @@ const Experience = () => (
     <div className="main-body">
       <div className="section2-header">
         <h2>Experience</h2>
-        <p><span>Note:</span> Although I have not yet had the opportunity to work as a full-time developer, I have gained valuable experience working with various tech companies. Please feel free to explore my contributions and projects in these roles.</p>
+        <p>
+          <span>Note:</span> I am currently learning and working as a freelance developer, contributing to multiple projects and earning various certifications from different sources, with a focus on full-stack development since 2020. Please see the Projects and Skills sections for more details. :3
+        </p>
       </div>
       <div className="work-history">
         {/* HCL Technologies */}

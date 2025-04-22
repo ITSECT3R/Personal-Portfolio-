@@ -34,7 +34,7 @@ const Welcome = () => {
               <img src="https://avatars.githubusercontent.com/u/160300092?v=4" alt="Picture of me" className="profile-picture" />
             </a>
             <button id="download-btn">Download CV</button>
-            <a href="https://itsect3r.github.io/CV-Luis-Angel-M/" className="view-cv" target="_blank">View online.</a>
+            <a href="https://cv-luis-angel-m.pages.dev/" className="view-cv" target="_blank">View online.</a>
           </div>
           <div>
             <p>Hello! I'm a passionate newcomer to the world of software development, excited to learn and grow in this dynamic field. I'm dedicated to building my skills, creating innovative solutions, and eventually becoming one of the best software developers in Mexico. Thank you for visiting!</p>

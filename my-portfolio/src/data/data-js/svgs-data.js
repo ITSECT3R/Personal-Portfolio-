@@ -121,6 +121,7 @@ export const otherTools = {
     mocha: svgs.mocha,
     linux: svgs.linux,
     eslint: svgs.eslint,
+    d3: svgs.d3,
 };
 
 export const otherPrograms = {

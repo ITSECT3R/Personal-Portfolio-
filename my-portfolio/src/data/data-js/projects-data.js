@@ -16,41 +16,79 @@ export const personalProjects = [
 }]  // Load first set of projects;
 
 export const freeCodeCampProjects = [
+// Front End Libraries Certification freeCodeCamp
 {
-    projectID: '14',
+    projectID: '19',
     projectName: 'Clock App',
     projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.react, svgs.redux, svgs.sass, svgs.vite, svgs.eslint],
-    projectImage: 'resources/freeCodeCamp-pictures/Picture-14-freeCodeCamp.webp',
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-19-freeCodeCamp.webp',
     projectLink: 'https://clock-app-freecodecamp.pages.dev/',
 },
 {
-    projectID: '13',
+    projectID: '18',
     projectName: 'Calculator',
     projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.react, svgs.redux, svgs.sass, svgs.vite, svgs.eslint],
-    projectImage: 'resources/freeCodeCamp-pictures/Picture-13-freeCodeCamp.webp',
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-18-freeCodeCamp.webp',
     projectLink: 'https://calculator-freecodecamp.pages.dev/',
 },
 {
-    projectID: '12',
+    projectID: '17',
     projectName: 'Drum Machine',
     projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.react, svgs.redux, svgs.vite, svgs.eslint],
-    projectImage: 'resources/freeCodeCamp-pictures/Picture-12-freeCodeCamp.webp',
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-17-freeCodeCamp.webp',
     projectLink: 'https://drum-machine-freecodecamp.pages.dev/',
 },
 {
-    projectID: '11',
+    projectID: '16',
     projectName: 'Markdown Previewer',
     projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.react, svgs.redux, svgs.vite, svgs.eslint],
-    projectImage: 'resources/freeCodeCamp-pictures/Picture-11-freeCodeCamp.webp',
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-16-freeCodeCamp.webp',
     projectLink: 'https://markdown-previewer-bgy.pages.dev/',
 },
 {
-    projectID: '10',
+    projectID: '15',
     projectName: 'Quote Generator',
     projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.react],
-    projectImage: 'resources/freeCodeCamp-pictures/Picture-10-freeCodeCamp.webp',
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-15-freeCodeCamp.webp',
     projectLink: 'https://freecodecamp-quote-generator.pages.dev/',
 },
+// Data Visualization Certification freeCodeCamp
+{
+    projectID: '14',
+    projectName: 'Treemap Diagram',
+    projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.d3],
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-14-freeCodeCamp.webp',
+    projectLink: 'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram/',
+},
+{
+    projectID: '13',
+    projectName: 'Choropleth Map',
+    projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.d3],
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-13-freeCodeCamp.webp',
+    projectLink: 'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map/',
+},
+{
+    projectID: '12',
+    projectName: 'Heat Map',
+    projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.d3],
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-12-freeCodeCamp.webp',
+    projectLink: 'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-3-Heat-Map/',
+},
+{
+    projectID: '11',
+    projectName: 'Scatterplot Graph',
+    projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.d3],
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-11-freeCodeCamp.webp',
+    projectLink: 'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph/',
+},
+{
+    projectID: '10',
+    projectName: 'Bar Chart',
+    projectTechnologies: [svgs.html, svgs.css, svgs.js, svgs.d3],
+    projectImage: 'resources/freeCodeCamp-pictures/Picture-10-freeCodeCamp.webp',
+    projectLink: 'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-1-Bar-Chart/',
+},
+// JavaScript Algorithms and Data Structures Certification freeCodeCamp
 {
     projectID: '9',
     projectName: 'Pokemon Search App',
@@ -86,6 +124,7 @@ export const freeCodeCampProjects = [
     projectImage: 'resources/freeCodeCamp-pictures/Picture-5-freeCodeCamp.webp',
     projectLink: 'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-1-Palindrome-Checker/',
 }, 
+// Responsive Web Design Certification freeCodeCamp
 {
     projectID: '4', 
     projectName: '"Knights" PC Ecommerce Page',

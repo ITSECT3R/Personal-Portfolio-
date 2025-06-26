@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { personalProjects, freeCodeCampProjects } from '../data/data-js/projects-data';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadMorePersonal, loadMoreFCC, resetFCCCount } from '../redux/projectsReducer';

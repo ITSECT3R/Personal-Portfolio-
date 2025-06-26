@@ -39,7 +39,7 @@ const Projects = () => {
         <div className="section3-header">
           <h2>Projects</h2>
         </div>
-        <h3 className="section3-h3">Personal Projects</h3>
+        {/* <h3 className="section3-h3">Personal Projects</h3>
         <div className="projects-grid" id="grid-1">
           {personalProjects.slice(0, personalCount).map(project => (
             <ProjectCard key={project.projectID} project={project} />
@@ -49,8 +49,8 @@ const Projects = () => {
           <button className="btn-load-projects" id="btn-loadmore-1" onClick={() => dispatch(loadMorePersonal())}>
             Load More
           </button>
-        )}
-        <h3 className="section3-h3">FreeCodeCamp Projects</h3>
+        )} */}
+        {/* <h3 className="section3-h3">FreeCodeCamp Projects</h3> */}
         <div className="projects-grid" id="grid-2">
           {freeCodeCampProjects.slice(0, fccCount).map(project => (
             <ProjectCard key={project.projectID} project={project} />

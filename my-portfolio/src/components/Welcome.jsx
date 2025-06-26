@@ -37,7 +37,7 @@ const Welcome = () => {
             <a href="https://cv-luis-angel-m.pages.dev/" className="view-cv" target="_blank">View online.</a>
           </div>
           <div>
-            <p>"Hello! I am a passionate Full-Stack Software Developer dedicated to continuous growth in the dynamic field. I have actively built and contributed to various innovative solutions and applications, consistently striving to deliver high-quality and impactful results. My focus is on leveraging my skills to create cutting-edge software and further my expertise in this exciting field. Thank you for visiting!"</p>
+            <p>"Hello! I am a passionate Full-Stack Software Developer dedicated to continuously grow in this dynamic field. I have actively built and contributed to various innovative solutions and applications, consistently striving to deliver high-quality and impactful results. My focus is on leveraging my skills to create cutting-edge software and further my expertise in this exciting field. Thank you for visiting!"</p>
             <h2>About Me!.</h2>
             <ul className="ul-section1">
               <li>

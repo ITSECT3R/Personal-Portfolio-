@@ -33,7 +33,7 @@ export default function JobComponent({ job }) {
       <div
         className="content-jobs"
         style={{
-          maxHeight: showContent ? 1000 : 0,
+          maxHeight: showContent ? 3000 : 0,
           opacity: showContent ? 1 : 0,
           overflow: 'hidden',
           transition: 'max-height 0.5s cubic-bezier(.4,0,.2,1), opacity 0.4s cubic-bezier(.4,0,.2,1)',

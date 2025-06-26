@@ -11,6 +11,27 @@ const phoneIcon = (
 const jobs = [
   {
     className: 'job1',
+    company: 'Alignerr / Outlier',
+    position: 'Full Stack Developer',
+    dates: '2/24 - Present',
+    tasks: [
+      'Review AI generated code to ensure it meets the standards of the company, and make sure it is functional.',
+      'Developed and maintained web applications using React, JavaScript, TypeScript, SQL, Etc.',
+      'Collaborated Across multiple Projects for different clients, ensuring quality standards are met.',
+      'Analyzed and optimized AI generated responses to improve accuracy and relevance.',
+      'Reviewed team members apllications and provided feedback to improve AI responses.',
+      'Performed manual testing and debugging of AI generated code to ensure functionality and performance.',
+    ],
+    contacts: [
+      {
+        icon: locationIcon,
+        value: <a className="contact-link" href="https://www.google.com/maps/place/HCL+Mexico/@20.6748743,-103.3949036,17z/data=!3m1!4b1!4m6!3m5!1s0x8428ae6fe52fa9d7:0x9dd1c6856b5e381e!8m2!3d20.6748743!4d-103.3923287!16s%2Fg%2F11b75jbdvh?entry=ttu" target="_blank" rel="noopener noreferrer">Remote from Guadalajara Jalisco, Mexico</a>
+      },
+
+    ]
+  },
+  {
+    className: 'job2',
     company: 'HCL Technologies',
     position: 'Underwriter',
     dates: '2/23 - 2/25',
@@ -37,7 +58,7 @@ const jobs = [
     ]
   },
   {
-    className: 'job2',
+    className: 'job3',
     company: 'Tata Consultancy Services',
     position: 'Customer Service Representative / Recruitter',
     dates: '8/21 - 2/23',
@@ -61,7 +82,7 @@ const jobs = [
     ]
   },
   {
-    className: 'job2',
+    className: 'job4',
     company: 'Teleperformance',
     position: 'Customer Service Representative',
     dates: '6/19 - 8/21',

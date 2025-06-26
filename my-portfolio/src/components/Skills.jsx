@@ -8,6 +8,14 @@ import {
 } from '../data/data-js/svgs-data';
 
 const certifications = [
+    {
+    name: 'Epam Systems',
+    svg: svgs.epam,
+    links: [
+      { label: 'Automated Testing JavaScript Advanced', url: 'https://certificates.epam.com/certificates/11e97e15-d94e-4a88-afd8-27034d473d4d'},
+      { label: 'Automated Testing JavaScript', url: 'https://certificates.epam.com/certificates/d87bdff8-001e-42ab-9bf6-e9b620b22841' }
+    ]
+  },
   {
     name: 'FreeCodeCamp',
     svg: svgs.freeCodeCamp,
@@ -28,13 +36,6 @@ const certifications = [
       { label: 'JavaScript intro', url: 'https://www.sololearn.com/certificates/CC-OBNR8OMY' },
       { label: 'JavaScript advanced', url: 'https://www.sololearn.com/certificates/CC-SDBDGIBL' },
       { label: 'Python intro', url: 'https://www.sololearn.com/certificates/CC-LPM05QGQ' },
-    ]
-  },
-  {
-    name: 'Epam Systems',
-    svg: svgs.epam,
-    links: [
-      { label: 'Automated Testing JavaScript', url: 'https://certificates.epam.com/certificates/d87bdff8-001e-42ab-9bf6-e9b620b22841' }
     ]
   }
 ];

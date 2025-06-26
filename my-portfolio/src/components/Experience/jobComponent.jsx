@@ -57,7 +57,3 @@ export default function JobComponent({ job }) {
     </div>
   );
 }
-
-// Add fadeIn animation for smooth effect
-// You can add this to your App.css:
-// @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

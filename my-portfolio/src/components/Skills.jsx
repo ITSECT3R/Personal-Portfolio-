@@ -12,6 +12,7 @@ const certifications = [
     name: 'Epam Systems',
     svg: svgs.epam,
     links: [
+      { label: 'Front End Development Advanced', url: 'https://certificates.epam.com/certificates/a7e2ad55-80df-4196-a09d-ab329003ed45'},
       { label: 'Automated Testing JavaScript Advanced', url: 'https://certificates.epam.com/certificates/11e97e15-d94e-4a88-afd8-27034d473d4d'},
       { label: 'Automated Testing JavaScript', url: 'https://certificates.epam.com/certificates/d87bdff8-001e-42ab-9bf6-e9b620b22841' }
     ]

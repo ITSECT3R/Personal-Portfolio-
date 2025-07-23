@@ -11,7 +11,7 @@ const phoneIcon = (
 const jobs = [
   {
     className: 'job1',
-    company: 'Alignerr / Outlier',
+    company: 'Outlier AI',
     position: 'Full Stack Developer',
     dates: '2/24 - Present',
     tasks: [

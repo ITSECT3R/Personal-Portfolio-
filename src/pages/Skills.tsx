@@ -1,5 +1,3 @@
-
-
 export default function Skills() {
-  return <div>Skills Page</div>
+  return <div>Skills Page</div>;
 }

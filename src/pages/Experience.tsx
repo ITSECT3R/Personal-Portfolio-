@@ -1,5 +1,3 @@
-
-
 export default function Experience() {
-  return <div>Experience Page</div>
+  return <div>Experience Page</div>;
 }

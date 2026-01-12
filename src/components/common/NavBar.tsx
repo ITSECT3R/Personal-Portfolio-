@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
-import { HomeIcon, ExperienceIcon, ProjectsIcon, SkillsIcon } from './icons'
-import './NavBar.css'
+import { Link } from 'react-router-dom';
+import { HomeIcon, ExperienceIcon, ProjectsIcon, SkillsIcon } from './icons';
+import './NavBar.css';
 
 export default function NavBar() {
   return (
@@ -18,5 +18,5 @@ export default function NavBar() {
         <SkillsIcon className="nav-icon" />
       </Link>
     </nav>
-  )
+  );
 }

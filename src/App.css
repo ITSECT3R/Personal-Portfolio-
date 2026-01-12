@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+.app {
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-left: 0; /* NavBar is fixed outside flow */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

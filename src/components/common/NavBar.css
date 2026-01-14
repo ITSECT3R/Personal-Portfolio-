@@ -1,3 +1,23 @@
+/* NavBar CSS Variables */
+:root {
+  /* Navigation Colors */
+  --nav-home-color: #ff9f40; /* Orange */
+  --nav-experience-color: #09ed2f; /* Teal */
+  --nav-projects-color: #8b52fd; /* Purple */
+  --nav-skills-color: #ffff00; /* Pink/Red */
+
+  /* NavBar Background & Border */
+  --navbar-bg: rgba(36, 36, 36, 0.8);
+  --navbar-border: rgba(255, 255, 255, 0.742);
+  --navbar-active-bg: rgba(133, 133, 133, 0.339);
+
+  /* Spacing & Sizing */
+  --nav-icon-size: 25px;
+  --navbar-gap: 0.5rem;
+  --navbar-padding: 0.3rem;
+  --nav-button-padding: 1rem;
+}
+
 /* NavBar Styles - Modern fixed sidebar navigation */
 
 .navbar {
@@ -7,12 +27,12 @@
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.3rem;
-  border: 3px solid rgba(255, 255, 255, 0.742);
+  gap: var(--navbar-gap);
+  padding: var(--navbar-padding);
+  border: 3px solid var(--navbar-border);
   border-radius: 30px;
   z-index: 1000;
-  background-color: rgba(36, 36, 36, 0.8);
+  background-color: var(--navbar-bg);
   backdrop-filter: blur(10px);
 }
 
@@ -20,21 +40,60 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: var(--nav-button-padding);
   border-radius: 100%;
   transition: all 0.3s ease;
   text-decoration: none;
   color: inherit;
 }
 
+/* Active state - keeps background visible */
+.nav-button.active {
+  background-color: var(--navbar-active-bg);
+  transform: scale(1.05);
+}
+
+/* Active state - keep icon colored when on that page */
+.nav-button-home.active .nav-icon {
+  color: var(--nav-home-color);
+}
+
+.nav-button-experience.active .nav-icon {
+  color: var(--nav-experience-color);
+}
+
+.nav-button-projects.active .nav-icon {
+  color: var(--nav-projects-color);
+}
+
+.nav-button-skills.active .nav-icon {
+  color: var(--nav-skills-color);
+}
+
+/* Icon color change on hover */
+.nav-button-home:hover .nav-icon {
+  color: var(--nav-home-color);
+}
+
+.nav-button-experience:hover .nav-icon {
+  color: var(--nav-experience-color);
+}
+
+.nav-button-projects:hover .nav-icon {
+  color: var(--nav-projects-color);
+}
+
+.nav-button-skills:hover .nav-icon {
+  color: var(--nav-skills-color);
+}
+
 .nav-button:hover {
-  background-color: rgba(46, 56, 255, 0.275);
   transform: translateY(-2px);
 }
 
 .nav-icon {
-  width: 25px;
-  height: 25px;
+  width: var(--nav-icon-size);
+  height: var(--nav-icon-size);
 }
 
 /* Hide text labels for icon-only nav */

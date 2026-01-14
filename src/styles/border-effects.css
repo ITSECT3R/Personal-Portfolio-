@@ -1,0 +1,261 @@
+/**
+ * Reusable Border Effects
+ * 
+ * Usage: Add these classes to any element
+ * 
+ * Base class (required): .border-effect
+ * Effect types:
+ *   - .border-rainbow      → Rainbow rotating gradient
+ *   - .border-light-trail  → Single light moving around
+ *   - .border-pulse        → Pulsing glow effect
+ *   - .border-gradient     → Static gradient border
+ * 
+ * Modifiers:
+ *   - .border-hover-only   → Only animate on hover (default is always)
+ *   - .border-glow         → Add blur glow effect
+ *   - .border-slow         → Slower animation (5s)
+ *   - .border-fast         → Faster animation (1.5s)
+ * 
+ * Example:
+ *   <div class="card border-effect border-rainbow border-hover-only border-glow">
+ */
+
+/* CSS Variables for Border Effects */
+:root {
+  --border-effect-speed: 3s;
+  --border-effect-speed-slow: 5s;
+  --border-effect-speed-fast: 1.5s;
+  --border-effect-thickness: 2px;
+  --border-effect-radius: 12px;
+  --border-effect-glow-blur: 6px;
+
+  /* Default colors */
+  --border-effect-color: rgba(255, 255, 255, 0.5);
+  --border-effect-accent: #8b52fd;
+}
+
+/* Required for CSS custom property animation */
+@property --effect-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --effect-opacity {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: false;
+}
+
+/* Base class - required for all effects */
+.border-effect {
+  position: relative;
+  border: none !important; /* Remove any existing border */
+}
+
+/* Static border layer (always visible) */
+.border-effect::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--border-effect-thickness) * -1);
+  border-radius: calc(
+    var(--border-effect-radius) + var(--border-effect-thickness)
+  );
+  padding: var(--border-effect-thickness);
+  z-index: -1;
+
+  background: var(--border-effect-color);
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  transition:
+    filter 0.5s ease,
+    opacity 0.5s ease;
+}
+
+/* Animated effect layer */
+.border-effect::after {
+  content: '';
+  position: absolute;
+  inset: calc(var(--border-effect-thickness) * -1);
+  border-radius: calc(
+    var(--border-effect-radius) + var(--border-effect-thickness)
+  );
+  padding: var(--border-effect-thickness);
+  z-index: -1;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    filter 0.5s ease;
+}
+
+/* ============================================
+   EFFECT: Rainbow Rotating Gradient
+   ============================================ */
+.border-rainbow::after {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    #ff0000,
+    #ff9f40,
+    #ffff00,
+    #09ed2f,
+    #00ffff,
+    #8b52fd,
+    #ff00ff,
+    #ff0000
+  );
+}
+
+/* ============================================
+   EFFECT: Single Light Trail
+   ============================================ */
+.border-light-trail::after {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    transparent 0%,
+    transparent 70%,
+    var(--border-effect-accent) 85%,
+    #ffffff 95%,
+    transparent 100%
+  );
+}
+
+/* ============================================
+   EFFECT: Pulse Glow
+   ============================================ */
+.border-pulse::after {
+  background: var(--border-effect-accent);
+  animation: pulse-glow 2s ease-in-out infinite !important;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    filter: blur(2px);
+    opacity: 0.5;
+  }
+  50% {
+    filter: blur(8px);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   EFFECT: Static Gradient
+   ============================================ */
+.border-gradient::after {
+  background: linear-gradient(
+    135deg,
+    var(--border-effect-accent),
+    #00ffff,
+    var(--border-effect-accent)
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite !important;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ============================================
+   ANIMATION: Rotation
+   ============================================ */
+@keyframes border-rotate {
+  from {
+    --effect-angle: 0deg;
+  }
+  to {
+    --effect-angle: 360deg;
+  }
+}
+
+/* ============================================
+   MODIFIER: Always animate (no hover required)
+   ============================================ */
+.border-effect:not(.border-hover-only)::after {
+  opacity: 1;
+}
+
+.border-rainbow:not(.border-hover-only)::after,
+.border-light-trail:not(.border-hover-only)::after {
+  animation: border-rotate var(--border-effect-speed) linear infinite;
+}
+
+/* ============================================
+   MODIFIER: Hover Only
+   ============================================ */
+.border-hover-only::after {
+  opacity: 0;
+}
+
+.border-hover-only:hover::after {
+  opacity: 1;
+}
+
+.border-rainbow.border-hover-only:hover::after,
+.border-light-trail.border-hover-only:hover::after {
+  animation: border-rotate var(--border-effect-speed) linear infinite;
+}
+
+/* ============================================
+   MODIFIER: Glow Effect
+   ============================================ */
+.border-glow:hover::before {
+  filter: blur(var(--border-effect-glow-blur));
+  opacity: 0.6;
+}
+
+.border-glow:hover::after {
+  filter: blur(calc(var(--border-effect-glow-blur) * 0.5));
+}
+
+/* Extra sharp layer for glow effect */
+.border-glow {
+  /* We'll add a third layer via box-shadow for the sharp edge */
+}
+
+/* ============================================
+   MODIFIER: Speed Variants
+   ============================================ */
+.border-slow.border-rainbow:hover::after,
+.border-slow.border-light-trail:hover::after,
+.border-slow.border-rainbow:not(.border-hover-only)::after,
+.border-slow.border-light-trail:not(.border-hover-only)::after {
+  animation-duration: var(--border-effect-speed-slow);
+}
+
+.border-fast.border-rainbow:hover::after,
+.border-fast.border-light-trail:hover::after,
+.border-fast.border-rainbow:not(.border-hover-only)::after,
+.border-fast.border-light-trail:not(.border-hover-only)::after {
+  animation-duration: var(--border-effect-speed-fast);
+}
+
+/* ============================================
+   MODIFIER: Custom Border Radius
+   Use inline style: style="--border-effect-radius: 30px"
+   ============================================ */

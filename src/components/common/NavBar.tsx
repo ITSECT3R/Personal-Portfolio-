@@ -8,7 +8,7 @@ export default function NavBar() {
   const currentPath = location.pathname;
 
   return (
-    <nav className="navbar">
+    <nav className="navbar border-effect border-rainbow border-hover-only border-glow">
       <Link
         to={ROUTES.HOME}
         className={`nav-button nav-button-home ${getActiveClass(currentPath, ROUTES.HOME)}`}

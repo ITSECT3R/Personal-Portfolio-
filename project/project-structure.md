@@ -1,6 +1,6 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: January 12, 2026
+Last Updated: January 14, 2026
 
 ## Root Directory
 
@@ -29,6 +29,7 @@ Personal-Portfolio/
 │   └── vite.svg              # Vite logo
 │
 ├── project/                   # Project documentation
+│   ├── border-styles.md      # Border styling documentation
 │   └── project-structure.md  # This file
 │
 └── src/                       # Source code
@@ -68,8 +69,20 @@ Personal-Portfolio/
     ├── data/                 # Static data/content
     │   └── projects.ts       # Project data
     │
-    └── types/                # TypeScript type definitions
-        └── project.ts        # Project type definitions
+    ├── styles/               # Page-specific styles
+    │   ├── cv.css
+    │   ├── experience.css
+    │   ├── home.css
+    │   ├── projects.css
+    │   ├── skills.css
+    │   └── borders/
+    │       └── border-effects.css
+    │
+    ├── types/                # TypeScript type definitions
+    │   └── project.ts        # Project type definitions
+    │
+    └── utils/                # Utility functions
+        └── navigation.ts     # Navigation utilities
 ```
 
 ## Technology Stack
@@ -177,13 +190,14 @@ npm run format:check   # Check if files are formatted
 ### Styling Strategy
 
 - Component-specific CSS files co-located with components (e.g., NavBar.css)
+- Page-specific CSS files in styles/ directory (e.g., home.css, projects.css)
 - Global styles in index.css
 - App-level layout styles in App.css
 
 ### File Naming Conventions
 
 - Components: PascalCase (e.g., NavBar.tsx)
-- Styles: PascalCase matching component (e.g., NavBar.css)
+- Styles: PascalCase for components, lowercase for pages (e.g., NavBar.css, home.css)
 - Data/Types: camelCase (e.g., projects.ts)
 - Config files: lowercase with extensions (e.g., vite.config.ts)
 

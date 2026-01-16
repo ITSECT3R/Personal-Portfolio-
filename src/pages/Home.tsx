@@ -1,5 +1,19 @@
 import '../styles/home.css';
 
 export default function Home() {
-  return <div>Home Page</div>;
+  return (
+    <main>
+      <h1>Home Page</h1>
+      <h2>Full-Stack Developer</h2>
+      <div className="content-wrapper">
+        <div></div>
+        <div>
+          <img
+            src="https://avatars.githubusercontent.com/u/160300092?v=4"
+            alt="Me in a professional setting"
+          />
+        </div>
+      </div>
+    </main>
+  );
 }

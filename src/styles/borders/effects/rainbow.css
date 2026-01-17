@@ -1,0 +1,16 @@
+/* ============================================
+   EFFECT: Rainbow Rotating Gradient
+   ============================================ */
+.border-rainbow::after {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    #ff0000,
+    #ff9f40,
+    #ffff00,
+    #09ed2f,
+    #00ffff,
+    #8b52fd,
+    #ff00ff,
+    #ff0000
+  );
+}

@@ -8,10 +8,13 @@ export default function Home() {
       <div className="content-wrapper">
         <div></div>
         <div>
-          <img
-            src="https://avatars.githubusercontent.com/u/160300092?v=4"
-            alt="Me in a professional setting"
-          />
+          <div className="border-effect border-rainbow">
+            <img
+              src="https://avatars.githubusercontent.com/u/160300092?v=4"
+              alt="Me in a professional setting"
+              className="profile-pic"
+            />
+          </div>
         </div>
       </div>
     </main>

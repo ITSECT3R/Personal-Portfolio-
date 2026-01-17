@@ -1,0 +1,13 @@
+@import './rainbow.css';
+@import './light-trail.css';
+@import './pulse.css';
+@import './gradient.css';
+
+@keyframes border-rotate {
+  from {
+    --effect-angle: 0deg;
+  }
+  to {
+    --effect-angle: 360deg;
+  }
+}

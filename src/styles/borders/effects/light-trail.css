@@ -1,0 +1,13 @@
+/* ============================================
+   EFFECT: Single Light Trail
+   ============================================ */
+.border-light-trail::after {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    transparent 0%,
+    transparent 70%,
+    var(--border-effect-accent) 85%,
+    #ffffff 95%,
+    transparent 100%
+  );
+}

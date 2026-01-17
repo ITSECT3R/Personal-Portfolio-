@@ -1,0 +1,19 @@
+/* ============================================
+   EFFECT: Pulse Glow
+   ============================================ */
+.border-pulse::after {
+  background: var(--border-effect-accent);
+  animation: pulse-glow 2s ease-in-out infinite !important;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    filter: blur(2px);
+    opacity: 0.5;
+  }
+  50% {
+    filter: blur(8px);
+    opacity: 1;
+  }
+}

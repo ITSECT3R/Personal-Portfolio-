@@ -1,0 +1,66 @@
+/* ============================================
+   MODIFIER: Always animate (no hover required)
+   ============================================ */
+.border-effect:not(.border-hover-only)::after {
+  opacity: 1;
+}
+
+.border-rainbow:not(.border-hover-only)::after,
+.border-light-trail:not(.border-hover-only)::after {
+  animation: border-rotate var(--border-effect-speed) linear infinite;
+}
+
+/* ============================================
+   MODIFIER: Hover Only
+   ============================================ */
+.border-hover-only::after {
+  opacity: 0;
+}
+
+.border-hover-only:hover::after {
+  opacity: 1;
+}
+
+.border-rainbow.border-hover-only:hover::after,
+.border-light-trail.border-hover-only:hover::after {
+  animation: border-rotate var(--border-effect-speed) linear infinite;
+}
+
+/* ============================================
+   MODIFIER: Glow Effect
+   ============================================ */
+.border-glow:hover::before {
+  filter: blur(var(--border-effect-glow-blur));
+  opacity: 0.6;
+}
+
+.border-glow:hover::after {
+  filter: blur(calc(var(--border-effect-glow-blur) * 0.5));
+}
+
+/* Extra sharp layer for glow effect */
+.border-glow {
+  /* We'll add a third layer via box-shadow for the sharp edge */
+}
+
+/* ============================================
+   MODIFIER: Speed Variants
+   ============================================ */
+.border-slow.border-rainbow:hover::after,
+.border-slow.border-light-trail:hover::after,
+.border-slow.border-rainbow:not(.border-hover-only)::after,
+.border-slow.border-light-trail:not(.border-hover-only)::after {
+  animation-duration: var(--border-effect-speed-slow);
+}
+
+.border-fast.border-rainbow:hover::after,
+.border-fast.border-light-trail:hover::after,
+.border-fast.border-rainbow:not(.border-hover-only)::after,
+.border-fast.border-light-trail:not(.border-hover-only)::after {
+  animation-duration: var(--border-effect-speed-fast);
+}
+
+/* ============================================
+   MODIFIER: Custom Border Radius
+   Use inline style: style="--border-effect-radius: 30px"
+   ============================================ */

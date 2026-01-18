@@ -1,6 +1,6 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: January 14, 2026
+Last Updated: January 16, 2026
 
 ## Root Directory
 
@@ -75,8 +75,18 @@ Personal-Portfolio/
     │   ├── home.css
     │   ├── projects.css
     │   ├── skills.css
-    │   └── borders/
-    │       └── border-effects.css
+    │   └── borders/          # Border effect styles (modular)
+    │       ├── base.css      # Base border classes and variables
+    │       ├── effects/      # Individual border effects
+    │       │   ├── index.css # Keyframes and barrel imports
+    │       │   ├── index.ts  # TypeScript barrel export
+    │       │   ├── rainbow.css
+    │       │   ├── light-trail.css
+    │       │   ├── pulse.css
+    │       │   └── gradient.css
+    │       └── modifiers/    # Border effect modifiers
+    │           ├── index.css # Modifier styles
+    │           └── index.ts  # TypeScript barrel export
     │
     ├── types/                # TypeScript type definitions
     │   └── project.ts        # Project type definitions

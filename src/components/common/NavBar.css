@@ -19,7 +19,7 @@
 }
 
 /* NavBar Styles - Modern fixed sidebar navigation */
-/* Uses border-effect classes from styles/border-effects.css */
+/* Uses border-effect classes from styles/borders/ (base.css, effects/, modifiers/) */
 
 .navbar {
   position: fixed;

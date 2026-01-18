@@ -1,6 +1,10 @@
 /* ============================================
    EFFECT: Rainbow Rotating Gradient
+   
+   A full spectrum rainbow that rotates around the border.
+   Uses CSS custom property animation via @property.
    ============================================ */
+
 .border-rainbow::after {
   background: conic-gradient(
     from var(--effect-angle, 0deg),
@@ -9,8 +13,29 @@
     #ffff00,
     #09ed2f,
     #00ffff,
-    #8b52fd,
+    var(--border-effect-accent, #8b52fd),
     #ff00ff,
     #ff0000
   );
+}
+
+/* Always animate (default behavior) */
+.border-rainbow:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+/* Reverse modifier */
+.border-rainbow.border-reverse:not(.border-hover-only)::after {
+  animation-name: border-rotate-reverse;
+}
+
+/* Hover-only animation */
+.border-rainbow.border-hover-only:hover::after {
+  opacity: 1;
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+.border-rainbow.border-reverse.border-hover-only:hover::after {
+  animation-name: border-rotate-reverse;
 }

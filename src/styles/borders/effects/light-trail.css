@@ -1,13 +1,38 @@
 /* ============================================
    EFFECT: Single Light Trail
+   
+   A single point of light that travels around the border,
+   leaving a subtle trail behind it.
    ============================================ */
+
 .border-light-trail::after {
   background: conic-gradient(
     from var(--effect-angle, 0deg),
     transparent 0%,
     transparent 70%,
-    var(--border-effect-accent) 85%,
+    var(--border-effect-accent, #8b52fd) 85%,
     #ffffff 95%,
     transparent 100%
   );
+}
+
+/* Always animate (default behavior) */
+.border-light-trail:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+/* Reverse modifier */
+.border-light-trail.border-reverse:not(.border-hover-only)::after {
+  animation-name: border-rotate-reverse;
+}
+
+/* Hover-only animation */
+.border-light-trail.border-hover-only:hover::after {
+  opacity: 1;
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+.border-light-trail.border-reverse.border-hover-only:hover::after {
+  animation-name: border-rotate-reverse;
 }

@@ -1,40 +1,74 @@
 /**
- * Reusable Border Effects
+ * Border Effects Library - Base
+ * Framework-agnostic CSS border animation library
  * 
- * Usage: Add these classes to any element
- * 
+ * USAGE:
+ * ======
  * Base class (required): .border-effect
- * Effect types:
+ * 
+ * Effects:
  *   - .border-rainbow      → Rainbow rotating gradient
  *   - .border-light-trail  → Single light moving around
  *   - .border-pulse        → Pulsing glow effect
  *   - .border-gradient     → Static gradient border
+ *   - .border-shimmer      → Silver streak passing through
+ *   - .border-dots         → Moving dotted border
+ *   - .border-dual-spin    → Two colors chasing each other
  * 
  * Modifiers:
- *   - .border-hover-only   → Only animate on hover (default is always)
+ *   - .border-hover-only   → Only animate on hover
  *   - .border-glow         → Add blur glow effect
  *   - .border-slow         → Slower animation (5s)
  *   - .border-fast         → Faster animation (1.5s)
+ *   - .border-thick        → Thicker border (4px)
+ *   - .border-reverse      → Reverse animation direction
  * 
- * Example:
- *   <div class="card border-effect border-rainbow border-hover-only border-glow">
+ * CSS Variable Overrides (inline or in your CSS):
+ *   --border-effect-speed      → Animation duration (default: 3s)
+ *   --border-effect-thickness  → Border width (default: 2px)
+ *   --border-effect-radius     → Border radius (default: 12px)
+ *   --border-effect-color      → Static border color
+ *   --border-effect-accent     → Primary effect color
+ *   --border-effect-intensity  → Glow blur amount (default: 6px)
+ * 
+ * Example (React):
+ *   <div 
+ *     className="card border-effect border-rainbow border-hover-only border-glow"
+ *     style={{ '--border-effect-radius': '30px', '--border-effect-accent': '#ff00ff' }}
+ *   >
+ * 
+ * Example (Angular):
+ *   <div 
+ *     class="card border-effect border-rainbow border-hover-only"
+ *     [style.--border-effect-speed]="'2s'"
+ *   >
  */
 
-/* CSS Variables for Border Effects */
+/* ============================================
+   CSS Custom Properties (Variables)
+   ============================================ */
 :root {
+  /* Timing */
   --border-effect-speed: 3s;
   --border-effect-speed-slow: 5s;
   --border-effect-speed-fast: 1.5s;
+
+  /* Dimensions */
   --border-effect-thickness: 2px;
   --border-effect-radius: 12px;
-  --border-effect-glow-blur: 6px;
 
-  /* Default colors */
+  /* Colors */
   --border-effect-color: rgba(255, 255, 255, 0.5);
-  --border-effect-accent: #3015ff;
+  --border-effect-accent: #8b52fd;
+  --border-effect-accent-secondary: #00ffff;
+
+  /* Intensity */
+  --border-effect-intensity: 6px;
 }
 
-/* Required for CSS custom property animation */
+/* ============================================
+   @property Definitions (for animating CSS vars)
+   ============================================ */
 @property --effect-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -47,13 +81,83 @@
   inherits: false;
 }
 
-/* Base class - required for all effects */
-.border-effect {
-  position: relative;
-  border: none !important; /* Remove any existing border */
+@property --shimmer-position {
+  syntax: '<percentage>';
+  initial-value: -30%;
+  inherits: false;
 }
 
-/* Static border layer (always visible) */
+/* ============================================
+   Shared Keyframes
+   ============================================ */
+@keyframes border-rotate {
+  from {
+    --effect-angle: 0deg;
+  }
+  to {
+    --effect-angle: 360deg;
+  }
+}
+
+@keyframes border-rotate-reverse {
+  from {
+    --effect-angle: 360deg;
+  }
+  to {
+    --effect-angle: 0deg;
+  }
+}
+
+@keyframes shimmer-move {
+  from {
+    --shimmer-position: -30%;
+  }
+  to {
+    --shimmer-position: 130%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    filter: blur(2px);
+    opacity: 0.5;
+  }
+  50% {
+    filter: blur(8px);
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes dash-move {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+/* ============================================
+   Base Class - Required for All Effects
+   ============================================ */
+.border-effect {
+  position: relative;
+  border: none !important;
+  isolation: isolate; /* Creates stacking context */
+}
+
+/* Static border layer (always visible as fallback) */
 .border-effect::before {
   content: '';
   position: absolute;
@@ -62,7 +166,8 @@
     var(--border-effect-radius) + var(--border-effect-thickness)
   );
   padding: var(--border-effect-thickness);
-  z-index: -1;
+  z-index: -2;
+  pointer-events: none;
 
   background: var(--border-effect-color);
 
@@ -90,6 +195,7 @@
   );
   padding: var(--border-effect-thickness);
   z-index: -1;
+  pointer-events: none;
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,

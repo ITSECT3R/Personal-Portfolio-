@@ -1,0 +1,35 @@
+/* ============================================
+   EFFECT: Dots
+   
+   A moving dotted/dashed border effect that
+   creates the illusion of marching ants.
+   ============================================ */
+
+.border-dots::after {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border-effect-accent, #8b52fd) 0px,
+    var(--border-effect-accent, #8b52fd) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  background-size: 200% 100%;
+}
+
+/* Always animate (default behavior) */
+.border-dots:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: dash-move var(--border-effect-speed, 3s) linear infinite;
+}
+
+/* Hover-only animation */
+.border-dots.border-hover-only:hover::after {
+  opacity: 1;
+  animation: dash-move var(--border-effect-speed, 3s) linear infinite;
+}
+
+/* Reverse modifier */
+.border-dots.border-reverse:not(.border-hover-only)::after,
+.border-dots.border-reverse.border-hover-only:hover::after {
+  animation-direction: reverse;
+}

@@ -8,7 +8,10 @@ export default function Home() {
       <div className="content-wrapper">
         <div></div>
         <div>
-          <div className="border-effect border-rainbow">
+          <div
+            className="border-effect border-dual-spin border-thick border-hover-only"
+            style={{ '--border-effect-radius': '50%' } as React.CSSProperties}
+          >
             <img
               src="https://avatars.githubusercontent.com/u/160300092?v=4"
               alt="Me in a professional setting"

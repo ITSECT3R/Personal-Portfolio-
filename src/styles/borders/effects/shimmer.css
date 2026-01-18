@@ -1,0 +1,38 @@
+/* ============================================
+   EFFECT: Shimmer
+   
+   A subtle silver/white streak that passes through
+   the border like a light reflection on metal.
+   ============================================ */
+
+.border-shimmer::after {
+  background: linear-gradient(
+    90deg,
+    var(--border-effect-color, rgba(255, 255, 255, 0.5)) 0%,
+    var(--border-effect-color, rgba(255, 255, 255, 0.5)) var(--shimmer-position),
+    rgba(255, 255, 255, 0.9) calc(var(--shimmer-position) + 10%),
+    #ffffff calc(var(--shimmer-position) + 15%),
+    rgba(255, 255, 255, 0.9) calc(var(--shimmer-position) + 20%),
+    var(--border-effect-color, rgba(255, 255, 255, 0.5))
+      calc(var(--shimmer-position) + 30%),
+    var(--border-effect-color, rgba(255, 255, 255, 0.5)) 100%
+  );
+}
+
+/* Always animate (default behavior) */
+.border-shimmer:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: shimmer-move var(--border-effect-speed, 3s) ease-in-out infinite;
+}
+
+/* Hover-only animation */
+.border-shimmer.border-hover-only:hover::after {
+  opacity: 1;
+  animation: shimmer-move var(--border-effect-speed, 3s) ease-in-out infinite;
+}
+
+/* Reverse modifier */
+.border-shimmer.border-reverse:not(.border-hover-only)::after,
+.border-shimmer.border-reverse.border-hover-only:hover::after {
+  animation-direction: reverse;
+}

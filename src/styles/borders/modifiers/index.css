@@ -1,66 +1,167 @@
 /* ============================================
-   MODIFIER: Always animate (no hover required)
+   Border Effect Modifiers
    ============================================ */
-.border-effect:not(.border-hover-only)::after {
-  opacity: 1;
-}
-
-.border-rainbow:not(.border-hover-only)::after,
-.border-light-trail:not(.border-hover-only)::after {
-  animation: border-rotate var(--border-effect-speed) linear infinite;
-}
 
 /* ============================================
    MODIFIER: Hover Only
+   
+   By default, effects are always running.
+   This modifier pauses/hides them until hover.
    ============================================ */
 .border-hover-only::after {
   opacity: 0;
+  animation: none;
 }
 
 .border-hover-only:hover::after {
   opacity: 1;
-}
-
-.border-rainbow.border-hover-only:hover::after,
-.border-light-trail.border-hover-only:hover::after {
-  animation: border-rotate var(--border-effect-speed) linear infinite;
+  /* Individual effect files handle their own animations on hover */
 }
 
 /* ============================================
    MODIFIER: Glow Effect
+   
+   Creates a soft glow around the border by
+   using a blurred duplicate on the ::before layer.
+   The ::after layer stays sharp on top.
    ============================================ */
-.border-glow:hover::before {
-  filter: blur(var(--border-effect-glow-blur));
-  opacity: 0.6;
+.border-glow::before {
+  /* Inherit the animated background from ::after for glow */
+  transition:
+    filter 0.5s ease,
+    opacity 0.5s ease,
+    background 0.5s ease;
 }
 
-.border-glow:hover::after {
-  filter: blur(calc(var(--border-effect-glow-blur) * 0.5));
+/* Copy effect backgrounds to ::before for glow layer */
+.border-glow.border-rainbow::before {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    #ff0000,
+    #ff9f40,
+    #ffff00,
+    #09ed2f,
+    #00ffff,
+    var(--border-effect-accent, #8b52fd),
+    #ff00ff,
+    #ff0000
+  );
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
 }
 
-/* Extra sharp layer for glow effect */
-.border-glow {
-  /* We'll add a third layer via box-shadow for the sharp edge */
+.border-glow.border-light-trail::before {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    transparent 0%,
+    transparent 70%,
+    var(--border-effect-accent, #8b52fd) 85%,
+    #ffffff 95%,
+    transparent 100%
+  );
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+.border-glow.border-dual-spin::before {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    var(--border-effect-accent, #8b52fd) 0deg,
+    var(--border-effect-accent, #8b52fd) 90deg,
+    transparent 90deg,
+    transparent 180deg,
+    var(--border-effect-accent-secondary, #00ffff) 180deg,
+    var(--border-effect-accent-secondary, #00ffff) 270deg,
+    transparent 270deg,
+    transparent 360deg
+  );
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+.border-glow.border-pulse::before {
+  background: var(--border-effect-accent, #8b52fd);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.border-glow.border-gradient::before {
+  background: linear-gradient(
+    135deg,
+    var(--border-effect-accent, #8b52fd),
+    var(--border-effect-accent-secondary, #00ffff),
+    var(--border-effect-accent, #8b52fd)
+  );
+  background-size: 200% 200%;
+  animation: gradient-shift var(--border-effect-speed, 3s) ease infinite;
+}
+
+/* Apply blur to ::before (glow layer) - always visible when not hover-only */
+.border-glow:not(.border-hover-only)::before {
+  filter: blur(var(--border-effect-intensity, 6px));
+  opacity: 0.7;
+}
+
+/* Hover-only glow */
+.border-glow.border-hover-only::before {
+  filter: blur(0);
+  opacity: 1;
+  animation: none;
+}
+
+.border-glow.border-hover-only:hover::before {
+  filter: blur(var(--border-effect-intensity, 6px));
+  opacity: 0.7;
+}
+
+.border-glow.border-hover-only.border-rainbow:hover::before,
+.border-glow.border-hover-only.border-light-trail:hover::before,
+.border-glow.border-hover-only.border-dual-spin:hover::before {
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+.border-glow.border-hover-only.border-pulse:hover::before {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.border-glow.border-hover-only.border-gradient:hover::before {
+  animation: gradient-shift var(--border-effect-speed, 3s) ease infinite;
 }
 
 /* ============================================
    MODIFIER: Speed Variants
    ============================================ */
-.border-slow.border-rainbow:hover::after,
-.border-slow.border-light-trail:hover::after,
-.border-slow.border-rainbow:not(.border-hover-only)::after,
-.border-slow.border-light-trail:not(.border-hover-only)::after {
-  animation-duration: var(--border-effect-speed-slow);
+.border-slow::after {
+  animation-duration: var(--border-effect-speed-slow, 5s) !important;
 }
 
-.border-fast.border-rainbow:hover::after,
-.border-fast.border-light-trail:hover::after,
-.border-fast.border-rainbow:not(.border-hover-only)::after,
-.border-fast.border-light-trail:not(.border-hover-only)::after {
-  animation-duration: var(--border-effect-speed-fast);
+.border-slow.border-glow::before {
+  animation-duration: var(--border-effect-speed-slow, 5s) !important;
+}
+
+.border-fast::after {
+  animation-duration: var(--border-effect-speed-fast, 1.5s) !important;
+}
+
+.border-fast.border-glow::before {
+  animation-duration: var(--border-effect-speed-fast, 1.5s) !important;
 }
 
 /* ============================================
-   MODIFIER: Custom Border Radius
-   Use inline style: style="--border-effect-radius: 30px"
+   MODIFIER: Thick Border
+   
+   Increases border thickness via CSS variable.
    ============================================ */
+.border-thick {
+  --border-effect-thickness: 4px;
+}
+
+/* ============================================
+   MODIFIER: Reverse Animation
+   
+   Reverses the direction of rotating effects.
+   Individual effect files handle the animation-name swap.
+   ============================================ */
+.border-reverse::after {
+  animation-direction: reverse;
+}
+
+.border-reverse.border-glow::before {
+  animation-direction: reverse;
+}

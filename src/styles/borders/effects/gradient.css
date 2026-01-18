@@ -1,23 +1,34 @@
 /* ============================================
    EFFECT: Static Gradient
+   
+   A linear gradient that shifts position subtly,
+   creating a flowing color effect.
    ============================================ */
+
 .border-gradient::after {
   background: linear-gradient(
     135deg,
-    var(--border-effect-accent),
-    #00ffff,
-    var(--border-effect-accent)
+    var(--border-effect-accent, #8b52fd),
+    var(--border-effect-accent-secondary, #00ffff),
+    var(--border-effect-accent, #8b52fd)
   );
   background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite !important;
 }
 
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* Always animate (default behavior) */
+.border-gradient:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: gradient-shift var(--border-effect-speed, 3s) ease infinite;
+}
+
+/* Hover-only animation */
+.border-gradient.border-hover-only:hover::after {
+  opacity: 1;
+  animation: gradient-shift var(--border-effect-speed, 3s) ease infinite;
+}
+
+/* Reverse modifier - shifts in opposite direction */
+.border-gradient.border-reverse:not(.border-hover-only)::after,
+.border-gradient.border-reverse.border-hover-only:hover::after {
+  animation-direction: reverse;
 }

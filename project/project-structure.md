@@ -1,6 +1,6 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: January 18, 2026
+Last Updated: January 19, 2026
 
 ## Root Directory
 
@@ -29,8 +29,11 @@ Personal-Portfolio/
 │   └── vite.svg              # Vite logo
 │
 ├── project/                   # Project documentation
-│   ├── border-styles.md      # Border styling documentation
-│   └── project-structure.md  # This file
+│   ├── border-animations.md  # Border styling documentation
+│   ├── border-styles.md      # Border styling documentation (legacy)
+│   ├── border-styles table.png # Border styles reference image
+│   ├── project-structure.md  # This file
+│   └── text-animations.md    # Text animation documentation
 │
 └── src/                       # Source code
     ├── main.tsx              # Application entry point
@@ -41,6 +44,12 @@ Personal-Portfolio/
     │
     ├── assets/               # Static assets (images, fonts, etc.)
     │   └── react.svg         # React logo
+    │
+    ├── components/           # Reusable components
+    │
+    ├── hooks/                # Custom React hooks
+    │   ├── index.ts          # Barrel export for hooks
+    │   └── useAnimateOnScroll.ts # Scroll-based animation trigger hook
     │
     ├── components/           # Reusable components
     │   ├── common/           # Common UI components
@@ -92,6 +101,18 @@ Personal-Portfolio/
     │           ├── index.css # Modifier styles
     │           └── index.ts  # TypeScript barrel export
     │
+    └── text/                 # Text animation styles (modular)
+        ├── base.css          # Base text animation classes and variables
+        ├── index.ts          # TypeScript barrel export
+        ├── effects/          # Individual text effects
+        │   ├── index.css     # Keyframes and barrel imports
+        │   ├── index.ts      # TypeScript barrel export
+        │   ├── glitch.css    # Glitch text effect
+        │   ├── reveal-up.css # Text reveal from bottom
+        │   └── typewriter.css # Typewriter text effect
+        └── modifiers/        # Text effect modifiers
+            ├── index.css     # Modifier styles
+            └── index.ts      # TypeScript barrel export
     ├── types/                # TypeScript type definitions
     │   └── project.ts        # Project type definitions
     │
@@ -207,6 +228,8 @@ npm run format:check   # Check if files are formatted
 - Page-specific CSS files in styles/ directory (e.g., home.css, projects.css)
 - Global styles in index.css
 - App-level layout styles in App.css
+- **Modular animation systems**: Border effects and text animations in dedicated directories
+- **Reusable effect libraries**: Organized CSS effects with TypeScript barrel exports
 
 ### File Naming Conventions
 
@@ -221,3 +244,6 @@ npm run format:check   # Check if files are formatted
 - Type-safe TypeScript implementation
 - Modular component architecture
 - Clean separation of concerns (components, pages, data, types)
+- **Reusable animation systems**: Border effects and text animations
+- **Scroll-triggered animations**: Automatic viewport-based animation triggers
+- **Modular styling architecture**: Organized CSS effects with TypeScript integration

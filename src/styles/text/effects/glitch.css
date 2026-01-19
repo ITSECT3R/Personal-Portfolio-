@@ -1,0 +1,125 @@
+/* ============================================
+   EFFECT: Glitch
+   
+   Digital glitch effect perfect for tech-focused
+   titles like "Full Stack Developer".
+   
+   Uses color separation and position jitter
+   to create a digital distortion look.
+   
+   USAGE:
+   <h2 class="text-effect text-glitch is-animated">
+     Full Stack Developer
+   </h2>
+   
+   Customize colors:
+   <h2 
+     class="text-effect text-glitch is-animated"
+     style="--text-effect-glitch-color-1: #ff00ff; --text-effect-glitch-color-2: #00ff00"
+   >
+   ============================================ */
+
+.text-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hidden state */
+.text-glitch:not(.is-animated) {
+  text-shadow: none;
+}
+
+/* Animated state */
+.text-glitch.is-animated {
+  animation: text-glitch 3s ease-in-out infinite;
+  animation-delay: var(--text-effect-delay, 0s);
+}
+
+/* ============================================
+   Intense Glitch Variant
+   
+   Uses pseudo-elements for a more dramatic effect
+   with overlapping distorted copies.
+   ============================================ */
+.text-glitch-intense {
+  position: relative;
+  display: inline-block;
+}
+
+.text-glitch-intense::before,
+.text-glitch-intense::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.text-glitch-intense::before {
+  color: var(--text-effect-glitch-color-1, #ff0000);
+  z-index: -1;
+}
+
+.text-glitch-intense::after {
+  color: var(--text-effect-glitch-color-2, #00ffff);
+  z-index: -2;
+}
+
+/* Hidden state */
+.text-glitch-intense:not(.is-animated)::before,
+.text-glitch-intense:not(.is-animated)::after {
+  opacity: 0;
+  animation: none;
+}
+
+/* Animated state */
+.text-glitch-intense.is-animated::before {
+  opacity: 0.8;
+  animation:
+    text-glitch-clip 2s linear infinite,
+    text-glitch-offset-1 0.5s ease-in-out infinite alternate;
+}
+
+.text-glitch-intense.is-animated::after {
+  opacity: 0.8;
+  animation:
+    text-glitch-clip 2s linear infinite reverse,
+    text-glitch-offset-2 0.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes text-glitch-offset-1 {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(
+      var(--text-effect-glitch-intensity, 2px),
+      calc(var(--text-effect-glitch-intensity, 2px) * -0.5)
+    );
+  }
+}
+
+@keyframes text-glitch-offset-2 {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(
+      calc(var(--text-effect-glitch-intensity, 2px) * -1),
+      calc(var(--text-effect-glitch-intensity, 2px) * 0.5)
+    );
+  }
+}
+
+/* ============================================
+   Subtle Glitch Variant
+   
+   More subtle effect suitable for body text
+   or less dramatic headings.
+   ============================================ */
+.text-glitch-subtle.is-animated {
+  animation: text-glitch 5s ease-in-out infinite;
+  --text-effect-glitch-intensity: 1px;
+}

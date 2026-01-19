@@ -1,0 +1,58 @@
+/* ============================================
+   EFFECT: Typewriter
+   
+   Classic typing effect with blinking cursor.
+   Uses CSS ch units for accurate character width.
+   
+   USAGE:
+   Set --text-effect-chars to the number of characters in your text.
+   
+   <h1 
+     class="text-effect text-typewriter is-animated"
+     style="--text-effect-chars: 13"
+   >
+     Hello, World!
+   </h1>
+   ============================================ */
+
+.text-typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: var(--text-effect-cursor-width) solid transparent;
+  font-family: monospace; /* Required for accurate ch units */
+
+  /* Fallback: If no chars specified, use max-content with animation */
+  max-width: calc(var(--text-effect-chars, 20) * 1ch);
+}
+
+/* Animation paused until .is-animated */
+.text-typewriter:not(.is-animated) {
+  width: 0;
+  border-color: transparent;
+}
+
+/* Trigger animation */
+.text-typewriter.is-animated {
+  animation:
+    text-typing var(--text-effect-speed, 2s) steps(var(--text-effect-chars, 20))
+      var(--text-effect-delay, 0s) forwards,
+    text-cursor-blink 0.75s step-end infinite;
+  border-right-color: var(--text-effect-cursor-color);
+}
+
+/* Hide cursor after typing (optional - add .text-typewriter-no-cursor) */
+.text-typewriter.text-typewriter-no-cursor.is-animated {
+  animation: text-typing var(--text-effect-speed, 2s)
+    steps(var(--text-effect-chars, 20)) var(--text-effect-delay, 0s) forwards;
+  border-right: none;
+}
+
+/* Loop modifier - keeps typing infinitely */
+.text-typewriter.text-typewriter-loop.is-animated {
+  animation:
+    text-typing var(--text-effect-speed, 2s) steps(var(--text-effect-chars, 20))
+      var(--text-effect-delay, 0s) infinite alternate,
+    text-cursor-blink 0.75s step-end infinite;
+}

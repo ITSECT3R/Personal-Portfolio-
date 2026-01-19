@@ -1,0 +1,235 @@
+/**
+ * Text Animation Library - Base
+ * Framework-agnostic CSS text animation library
+ * 
+ * USAGE:
+ * ======
+ * Base class (required): .text-effect
+ * 
+ * Effects:
+ *   - .text-typewriter    → Classic typing effect
+ *   - .text-reveal-up     → Letters slide up from masked container
+ *   - .text-glitch        → Digital glitch effect
+ * 
+ * Modifiers:
+ *   - .text-glow          → Customizable text-shadow glow
+ *   - .text-gradient      → Linear gradient text fill
+ *   - .text-slow          → Slower animation
+ *   - .text-fast          → Faster animation
+ * 
+ * Viewport Trigger:
+ *   By default, animations are paused/hidden.
+ *   Add .is-animated class to trigger the animation.
+ *   Use the provided useAnimateOnScroll hook or your own IntersectionObserver.
+ * 
+ * CSS Variable Overrides:
+ *   --text-effect-speed          → Animation duration (default: 2s)
+ *   --text-effect-delay          → Animation delay (default: 0s)
+ *   --text-effect-color          → Primary text color
+ *   --text-effect-accent         → Accent/highlight color
+ *   --text-effect-glow-color     → Glow color (default: currentColor)
+ *   --text-effect-glow-intensity → Glow blur radius (default: 10px)
+ *   --text-effect-gradient-start → Gradient start color
+ *   --text-effect-gradient-end   → Gradient end color
+ *   --text-effect-chars          → Character count for typewriter
+ * 
+ * Example (React):
+ *   <h1 
+ *     className="text-effect text-typewriter text-glow is-animated"
+ *     style={{ '--text-effect-chars': 15, '--text-effect-speed': '3s' }}
+ *   >
+ *     Hello, World!
+ *   </h1>
+ * 
+ * Example (Angular):
+ *   <h1 
+ *     class="text-effect text-glitch"
+ *     [class.is-animated]="isVisible"
+ *     [style.--text-effect-accent]="'#ff0000'"
+ *   >
+ */
+
+/* ============================================
+   CSS Custom Properties (Variables)
+   ============================================ */
+:root {
+  /* Timing */
+  --text-effect-speed: 2s;
+  --text-effect-speed-slow: 4s;
+  --text-effect-speed-fast: 1s;
+  --text-effect-delay: 0s;
+
+  /* Colors */
+  --text-effect-color: inherit;
+  --text-effect-accent: #8b52fd;
+  --text-effect-glow-color: currentColor;
+  --text-effect-glow-intensity: 10px;
+
+  /* Gradient */
+  --text-effect-gradient-start: #8b52fd;
+  --text-effect-gradient-end: #00ffff;
+  --text-effect-gradient-angle: 90deg;
+
+  /* Typewriter */
+  --text-effect-chars: 20;
+  --text-effect-cursor-width: 3px;
+  --text-effect-cursor-color: currentColor;
+
+  /* Glitch */
+  --text-effect-glitch-color-1: #ff0000;
+  --text-effect-glitch-color-2: #00ffff;
+  --text-effect-glitch-intensity: 2px;
+}
+
+/* ============================================
+   Shared Keyframes
+   ============================================ */
+
+/* Typewriter cursor blink */
+@keyframes text-cursor-blink {
+  0%,
+  100% {
+    border-color: var(--text-effect-cursor-color);
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Typewriter typing */
+@keyframes text-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(var(--text-effect-chars) * 1ch);
+  }
+}
+
+/* Reveal up */
+@keyframes text-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glitch effect */
+@keyframes text-glitch {
+  0%,
+  100% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+  2% {
+    text-shadow:
+      calc(var(--text-effect-glitch-intensity) * -1) 0
+        var(--text-effect-glitch-color-1),
+      var(--text-effect-glitch-intensity) 0 var(--text-effect-glitch-color-2);
+    transform: translate(var(--text-effect-glitch-intensity), 0);
+  }
+  4% {
+    text-shadow:
+      var(--text-effect-glitch-intensity) 0 var(--text-effect-glitch-color-1),
+      calc(var(--text-effect-glitch-intensity) * -1) 0
+        var(--text-effect-glitch-color-2);
+    transform: translate(calc(var(--text-effect-glitch-intensity) * -1), 0);
+  }
+  6% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+  20% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+  22% {
+    text-shadow:
+      calc(var(--text-effect-glitch-intensity) * -0.5)
+        calc(var(--text-effect-glitch-intensity) * 0.5)
+        var(--text-effect-glitch-color-1),
+      calc(var(--text-effect-glitch-intensity) * 0.5)
+        calc(var(--text-effect-glitch-intensity) * -0.5)
+        var(--text-effect-glitch-color-2);
+    transform: translate(1px, -1px);
+  }
+  24% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+  40% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+  42% {
+    text-shadow: var(--text-effect-glitch-intensity) 0
+      var(--text-effect-glitch-color-2);
+    transform: translate(-1px, 1px);
+  }
+  44% {
+    text-shadow: none;
+    transform: translate(0);
+  }
+}
+
+/* Glitch with clip-path for more intense effect */
+@keyframes text-glitch-clip {
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+  5% {
+    clip-path: inset(40% 0 30% 0);
+  }
+  10% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  15% {
+    clip-path: inset(80% 0 5% 0);
+  }
+  20% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Glow pulse */
+@keyframes text-glow-pulse {
+  0%,
+  100% {
+    text-shadow:
+      0 0 calc(var(--text-effect-glow-intensity) * 0.5)
+        var(--text-effect-glow-color),
+      0 0 var(--text-effect-glow-intensity) var(--text-effect-glow-color);
+  }
+  50% {
+    text-shadow:
+      0 0 var(--text-effect-glow-intensity) var(--text-effect-glow-color),
+      0 0 calc(var(--text-effect-glow-intensity) * 2)
+        var(--text-effect-glow-color),
+      0 0 calc(var(--text-effect-glow-intensity) * 3)
+        var(--text-effect-glow-color);
+  }
+}
+
+/* ============================================
+   Base Class
+   ============================================ */
+.text-effect {
+  color: var(--text-effect-color);
+  /* Animations are paused by default until .is-animated is added */
+}
+
+/* ============================================
+   Viewport Trigger Pattern
+   
+   Animations start paused/hidden.
+   Add .is-animated to trigger them.
+   ============================================ */
+/* .text-effect:not(.is-animated) { 
+  Default state - ready but not running 
+}
+*/

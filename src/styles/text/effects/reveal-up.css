@@ -1,0 +1,159 @@
+/* ============================================
+   EFFECT: Reveal Up
+   
+   Text slides up from a masked container,
+   creating a theatrical reveal effect.
+   
+   Can be applied to entire text block or
+   individual words/letters using child spans.
+   
+   USAGE:
+   <h1 class="text-effect text-reveal-up is-animated">
+     Revealed Text
+   </h1>
+   
+   For per-word animation:
+   <h1 class="text-effect text-reveal-up-container">
+     <span class="text-reveal-up-word is-animated" style="--text-effect-delay: 0s">Hello</span>
+     <span class="text-reveal-up-word is-animated" style="--text-effect-delay: 0.1s">World</span>
+   </h1>
+   ============================================ */
+
+/* Single element reveal */
+.text-reveal-up {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.text-reveal-up > * {
+  display: inline-block;
+}
+
+/* Hidden state */
+.text-reveal-up:not(.is-animated) {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+/* Animated state */
+.text-reveal-up.is-animated {
+  animation: text-reveal-up var(--text-effect-speed, 0.8s)
+    cubic-bezier(0.16, 1, 0.3, 1) var(--text-effect-delay, 0s) forwards;
+}
+
+/* ============================================
+   Container for per-word/letter animation
+   ============================================ */
+.text-reveal-up-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  overflow: hidden;
+}
+
+.text-reveal-up-word,
+.text-reveal-up-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.text-reveal-up-word.is-animated,
+.text-reveal-up-letter.is-animated {
+  animation: text-reveal-up var(--text-effect-speed, 0.6s)
+    cubic-bezier(0.16, 1, 0.3, 1) var(--text-effect-delay, 0s) forwards;
+}
+
+/* Stagger children automatically using nth-child */
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(1) {
+  --text-effect-delay: 0s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(2) {
+  --text-effect-delay: 0.05s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(3) {
+  --text-effect-delay: 0.1s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(4) {
+  --text-effect-delay: 0.15s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(5) {
+  --text-effect-delay: 0.2s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(6) {
+  --text-effect-delay: 0.25s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(7) {
+  --text-effect-delay: 0.3s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(8) {
+  --text-effect-delay: 0.35s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(9) {
+  --text-effect-delay: 0.4s;
+}
+.text-reveal-up-container.text-stagger-auto .text-reveal-up-word:nth-child(10) {
+  --text-effect-delay: 0.45s;
+}
+
+/* Letter stagger (faster) */
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(1) {
+  --text-effect-delay: 0s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(2) {
+  --text-effect-delay: 0.02s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(3) {
+  --text-effect-delay: 0.04s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(4) {
+  --text-effect-delay: 0.06s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(5) {
+  --text-effect-delay: 0.08s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(6) {
+  --text-effect-delay: 0.1s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(7) {
+  --text-effect-delay: 0.12s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(8) {
+  --text-effect-delay: 0.14s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(9) {
+  --text-effect-delay: 0.16s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(10) {
+  --text-effect-delay: 0.18s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(11) {
+  --text-effect-delay: 0.2s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(12) {
+  --text-effect-delay: 0.22s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(13) {
+  --text-effect-delay: 0.24s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(14) {
+  --text-effect-delay: 0.26s;
+}
+.text-reveal-up-container.text-stagger-auto
+  .text-reveal-up-letter:nth-child(15) {
+  --text-effect-delay: 0.28s;
+}

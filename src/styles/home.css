@@ -2,6 +2,16 @@ body {
   background: linear-gradient(120deg, #000000, #717171);
 }
 
+.home-title {
+  --text-effect-chars: 10;
+  --text-effect-glow-color: var(--accent-primary);
+}
+
 .profile-pic {
   border-radius: 50%;
+}
+
+.img-container {
+  display: inline-flex;
+  --border-effect-radius: 50%;
 }

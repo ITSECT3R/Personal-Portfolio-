@@ -15,3 +15,20 @@ body {
   display: inline-flex;
   --border-effect-radius: 50%;
 }
+
+.content-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.description-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.description-container p {
+  font-family: sans-serif;
+}

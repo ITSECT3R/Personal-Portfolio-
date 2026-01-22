@@ -1,15 +1,24 @@
 import { useAnimateOnScroll } from '../hooks';
+import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
 export default function Home() {
   // Each text animation hook
   const { ref: glitchRef } = useAnimateOnScroll<HTMLHeadingElement>({
     threshold: 0.5,
+    delay: 100,
+  });
+  const { ref: revealUp } = useAnimateOnScroll<HTMLParagraphElement>({
+    threshold: 0.5,
     delay: 200,
+  });
+  const { ref: typewriter } = useAnimateOnScroll<HTMLParagraphElement>({
+    threshold: 0.5,
+    delay: 300,
   });
 
   return (
-    <main>
+    <>
       <h1
         ref={glitchRef}
         className="text-effect text-glitch text-gradient home-subtitle"
@@ -18,7 +27,10 @@ export default function Home() {
       </h1>
       <div className="content-wrapper">
         <div className="description-container">
-          <p>
+          <p
+            ref={revealUp}
+            className="text-effect text-reveal-up home-description"
+          >
             Hello! I am a passionate Full-Stack Software Developer dedicated to
             continuously grow in this dynamic field. I have actively built and
             contributed to various innovative solutions and applications,
@@ -36,8 +48,17 @@ export default function Home() {
               className="profile-pic"
             />
           </div>
+          <div className="download-cv-container">
+            <p ref={typewriter} className="text-effect text-typewriter my-name">
+              Luis A Marin
+            </p>
+            <button className="download-cv-button">Download CV</button>
+            <Link to="/cv" className="cv-link">
+              View My Web CV
+            </Link>
+          </div>
         </div>
       </div>
-    </main>
+    </>
   );
 }

@@ -1,3 +1,7 @@
+:root {
+  --golden: #ffea00;
+}
+
 body {
   background: linear-gradient(120deg, #000000, #717171);
 }
@@ -31,4 +35,25 @@ body {
 
 .description-container p {
   font-family: sans-serif;
+}
+
+.my-name {
+  --text-effect-chars: 13; /* Typewriter */
+  font-weight: bold;
+}
+
+.download-cv-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-cv-button {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cv-link {
+  font-weight: bold;
+  color: var(--golden);
 }

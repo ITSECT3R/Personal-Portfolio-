@@ -1,4 +1,4 @@
-import { useAnimateOnScroll } from '../hooks';
+import { useAnimateOnScroll, calculateAge } from '../hooks';
 import { Link } from 'react-router-dom';
 import {
   AboutMeIcon,
@@ -8,6 +8,10 @@ import {
 import '../styles/home.css';
 
 export default function Home() {
+  // Calculate age
+  const birthDate = new Date(2000, 6, 27); // July 27, 2000 (month is 0-based)
+  const age = calculateAge(birthDate);
+
   // Each text animation hook
   const { ref: glitchRef } = useAnimateOnScroll<HTMLHeadingElement>({
     threshold: 0.5,
@@ -57,7 +61,7 @@ export default function Home() {
               </li>
               <li>
                 <CakeIcon className="icons" />
-                Computer Science Graduate
+                {age} Years Old
               </li>
               <li>Open to Opportunities</li>
               <li>Lifelong Learner</li>

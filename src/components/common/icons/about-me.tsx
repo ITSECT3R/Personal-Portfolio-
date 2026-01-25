@@ -14,3 +14,7 @@ export const MexicanFlagIcon = (props: AboutMeIconProps) => (
 export const CakeIcon = (props: AboutMeIconProps) => (
   <Icon icon="mingcute:cake-fill" {...props} />
 );
+
+export const LocationIcon = (props: AboutMeIconProps) => (
+  <Icon icon="proicons:location" {...props} />
+);

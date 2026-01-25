@@ -1,16 +1,20 @@
-import { useAnimateOnScroll, calculateAge } from '../hooks';
+import { useAnimateOnScroll, calculateAge, useDownloadCV } from '../hooks';
 import { Link } from 'react-router-dom';
 import {
   AboutMeIcon,
   MexicanFlagIcon,
   CakeIcon,
-} from '../components/common/icons/about-me';
+  LocationIcon,
+} from '../components/common/icons';
 import '../styles/home.css';
 
 export default function Home() {
   // Calculate age
   const birthDate = new Date(2000, 6, 27); // July 27, 2000 (month is 0-based)
   const age = calculateAge(birthDate);
+
+  // CV download hook
+  const { downloadCV, isDownloading } = useDownloadCV();
 
   // Each text animation hook
   const { ref: glitchRef } = useAnimateOnScroll<HTMLHeadingElement>({
@@ -25,6 +29,14 @@ export default function Home() {
     threshold: 0.5,
     delay: 300,
   });
+
+  const handleDownloadCV = async () => {
+    try {
+      await downloadCV();
+    } catch (error) {
+      console.error('Failed to download CV:', error);
+    }
+  };
 
   return (
     <>
@@ -63,8 +75,10 @@ export default function Home() {
                 <CakeIcon className="icons" />
                 {age} Years Old
               </li>
-              <li>Open to Opportunities</li>
-              <li>Lifelong Learner</li>
+              <li>
+                <LocationIcon className="icons" />
+                Based in Guadalajara, Jalisco, Mexico
+              </li>
             </ul>
           </div>
         </div>
@@ -80,7 +94,13 @@ export default function Home() {
             <p ref={typewriter} className="my-name text-effect text-typewriter">
               Luis A Marin
             </p>
-            <button className="download-cv-button">Download CV</button>
+            <button
+              className="download-cv-button"
+              onClick={handleDownloadCV}
+              disabled={isDownloading}
+            >
+              {isDownloading ? 'Downloading...' : 'Download CV'}
+            </button>
             <Link to="/cv" className="cv-link">
               View My Web CV
             </Link>

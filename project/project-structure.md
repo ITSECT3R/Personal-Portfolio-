@@ -49,12 +49,15 @@ Personal-Portfolio/
     │
     ├── hooks/                # Custom React hooks
     │   ├── index.ts          # Barrel export for hooks
-    │   └── useAnimateOnScroll.ts # Scroll-based animation trigger hook
+    │   ├── useAnimateOnScroll.ts # Scroll-based animation trigger hook
+    │   └── useDownloadCV.ts  # CV download functionality hook
     │
     ├── components/           # Reusable components
     │   ├── common/           # Common UI components
     │   │   ├── NavBar.tsx    # Navigation bar component
     │   │   ├── NavBar.css    # NavBar styles
+    │   │   ├── data/         # Common component data (CV PDF, etc.)
+    │   │   │   └── README.md    # Instructions for placing CV PDF
     │   │   └── icons/        # Icon components
     │   │       ├── index.tsx       # Barrel export for icons
     │   │       ├── navigation.tsx  # Navigation icons
@@ -247,3 +250,5 @@ npm run format:check   # Check if files are formatted
 - **Reusable animation systems**: Border effects and text animations
 - **Scroll-triggered animations**: Automatic viewport-based animation triggers
 - **Modular styling architecture**: Organized CSS effects with TypeScript integration
+- **CV download functionality**: Shared hook for PDF/text CV downloads
+- **Interactive CV page**: Tabbed interface with professional layout

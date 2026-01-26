@@ -9,7 +9,7 @@ export default function Cv() {
       {/* Left Side */}
       <div className="div-left">
         <h2 className="h2-name">Luis Marin</h2>
-        <img src="/profile.jpg" alt="Profile" className="profile-img" />
+        <img src="/profile-picture.jpg" alt="Profile" className="profile-img" />
 
         <div className="skills">
           <h3>Skills</h3>

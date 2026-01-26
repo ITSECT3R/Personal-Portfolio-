@@ -30,14 +30,6 @@ export default function Home() {
     delay: 300,
   });
 
-  const handleDownloadCV = async () => {
-    try {
-      await downloadCV();
-    } catch (error) {
-      console.error('Failed to download CV:', error);
-    }
-  };
-
   return (
     <>
       <h1
@@ -85,7 +77,7 @@ export default function Home() {
         <div>
           <div className="img-container border-effect border-dual-spin border-thick border-hover-only">
             <img
-              src="https://avatars.githubusercontent.com/u/160300092?v=4"
+              src="/profile-picture.jpg"
               alt="Me in a professional setting"
               className="profile-pic"
             />
@@ -96,7 +88,7 @@ export default function Home() {
             </p>
             <button
               className="download-cv-button"
-              onClick={handleDownloadCV}
+              onClick={downloadCV}
               disabled={isDownloading}
             >
               {isDownloading ? 'Downloading...' : 'Download CV'}

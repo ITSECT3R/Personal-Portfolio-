@@ -59,6 +59,12 @@ p .icons {
   margin-right: 1rem;
 }
 
+img {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+}
+
 .img-container {
   display: inline-flex;
   --border-effect-radius: 50%;

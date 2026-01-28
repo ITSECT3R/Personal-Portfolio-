@@ -1,7 +1,10 @@
 // Navigation Icons
-export * from './navigation';
+export * from './navigation.tsx';
 
-// Technology Icons
-export * from './tech';
+export * from './tech.tsx';
 
-export * from './about-me';
+export * from './about-me.tsx';
+
+export * from './contact.tsx';
+
+export * from './brands.tsx';

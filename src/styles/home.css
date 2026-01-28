@@ -63,6 +63,7 @@ img {
   width: 450px;
   height: 450px;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .img-container {

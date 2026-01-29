@@ -125,6 +125,14 @@ class ProjectStructureGenerator {
         return a.localeCompare(b);
       });
 
+    // Calculate the longest item name for alignment
+    const maxLength = Math.max(
+      ...items.map(item => {
+        const isDirectory = fs.statSync(path.join(dir, item)).isDirectory();
+        return item.length + (isDirectory ? 1 : 0); // +1 for trailing slash on directories
+      })
+    );
+
     let result = '';
 
     items.forEach((item, index) => {
@@ -137,14 +145,31 @@ class ProjectStructureGenerator {
       const connector = isLastItem ? '└── ' : '├── ';
       const extension = isLastItem ? '    ' : '│   ';
 
+      // Format item name with trailing slash for directories
+      const itemName = item + (isDirectory ? '/' : '');
+
       // Description
       const description = this.getFileDescription(relativePath);
       const descText = description ? ` # ${description}` : '';
 
-      result += `${prefix}${connector}${item}${isDirectory ? '/' : ''}${descText}\n`;
+      // Calculate padding for alignment (minimum 2 spaces after item name)
+      const padding = Math.max(2, maxLength - itemName.length + 2);
+      const spaces = ' '.repeat(padding);
+
+      result += `${prefix}${connector}${itemName}${spaces}${descText}\n`;
 
       if (isDirectory) {
-        result += this.generateTree(itemPath, prefix + extension, isLastItem);
+        // Add subtree
+        const subTree = this.generateTree(
+          itemPath,
+          prefix + extension,
+          isLastItem
+        );
+        result += subTree;
+        // Add separator line with tree character for better visual separation
+        if (subTree.trim() && !isLastItem) {
+          result += `${prefix}│\n`;
+        }
       }
     });
 

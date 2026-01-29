@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate-structure": "node scripts/generate-structure.js"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

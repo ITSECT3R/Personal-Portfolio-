@@ -1,254 +1,141 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: January 19, 2026
+Last Updated: January 28, 2026
 
 ## Root Directory
 
 ```
 Personal-Portfolio/
-├── .git/                      # Git version control
-├── .gitignore                 # Git ignore rules
-├── .prettierrc                # Prettier configuration
-├── .prettierignore            # Prettier ignore rules
-├── .husky/                    # Git hooks
-│   └── pre-commit            # Pre-commit hook for lint-staged
-├── README.md                  # Project documentation
-├── package.json               # NPM dependencies and scripts
-├── package-lock.json          # Locked dependency versions
-├── bun.lock                   # Bun package manager lock file
-├── node_modules/              # Installed dependencies
-│
-├── index.html                 # Entry HTML file
-├── vite.config.ts            # Vite configuration
-├── eslint.config.js          # ESLint configuration (flat config)
-├── tsconfig.json             # TypeScript base config
-├── tsconfig.app.json         # TypeScript app config
-├── tsconfig.node.json        # TypeScript node config
-│
-├── public/                    # Static assets
-│   └── vite.svg              # Vite logo
-│
-├── project/                   # Project documentation
-│   ├── border-animations.md  # Border styling documentation
-│   ├── border-styles.md      # Border styling documentation (legacy)
-│   ├── border-styles table.png # Border styles reference image
-│   ├── project-structure.md  # This file
-│   └── text-animations.md    # Text animation documentation
-│
-└── src/                       # Source code
-    ├── main.tsx              # Application entry point
-    ├── App.tsx               # Root component
-    ├── App.css               # App-level styles
-    ├── index.css             # Global styles
-    ├── routes.tsx            # Route configuration (lazy loading)
-    │
-    ├── assets/               # Static assets (images, fonts, etc.)
-    │   └── react.svg         # React logo
-    │
-    ├── components/           # Reusable components
-    │
-    ├── hooks/                # Custom React hooks
-    │   ├── index.ts          # Barrel export for hooks
-    │   ├── useAnimateOnScroll.ts # Scroll-based animation trigger hook
-    │   └── useDownloadCV.ts  # CV download functionality hook
-    │
-    ├── components/           # Reusable components
-    │   ├── common/           # Common UI components
-    │   │   ├── NavBar.tsx    # Navigation bar component
-    │   │   ├── NavBar.css    # NavBar styles
-    │   │   ├── data/         # Common component data (CV PDF, etc.)
-    │   │   │   └── README.md    # Instructions for placing CV PDF
-    │   │   └── icons/        # Icon components
-    │   │       ├── index.tsx       # Barrel export for icons
-    │   │       ├── navigation.tsx  # Navigation icons
-    │   │       └── tech.tsx        # Technology icons
-    │   │
-    │   ├── projects/         # Project-specific components
-    │   │   └── ProjectCard.tsx
-    │   │
-    │   └── shared/           # Shared components
-    │       └── SkillBadge.tsx
-    │
-    ├── pages/                # Page components
-    │   ├── Home.tsx
-    │   ├── Experience.tsx
-    │   ├── Projects.tsx
-    │   ├── Skills.tsx
-    │   ├── Cv.tsx
-    │   └── projects/         # Nested project pages
-    │       └── ProjectDetails.tsx
-    │
-    ├── data/                 # Static data/content
-    │   └── projects.ts       # Project data
-    │
-    ├── styles/               # Page-specific styles
-    │   ├── cv.css
-    │   ├── experience.css
-    │   ├── home.css
-    │   ├── projects.css
-    │   ├── skills.css
-    │   └── borders/          # Border effect styles (modular)
-    │       ├── base.css      # Base border classes and variables
-    │       ├── index.ts      # TypeScript barrel export
-    │       ├── effects/      # Individual border effects
-    │       │   ├── index.css # Keyframes and barrel imports
-    │       │   ├── index.ts  # TypeScript barrel export
-    │       │   ├── rainbow.css
-    │       │   ├── light-trail.css
-    │       │   ├── pulse.css
-    │       │   ├── gradient.css
-    │       │   ├── shimmer.css
-    │       │   ├── dots.css
-    │       │   └── dual-spin.css
-    │       └── modifiers/    # Border effect modifiers
-    │           ├── index.css # Modifier styles
-    │           └── index.ts  # TypeScript barrel export
-    │
-    └── text/                 # Text animation styles (modular)
-        ├── base.css          # Base text animation classes and variables
-        ├── index.ts          # TypeScript barrel export
-        ├── effects/          # Individual text effects
-        │   ├── index.css     # Keyframes and barrel imports
-        │   ├── index.ts      # TypeScript barrel export
-        │   ├── glitch.css    # Glitch text effect
-        │   ├── reveal-up.css # Text reveal from bottom
-        │   └── typewriter.css # Typewriter text effect
-        └── modifiers/        # Text effect modifiers
-            ├── index.css     # Modifier styles
-            └── index.ts      # TypeScript barrel export
-    ├── types/                # TypeScript type definitions
-    │   └── project.ts        # Project type definitions
-    │
-    └── utils/                # Utility functions
-        └── navigation.ts     # Navigation utilities
+├── project/
+│   ├── border-animations.md # Border styling documentation
+│   ├── project-structure.md # This file
+│   └── text-animations.md # Text animation documentation
+├── public/
+│   ├── CV-Luis-Angel-Marin-Rodriguez_compressed.pdf
+│   ├── profile-picture.jpg
+│   └── vite.svg # Vite logo
+├── scripts/
+│   └── generate-structure.js
+├── src/
+│   ├── assets/
+│   │   └── react.svg # React logo
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── icons/
+│   │   │   │   ├── about-me.tsx
+│   │   │   │   ├── brands.tsx
+│   │   │   │   ├── contact.tsx
+│   │   │   │   ├── index.tsx # Barrel export for components
+│   │   │   │   ├── navigation.tsx
+│   │   │   │   └── tech.tsx
+│   │   │   ├── NavBar.css # NavBar styles
+│   │   │   └── NavBar.tsx # Navigation bar component
+│   │   ├── projects/
+│   │   │   └── ProjectCard.tsx # Project card component
+│   │   └── shared/
+│   │       └── SkillBadge.tsx # Skill badge component
+│   ├── data/
+│   │   ├── certifications.tsx
+│   │   ├── contacts.tsx
+│   │   ├── experience.ts
+│   │   ├── index.ts # Barrel export
+│   │   ├── projects.ts # Project data
+│   │   └── skills.ts
+│   ├── hooks/
+│   │   ├── calculateAge.ts
+│   │   ├── index.ts # Barrel export
+│   │   ├── useAnimateOnScroll.ts # Scroll-based animation trigger hook
+│   │   └── useDownloadCV.ts # CV download functionality hook
+│   ├── pages/
+│   │   ├── projects/
+│   │   │   └── ProjectDetails.tsx
+│   │   ├── Cv.tsx # CV page component
+│   │   ├── Experience.tsx # Experience page component
+│   │   ├── Home.tsx # Home page component
+│   │   ├── Projects.tsx # Projects page component
+│   │   └── Skills.tsx # Skills page component
+│   ├── styles/
+│   │   ├── borders/
+│   │   │   ├── effects/
+│   │   │   │   ├── dots.css
+│   │   │   │   ├── dual-spin.css
+│   │   │   │   ├── gradient.css
+│   │   │   │   ├── index.css # Barrel import for styles
+│   │   │   │   ├── index.ts # Barrel export
+│   │   │   │   ├── light-trail.css
+│   │   │   │   ├── pulse.css
+│   │   │   │   ├── rainbow.css
+│   │   │   │   └── shimmer.css
+│   │   │   ├── modifiers/
+│   │   │   │   ├── index.css # Barrel import for styles
+│   │   │   │   └── index.ts # Barrel export
+│   │   │   ├── base.css
+│   │   │   └── index.ts # Barrel export
+│   │   ├── text/
+│   │   │   ├── effects/
+│   │   │   │   ├── glitch.css
+│   │   │   │   ├── index.css # Barrel import for styles
+│   │   │   │   ├── index.ts # Barrel export
+│   │   │   │   ├── reveal-up.css
+│   │   │   │   └── typewriter.css
+│   │   │   ├── modifiers/
+│   │   │   │   ├── index.css # Barrel import for styles
+│   │   │   │   └── index.ts # Barrel export
+│   │   │   ├── base.css
+│   │   │   └── index.ts # Barrel export
+│   │   ├── cv.css # CV page styles
+│   │   ├── experience.css # Experience page styles
+│   │   ├── home.css # Home page styles
+│   │   ├── projects.css # Projects page styles
+│   │   └── skills.css # Skills page styles
+│   ├── types/
+│   │   └── project.ts
+│   ├── utils/
+│   │   └── navigation.ts
+│   ├── App.css # App-level styles
+│   ├── App.tsx # Root component
+│   ├── index.css # Global styles
+│   ├── main.tsx # Application entry point
+│   └── routes.tsx # Route configuration (lazy loading)
+├── eslint.config.js # ESLint configuration (flat config)
+├── index.html # Entry HTML file
+├── package.json # NPM dependencies and scripts
+├── README.md # Project documentation
+├── tsconfig.app.json # TypeScript app config
+├── tsconfig.json # TypeScript base config
+├── tsconfig.node.json # TypeScript node config
+└── vite.config.ts # Vite configuration
 ```
 
-## Technology Stack
+## Directory Explanations
 
-### Core
+### Root Level
 
-- **Framework:** React 19 with TypeScript
-- **Build Tool:** Vite (Rolldown variant)
-- **Routing:** React Router v7
-- **Icons:** @iconify/react
-- **Package Manager:** Bun (with npm fallback)
+- **src/**: Source code directory containing all React components, hooks, styles, and data
+- **public/**: Static assets served directly by the web server
+- **project/**: Project documentation and configuration files
+- **node_modules/**: Installed npm dependencies (auto-generated)
 
-### Code Quality & Tooling
+### Source Structure (src/)
 
-#### Linting & Formatting
+- **components/**: Reusable React components organized by feature
+  - **common/**: Shared components used across multiple pages
+  - **projects/**: Components specific to project display
+  - **shared/**: Utility components used throughout the app
+- **pages/**: Top-level page components for routing
+- **hooks/**: Custom React hooks for shared logic
+- **styles/**: Page-specific CSS files and modular style systems
+- **data/**: Static data files and content
+- **assets/**: Images, fonts, and other media assets
+- **types/**: TypeScript type definitions
+- **utils/**: Utility functions and helpers
 
-- **ESLint 9** (flat config) with plugins:
-  - `@eslint/js` - Core JavaScript rules
-  - `typescript-eslint` - TypeScript-specific rules
-  - `eslint-plugin-react` - React best practices
-  - `eslint-plugin-react-hooks` - React Hooks rules
-  - `eslint-plugin-react-refresh` - Fast refresh support
-  - `eslint-plugin-jsx-a11y` - Accessibility linting
-  - `eslint-config-prettier` - Prettier integration
-- **Prettier 3** - Opinionated code formatter
-- **Type Checking:** TypeScript 5.9
+### Style Organization (src/styles/)
 
-#### Git Workflow
+- **borders/**: Modular border animation system with effects and modifiers
+- **text/**: Text animation effects and styling utilities
+- Page-specific CSS files for component styling
 
-- **Husky** - Git hooks management
-- **lint-staged** - Run linters on staged files only
+---
 
-## Architecture Patterns
-
-##**Components:** PascalCase (e.g., `NavBar.tsx`, `ProjectCard.tsx`)
-
-- **Custom Hooks:** camelCase with "use" prefix (e.g., `useAuth.ts`, `useWindowSize.ts`)
-- **Utilities:** camelCase (e.g., `formatDate.ts`, `api.ts`, `helpers.ts`)
-- **Types/Interfaces:** camelCase file, PascalCase inside (e.g., `project.ts` contains `interface Project`)
-- **Styles:** Matching component name (e.g., `NavBar.css`)
-- **Data files:** camelCase (e.g., `projects.ts`)
-- **Config files:** lowercase with extensions (e.g., `vite.config.ts`, `.prettierrc`)
-- **Directories:** lowercase or kebab-case (e.g., `components/`, `common/`, `user-profile/`)
-
-### Code Quality Automation
-
-#### Pre-commit Hooks
-
-On every `git commit`, the following runs automatically via Husky + lint-staged:
-
-**For TypeScript/TSX files:**
-
-1. Prettier formats the code
-2. ESLint checks and auto-fixes issues
-
-**For other files (CSS, JSON, MD):**
-
-1. Prettier formats the code
-
-**Bypass when needed:**
-
-```bash
-git commit --no-verify   # Skip pre-commit hooks
-```
-
-- Code splitting with lazy-loaded routes
-- Automated code quality checks (pre-commit hooks)
-- Consistent code formatting (Prettier)
-- Accessibility linting (jsx-a11y)
-- Modern ESLint flat configuration
-
-## Code Quality Philosophy
-
-This project enforces high code quality standards through automation:
-
-1. **Formatting is automated** - Prettier handles all style decisions
-2. **Linting catches bugs** - ESLint enforces best practices and catches errors
-3. **Accessibility is checked** - jsx-a11y ensures the site is accessible
-4. **Quality is enforced** - Pre-commit hooks prevent bad code from being committed
-5. **Consistency is guaranteed** - All team members follow the same standards
-
-## Future Considerations
-
-Potential additions for enhanced code quality:
-
-- TypeScript strict mode for stronger type checking
-- Commitlint for conventional commit messages
-- Stylelint for advanced CSS linting
-- GitHub Actions for CI/CD pipeline
-- Vitest or Jest for unit testing
-
-#### Available Scripts
-
-```bash
-npm run dev            # Start development server
-npm run build          # Build for production
-npm run preview        # Preview production build
-npm run lint           # Run ESLint on all files
-npm run format         # Format all files with Prettier
-npm run format:check   # Check if files are formatted
-```
-
-- `components/shared/` - Reusable utility components
-
-### Styling Strategy
-
-- Component-specific CSS files co-located with components (e.g., NavBar.css)
-- Page-specific CSS files in styles/ directory (e.g., home.css, projects.css)
-- Global styles in index.css
-- App-level layout styles in App.css
-- **Modular animation systems**: Border effects and text animations in dedicated directories
-- **Reusable effect libraries**: Organized CSS effects with TypeScript barrel exports
-
-### File Naming Conventions
-
-- Components: PascalCase (e.g., NavBar.tsx)
-- Styles: PascalCase for components, lowercase for pages (e.g., NavBar.css, home.css)
-- Data/Types: camelCase (e.g., projects.ts)
-- Config files: lowercase with extensions (e.g., vite.config.ts)
-
-## Key Features
-
-- Single Page Application (SPA) with client-side routing
-- Type-safe TypeScript implementation
-- Modular component architecture
-- Clean separation of concerns (components, pages, data, types)
-- **Reusable animation systems**: Border effects and text animations
-- **Scroll-triggered animations**: Automatic viewport-based animation triggers
-- **Modular styling architecture**: Organized CSS effects with TypeScript integration
-- **CV download functionality**: Shared hook for PDF/text CV downloads
-- **Interactive CV page**: Tabbed interface with professional layout
+_This file is auto-generated. To update, run: `npm run generate-structure`_

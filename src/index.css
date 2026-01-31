@@ -14,6 +14,10 @@
   --golden: #ffea00;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: var(--golden);

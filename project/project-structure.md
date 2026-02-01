@@ -1,64 +1,67 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: January 29, 2026
+Last Updated: January 31, 2026
 
 ## Root Directory
 
 ```
 Personal-Portfolio/
-├── project/            
+├── project/
 │   ├── border-animations.md   # Border styling documentation
 │   ├── project-structure.md   # This file
 │   └── text-animations.md     # Text animation documentation
 │
-├── public/             
-│   ├── CV-Luis-Angel-Marin-Rodriguez_compressed.pdf  
-│   ├── profile-picture.jpg                           
+├── public/
+│   ├── CV-Luis-Angel-Marin-Rodriguez_compressed.pdf
+│   ├── profile-picture.jpg
 │   └── vite.svg                                       # Vite logo
 │
-├── scripts/            
-│   └── generate-structure.js  
+├── scripts/
+│   └── generate-structure.js
 │
-├── src/                
-│   ├── assets/      
+├── src/
+│   ├── assets/
 │   │   └── react.svg   # React logo
 │   │
-│   ├── components/  
-│   │   ├── common/    
-│   │   │   ├── icons/      
-│   │   │   │   ├── about-me.tsx    
-│   │   │   │   ├── brands.tsx      
-│   │   │   │   ├── contact.tsx     
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── icons/
+│   │   │   │   ├── about-me.tsx
+│   │   │   │   ├── brands.tsx
+│   │   │   │   ├── contact.tsx
 │   │   │   │   ├── index.tsx        # Barrel export for components
-│   │   │   │   ├── navigation.tsx  
-│   │   │   │   └── tech.tsx        
+│   │   │   │   ├── navigation.tsx
+│   │   │   │   └── tech.tsx
 │   │   │   │
 │   │   │   ├── NavBar.css   # NavBar styles
 │   │   │   └── NavBar.tsx   # Navigation bar component
 │   │   │
-│   │   ├── projects/  
+│   │   ├── cv/
+│   │   │   └── sideBar.tsx
+│   │   │
+│   │   ├── projects/
 │   │   │   └── ProjectCard.tsx   # Project card component
 │   │   │
-│   │   └── shared/    
+│   │   └── shared/
 │   │       └── SkillBadge.tsx   # Skill badge component
 │   │
-│   ├── data/        
-│   │   ├── certifications.tsx  
-│   │   ├── contacts.tsx        
-│   │   ├── experience.ts       
+│   ├── data/
+│   │   ├── certifications.tsx
+│   │   ├── contacts.tsx
+│   │   ├── experience.ts
 │   │   ├── index.ts             # Barrel export
 │   │   ├── projects.ts          # Project data
-│   │   └── skills.ts           
+│   │   └── skills.ts
 │   │
-│   ├── hooks/       
-│   │   ├── calculateAge.ts        
+│   ├── hooks/
+│   │   ├── calculateAge.ts
 │   │   ├── index.ts                # Barrel export
 │   │   ├── useAnimateOnScroll.ts   # Scroll-based animation trigger hook
 │   │   └── useDownloadCV.ts        # CV download functionality hook
 │   │
-│   ├── pages/       
-│   │   ├── projects/       
-│   │   │   └── ProjectDetails.tsx  
+│   ├── pages/
+│   │   ├── projects/
+│   │   │   └── ProjectDetails.tsx
 │   │   │
 │   │   ├── Cv.tsx           # CV page component
 │   │   ├── Experience.tsx   # Experience page component
@@ -66,39 +69,39 @@ Personal-Portfolio/
 │   │   ├── Projects.tsx     # Projects page component
 │   │   └── Skills.tsx       # Skills page component
 │   │
-│   ├── styles/      
-│   │   ├── borders/        
-│   │   │   ├── effects/    
-│   │   │   │   ├── dots.css         
-│   │   │   │   ├── dual-spin.css    
-│   │   │   │   ├── gradient.css     
+│   ├── styles/
+│   │   ├── borders/
+│   │   │   ├── effects/
+│   │   │   │   ├── dots.css
+│   │   │   │   ├── dual-spin.css
+│   │   │   │   ├── gradient.css
 │   │   │   │   ├── index.css         # Barrel import for styles
 │   │   │   │   ├── index.ts          # Barrel export
-│   │   │   │   ├── light-trail.css  
-│   │   │   │   ├── pulse.css        
-│   │   │   │   ├── rainbow.css      
-│   │   │   │   └── shimmer.css      
+│   │   │   │   ├── light-trail.css
+│   │   │   │   ├── pulse.css
+│   │   │   │   ├── rainbow.css
+│   │   │   │   └── shimmer.css
 │   │   │   │
-│   │   │   ├── modifiers/  
+│   │   │   ├── modifiers/
 │   │   │   │   ├── index.css   # Barrel import for styles
 │   │   │   │   └── index.ts    # Barrel export
 │   │   │   │
-│   │   │   ├── base.css    
+│   │   │   ├── base.css
 │   │   │   └── index.ts     # Barrel export
 │   │   │
-│   │   ├── text/           
-│   │   │   ├── effects/    
-│   │   │   │   ├── glitch.css      
+│   │   ├── text/
+│   │   │   ├── effects/
+│   │   │   │   ├── glitch.css
 │   │   │   │   ├── index.css        # Barrel import for styles
 │   │   │   │   ├── index.ts         # Barrel export
-│   │   │   │   ├── reveal-up.css   
-│   │   │   │   └── typewriter.css  
+│   │   │   │   ├── reveal-up.css
+│   │   │   │   └── typewriter.css
 │   │   │   │
-│   │   │   ├── modifiers/  
+│   │   │   ├── modifiers/
 │   │   │   │   ├── index.css   # Barrel import for styles
 │   │   │   │   └── index.ts    # Barrel export
 │   │   │   │
-│   │   │   ├── base.css    
+│   │   │   ├── base.css
 │   │   │   └── index.ts     # Barrel export
 │   │   │
 │   │   ├── cv.css           # CV page styles
@@ -107,11 +110,11 @@ Personal-Portfolio/
 │   │   ├── projects.css     # Projects page styles
 │   │   └── skills.css       # Skills page styles
 │   │
-│   ├── types/       
-│   │   └── project.ts  
+│   ├── types/
+│   │   └── project.ts
 │   │
-│   ├── utils/       
-│   │   └── navigation.ts  
+│   ├── utils/
+│   │   └── navigation.ts
 │   │
 │   ├── App.css       # App-level styles
 │   ├── App.tsx       # Root component
@@ -132,12 +135,14 @@ Personal-Portfolio/
 ## Directory Explanations
 
 ### Root Level
+
 - **src/**: Source code directory containing all React components, hooks, styles, and data
 - **public/**: Static assets served directly by the web server
 - **project/**: Project documentation and configuration files
 - **node_modules/**: Installed npm dependencies (auto-generated)
 
 ### Source Structure (src/)
+
 - **components/**: Reusable React components organized by feature
   - **common/**: Shared components used across multiple pages
   - **projects/**: Components specific to project display
@@ -151,10 +156,11 @@ Personal-Portfolio/
 - **utils/**: Utility functions and helpers
 
 ### Style Organization (src/styles/)
+
 - **borders/**: Modular border animation system with effects and modifiers
 - **text/**: Text animation effects and styling utilities
 - Page-specific CSS files for component styling
 
 ---
 
-*This file is auto-generated. To update, run: `npm run generate-structure`*
+_This file is auto-generated. To update, run: `npm run generate-structure`_

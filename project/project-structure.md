@@ -1,6 +1,6 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: January 31, 2026
+Last Updated: February 1, 2026
 
 ## Root Directory
 
@@ -54,10 +54,13 @@ Personal-Portfolio/
 │   │   └── skills.ts
 │   │
 │   ├── hooks/
-│   │   ├── calculateAge.ts
-│   │   ├── index.ts                # Barrel export
-│   │   ├── useAnimateOnScroll.ts   # Scroll-based animation trigger hook
-│   │   └── useDownloadCV.ts        # CV download functionality hook
+│   │   ├── cv/
+│   │   ├── home/
+│   │   │   ├── calculateAge.ts
+│   │   │   ├── useAnimateOnScroll.ts
+│   │   │   └── useDownloadCV.ts
+│   │   │
+│   │   └── index.ts   # Barrel export
 │   │
 │   ├── pages/
 │   │   ├── projects/

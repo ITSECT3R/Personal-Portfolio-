@@ -2,6 +2,6 @@
 export {
   useAnimateOnScroll,
   useAnimateOnScrollMany,
-} from './useAnimateOnScroll';
-export { calculateAge } from './calculateAge';
-export { useDownloadCV } from './useDownloadCV';
+} from './home/useAnimateOnScroll';
+export { calculateAge } from './home/calculateAge';
+export { useDownloadCV } from './home/useDownloadCV';

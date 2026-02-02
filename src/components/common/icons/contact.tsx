@@ -24,5 +24,5 @@ export const LinkedInIcon = (props: ContactIconProps) => (
 );
 
 export const CodingIcon = (props: ContactIconProps) => (
-  <Icon icon="mdi:code-tags" {...props} />
+  <Icon icon="tabler:code" {...props} />
 );

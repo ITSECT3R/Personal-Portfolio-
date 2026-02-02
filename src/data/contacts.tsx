@@ -10,8 +10,8 @@ import {
 export const contacts = [
   {
     svg: <PhoneIcon />,
-    name: 'Phone',
-    link: '+52 3332483975',
+    name: '+52 3332483975',
+    link: '',
   },
   {
     svg: <EmailIcon />,
@@ -19,23 +19,23 @@ export const contacts = [
     link: 'mailto:sect3r.dev@gmail.com',
   },
   {
+    svg: <LinkedInIcon />,
+    name: 'LinkedIn',
+    link: 'https://www.linkedin.com/in/luis-angel-m-084449165/',
+  },
+  {
     svg: <GitHubIcon />,
     name: 'GitHub',
-    link: '',
+    link: 'https://github.com/ITSECT3R',
   },
   {
     svg: <GitLabIcon />,
     name: 'GitLab',
-    link: '',
-  },
-  {
-    svg: <LinkedInIcon />,
-    name: 'LinkedIn',
-    link: '',
+    link: 'https://gitlab.com/ITSECT3R',
   },
   {
     svg: <CodingIcon />,
-    name: 'Coding',
-    link: '',
+    name: 'Web Portfolio',
+    link: 'https://personal-portfolio-eaj.pages.dev/',
   },
 ];

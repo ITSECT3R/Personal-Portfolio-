@@ -173,6 +173,8 @@
 .cv-page .summary p {
   font-weight: 600;
   text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
 }
 
 /* Work Experience */
@@ -245,11 +247,14 @@
     0 0 1px rgb(0, 0, 0),
     0 0 2px rgb(239, 247, 0),
     0 0 2px rgb(174, 255, 0);
+  margin-top: 0;
 }
 
 .cv-page .content-jobs ul {
   font-size: 1rem;
   font-weight: 500;
+  text-align: left;
+  line-height: 1.3rem;
 }
 
 .cv-page .content-jobs li {
@@ -275,9 +280,15 @@
 .cv-page .content-jobs span {
   margin-right: 20px;
   font-size: 1rem;
+  font-weight: 700;
+}
+
+.cv-page .content-jobs a {
+  font-weight: 600;
 }
 
 .cv-page .contat-info {
+  text-align: left;
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0;
@@ -306,6 +317,10 @@
 
 /* Education / Certifications Section */
 
+.cv-page .education {
+  text-align: left;
+}
+
 .cv-page .education h3 {
   font-size: 1.4rem;
   text-shadow:
@@ -316,6 +331,7 @@
 
 .cv-page .education a {
   font-size: initial;
+  font-weight: 600;
 }
 
 .cv-page .Certifications svg {

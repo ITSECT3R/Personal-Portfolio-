@@ -35,6 +35,12 @@ body {
   min-height: 100vh;
 }
 
+/* App-level background controlled via CSS variable so pages can override */
+body {
+  background: var(--app-bg, linear-gradient(120deg, #000000, #717171));
+  transition: background 300ms ease;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

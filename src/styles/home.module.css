@@ -1,0 +1,86 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+.listItem {
+  margin-bottom: 1rem;
+  padding-left: 15px;
+  font-weight: 600;
+}
+
+.image {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+
+.contentWrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.imgContainer {
+  display: inline-flex;
+  --border-effect-radius: 50%;
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.homeDescription {
+  font-family: sans-serif;
+}
+
+.aboutMeContainer {
+  text-align: left;
+}
+
+.aboutMe {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--golden);
+}
+
+.icons {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.87);
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+.profilePic {
+  border-radius: 50%;
+}
+
+.downloadCvContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myName {
+  --text-effect-chars: 13;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.downloadCvButton {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.cvLink {
+  font-weight: bold;
+  color: var(--golden);
+}

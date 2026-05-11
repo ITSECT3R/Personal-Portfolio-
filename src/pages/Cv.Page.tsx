@@ -1,7 +1,10 @@
 import '../styles/cv.css';
 import { SideBar } from '../components/cv/sideBar';
+import usePageBackground from '../hooks/usePageBackground';
 
 export default function Cv() {
+  usePageBackground('cv', 'linear-gradient(120deg,#071013,#0f2b2b)');
+
   return (
     <div className="cv-page">
       {/* Left Side */}

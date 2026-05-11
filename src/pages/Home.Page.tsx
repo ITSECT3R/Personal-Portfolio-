@@ -1,4 +1,5 @@
 import { useAnimateOnScroll, calculateAge, useDownloadCV } from '../hooks';
+import usePageBackground from '../hooks/usePageBackground';
 import { Link } from 'react-router-dom';
 import {
   AboutMeIcon,
@@ -6,9 +7,10 @@ import {
   CakeIcon,
   LocationIcon,
 } from '../components/common/icons';
-import '../styles/home.css';
+import styles from '../styles/home.module.css';
 
 export default function Home() {
+  usePageBackground('home', 'linear-gradient(120deg, #000000, #717171)');
   // Calculate age
   const birthDate = new Date(2000, 6, 27); // July 27, 2000 (month is 0-based)
   const age = calculateAge(birthDate);
@@ -38,12 +40,12 @@ export default function Home() {
       >
         Full-Stack Developer
       </h1>
-      <div className="content-wrapper">
-        <div className="description-container">
+      <div className={styles.contentWrapper}>
+        <div className={styles.descriptionContainer}>
           <div>
             <p
               ref={revealUp}
-              className="text-effect text-reveal-up home-description"
+              className={`text-effect text-reveal-up ${styles.homeDescription}`}
             >
               &quot;Hello! I am a passionate Full-Stack Software Developer
               dedicated to continuously grow in this dynamic field. I have
@@ -54,46 +56,46 @@ export default function Home() {
               field. Thank you for visiting!&quot;
             </p>
           </div>
-          <div className="about-me-container">
-            <p className="about-me">
-              <AboutMeIcon className="icons" /> About Me.
+          <div className={styles.aboutMeContainer}>
+            <p className={styles.aboutMe}>
+              <AboutMeIcon className={styles.icons} /> About Me.
             </p>
-            <ul>
-              <li>
-                <MexicanFlagIcon className="icons" />
+            <ul className={styles.list}>
+              <li className={styles.listItem}>
+                <MexicanFlagIcon className={styles.icons} />
                 Mexican
               </li>
-              <li>
-                <CakeIcon className="icons" />
+              <li className={styles.listItem}>
+                <CakeIcon className={styles.icons} />
                 {age} Years Old
               </li>
-              <li>
-                <LocationIcon className="icons" />
+              <li className={styles.listItem}>
+                <LocationIcon className={styles.icons} />
                 Based in Guadalajara, Jalisco, Mexico
               </li>
             </ul>
           </div>
         </div>
         <div>
-          <div className="img-container border-effect border-dual-spin border-thick border-hover-only">
+          <div className={`${styles.imgContainer} border-effect border-dual-spin border-thick border-hover-only`}>
             <img
               src="/profile-picture.jpg"
               alt="Me in a professional setting"
-              className="profile-pic"
+              className={`${styles.image} ${styles.profilePic}`}
             />
           </div>
-          <div className="download-cv-container">
-            <p ref={typewriter} className="my-name text-effect text-typewriter">
+          <div className={styles.downloadCvContainer}>
+            <p ref={typewriter} className={`${styles.myName} text-effect text-typewriter`}>
               Luis A Marin
             </p>
             <button
-              className="download-cv-button"
+              className={styles.downloadCvButton}
               onClick={downloadCV}
               disabled={isDownloading}
             >
               {isDownloading ? 'Downloading...' : 'Download CV'}
             </button>
-            <Link to="/cv" className="cv-link">
+            <Link to="/cv" className={styles.cvLink}>
               View My Web CV
             </Link>
           </div>

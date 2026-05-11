@@ -2,11 +2,11 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 // Lazy load pages for code splitting
-const Home = lazy(() => import('./pages/Home'));
-const Cv = lazy(() => import('./pages/Cv'));
-const Experience = lazy(() => import('./pages/Experience'));
-const Skills = lazy(() => import('./pages/Skills'));
-const Projects = lazy(() => import('./pages/Projects'));
+const Home = lazy(() => import('./pages/Home.Page'));
+const Cv = lazy(() => import('./pages/Cv.Page'));
+const Experience = lazy(() => import('./pages/Experience.Page'));
+const Skills = lazy(() => import('./pages/Skills.Page'));
+const Projects = lazy(() => import('./pages/Projects.Page'));
 const ProjectDetails = lazy(() => import('./pages/projects/ProjectDetails'));
 
 // Loading fallback

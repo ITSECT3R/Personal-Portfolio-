@@ -1,4 +1,4 @@
-import '../styles/cv.css';
+import styles from '../styles/cv.module.css';
 import { SideBar } from '../components/cv/sideBar';
 import usePageBackground from '../hooks/usePageBackground';
 
@@ -6,13 +6,13 @@ export default function Cv() {
   usePageBackground('cv', 'linear-gradient(120deg,#071013,#0f2b2b)');
 
   return (
-    <div className="cv-page">
+    <div className={styles.cvPage}>
       {/* Left Side */}
       <SideBar />
 
       {/* Right Side */}
-      <div className="div-right">
-        <div className="summary">
+        <div className={styles.divRight}>
+        <div className={styles.summary}>
           <h2>Summary</h2>
           <p>
             Passionate Full-Stack Developer and QA Engineer with experience in
@@ -26,18 +26,18 @@ export default function Cv() {
           </p>
         </div>
 
-        <div className="experience">
+        <div className={styles.experience}>
           <h2>Experience</h2>
-          <div className="work-history">
-            <div className="job1 jobs">
-              <div className="header-jobs">
+          <div className={styles.workHistory}>
+            <div className={`${styles.job1} ${styles.jobs}`}>
+              <div className={styles.headerJobs}>
                 <h3>Nielsen</h3>
-                <span className="job-position">Full-Stack QA</span>{' '}
-                <span className="section2-dates">8/25 - Present</span>
+                <span className={styles.jobPosition}>Full-Stack QA</span>{' '}
+                <span className={styles.section2Dates}>8/25 - Present</span>
               </div>
 
-              <div className="content-jobs">
-                <p className="main-tasks">Main tasks</p>
+              <div className={styles.contentJobs}>
+                <p className={styles.mainTasks}>Main tasks</p>
                 <ul>
                   <li>
                     Verify Data collection and quality assurance processes.
@@ -62,8 +62,8 @@ export default function Cv() {
                     Python.{' '}
                   </li>
                 </ul>
-                <p className="contat-info">Location</p>
-                <div className="contact-div">
+                <p className={styles.contatInfo}>Location</p>
+                <div className={styles.contactDiv}>
                   <div>
                     <span>
                       <svg
@@ -85,7 +85,7 @@ export default function Cv() {
                       </svg>
                       <span>
                         <a
-                          className="contact-link"
+                          className={styles.contactLink}
                           href="https://www.google.com/maps/place/HCL+Mexico/@20.6748743,-103.3949036,17z/data=!3m1!4b1!4m6!3m5!1s0x8428ae6fe52fa9d7:0x9dd1c6856b5e381e!8m2!3d20.6748743!4d-103.3923287!16s%2Fg%2F11b75jbdvh?entry=ttu"
                           target="_blank"
                           rel="noreferrer"
@@ -99,15 +99,15 @@ export default function Cv() {
               </div>
             </div>
 
-            <div className="job1 jobs">
-              <div className="header-jobs">
+            <div className={`${styles.job1} ${styles.jobs}`}>
+              <div className={styles.headerJobs}>
                 <h3>Outlier </h3>
-                <span className="job-position">Full-Stack Developer</span>
-                <span className="section2-dates">2/24 - 8/25</span>
+                <span className={styles.jobPosition}>Full-Stack Developer</span>
+                <span className={styles.section2Dates}>2/24 - 8/25</span>
               </div>
 
-              <div className="content-jobs">
-                <p className="main-tasks">Main tasks</p>
+              <div className={styles.contentJobs}>
+                <p className={styles.mainTasks}>Main tasks</p>
                 <ul>
                   <li>
                     Review AI generated code to ensure it meets the standards of
@@ -115,10 +115,10 @@ export default function Cv() {
                   </li>
                   <li>
                     Developed and maintained web applications using React,
-                    JavaScript, TypeScript, SQL, Etc.
+                    JavaScript, TypeScript, SQL, etc.
                   </li>
                   <li>
-                    Collaborated Across multiple Projects for different clients,
+                    Collaborated across multiple projects for different clients,
                     ensuring quality standards are met.
                   </li>
                   <li>
@@ -134,8 +134,8 @@ export default function Cv() {
                     to ensure functionality and performance.
                   </li>
                 </ul>
-                <p className="contat-info">Location</p>
-                <div className="contact-div">
+                <p className={styles.contatInfo}>Location</p>
+                <div className={styles.contactDiv}>
                   <div>
                     <span>
                       <svg
@@ -157,7 +157,7 @@ export default function Cv() {
                       </svg>
                       <span>
                         <a
-                          className="contact-link"
+                          className={styles.contactLink}
                           href="https://www.google.com/maps/place/HCL+Mexico/@20.6748743,-103.3949036,17z/data=!3m1!4b1!4m6!3m5!1s0x8428ae6fe52fa9d7:0x9dd1c6856b5e381e!8m2!3d20.6748743!4d-103.3923287!16s%2Fg%2F11b75jbdvh?entry=ttu"
                           target="_blank"
                           rel="noreferrer"
@@ -171,15 +171,15 @@ export default function Cv() {
               </div>
             </div>
 
-            <div className="job1 jobs">
-              <div className="header-jobs">
+            <div className={`${styles.job1} ${styles.jobs}`}>
+              <div className={styles.headerJobs}>
                 <h3>HCL Technologies </h3>
-                <span className="job-position">Underwriter</span>{' '}
-                <span className="section2-dates">2/23 - 2/25</span>
+                <span className={styles.jobPosition}>Underwriter</span>{' '}
+                <span className={styles.section2Dates}>2/23 - 2/25</span>
               </div>
 
-              <div className="content-jobs">
-                <p className="main-tasks">Main tasks</p>
+              <div className={styles.contentJobs}>
+                <p className={styles.mainTasks}>Main tasks</p>
                 <ul>
                   <li>
                     review financial profiles for a USA bank, to determine if it
@@ -220,8 +220,8 @@ export default function Cv() {
                   </li>
                 </ul>
 
-                <p className="contat-info">Location</p>
-                <div className="contact-div">
+                <p className={styles.contatInfo}>Location</p>
+                <div className={styles.contactDiv}>
                   <div>
                     <span>
                       <svg
@@ -243,7 +243,7 @@ export default function Cv() {
                       </svg>
                       <span>
                         <a
-                          className="contact-link"
+                          className={styles.contactLink}
                           href="https://www.google.com/maps/place/HCL+Mexico/@20.6748743,-103.3949036,17z/data=!3m1!4b1!4m6!3m5!1s0x8428ae6fe52fa9d7:0x9dd1c6856b5e381e!8m2!3d20.6748743!4d-103.3923287!16s%2Fg%2F11b75jbdvh?entry=ttu"
                           target="_blank"
                           rel="noreferrer"
@@ -259,7 +259,7 @@ export default function Cv() {
           </div>
         </div>
 
-        <div className="education">
+        <div className={styles.education}>
           <div>
             <h2>Education / Certifications</h2>
             <h3>High School Diploma</h3>
@@ -267,14 +267,14 @@ export default function Cv() {
               target="_blank"
               rel="noreferrer"
               href="https://www.google.com.mx/maps/place/UNE+Tonal%C3%A1/@20.6307716,-103.244323,17.79z/data=!4m6!3m5!1s0x8428b460bebd5689:0x68278f71b14b2dc!8m2!3d20.6318207!4d-103.2446157!16s%2Fg%2F11d_y58xxn?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D"
-              className="high-school"
+              className={styles.highSchool}
             >
               UNE UNIVERSITY - 45400, Av. Tonaltecas 333, El Zapote, Tonalá,
               Jal.{' '}
             </a>
           </div>
           <div>
-            <div className="Certifications">
+            <div className={styles.certifications}>
               <h3>Certifications</h3>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -293,7 +293,7 @@ export default function Cv() {
               </svg>
               <h4>EPAM Systems</h4>
               <div>
-                <ul className="ul-skills ul-skills1">
+                <ul className={`${styles.ulSkills} ${styles.ulSkills1}`}>
                   <li>
                     <a
                       href="https://certificates.epam.com/certificates/a7e2ad55-80df-4196-a09d-ab329003ed45"
@@ -345,7 +345,7 @@ export default function Cv() {
               </svg>
               <h4>FreeCodeCamp</h4>
               <div>
-                <ul className="ul-skills ul-skills1">
+                <ul className={`${styles.ulSkills} ${styles.ulSkills1}`}>
                   <li>
                     <a
                       href="https://freecodecamp.org/certification/ITSECT3R/responsive-web-design"
@@ -412,7 +412,7 @@ export default function Cv() {
               </svg>
               <h4>AWS</h4>
               <div>
-                <ul className="ul-skills ul-skills1">
+                <ul className={`${styles.ulSkills} ${styles.ulSkills1}`}>
                   <li>
                     <a
                       href="https://www.credly.com/badges/41e411cb-ea32-47c5-8ec9-1258517f4963/linked_in_profile"
@@ -433,7 +433,7 @@ export default function Cv() {
                 href="https://www.linkedin.com/in/luis-angel-m-084449165/details/certifications/"
                 target="_blank"
                 rel="noreferrer"
-                className="high-school link-all-certifications"
+                className={`${styles.highSchool} ${styles.linkAllCertifications}`}
               >
                 click here to visit my linkedin to view all my certifications :D
               </a>

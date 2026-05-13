@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../../styles/cv.module.css';
 import {
   programmingSkills,
   frontendSkills,
@@ -26,7 +27,7 @@ export const SideBar = () => {
   ];
 
   return (
-    <div className="side-bar">
+    <div className={styles.sideBar}>
       <div>
         <a
           href="https://github.com/ITSECT3R"
@@ -36,15 +37,15 @@ export const SideBar = () => {
           <img
             src="/profile-picture.jpg"
             alt="Profile"
-            className="profile-img"
+            className={styles.profileImg}
           />
         </a>
       </div>
       <div>
-        <h2 className="h2-name">Luis Angel Marin Rodriguez</h2>
+        <h2 className={styles.h2Name}>Luis Angel Marin Rodriguez</h2>
       </div>
 
-      <div className="skills">
+      <div className={styles.skills}>
         <h3>Skills</h3>
         {skills.map(skillSet => (
           <React.Fragment key={skillSet.category}>
@@ -58,10 +59,10 @@ export const SideBar = () => {
         ))}
       </div>
 
-      <div className="contacts">
+      <div className={styles.contacts}>
         <h3>Contact</h3>
         {contacts.map(contact => (
-          <div key={contact.name} className="contact-divs">
+          <div key={contact.name} className={styles.contactDivs}>
             <a href={contact.link} target="_blank" rel="noopener noreferrer">
               {contact.svg}
               <p>{contact.name}</p>
@@ -72,7 +73,7 @@ export const SideBar = () => {
 
       <button
         id="download-btn"
-        className="download-cv"
+        className={styles.downloadCv}
         onClick={downloadCV}
         disabled={isDownloading}
       >

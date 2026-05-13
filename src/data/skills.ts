@@ -36,6 +36,7 @@ export const testingAndQA = {
     'Jest',
     'Mocha',
     'Chai',
+    'Cucumber',
     'Prettier',
     'Eslint',
     'SDLC / STLC',

@@ -2,8 +2,7 @@ export const jobs = [
   {
     company: 'Nielsen',
     position: 'Full-Stack QA',
-    startDate: '8/25',
-    endDate: 'Present',
+    dates: '8/25 - Present',
     location: 'Hybrid - Guadalajara, Jalisco',
     responsibilities: [
       'Verify Data collection and quality assurance processes. Audit SQL Data collected to guarantee accuracy and completeness.',
@@ -16,8 +15,7 @@ export const jobs = [
   {
     company: 'Outlier',
     position: 'Full-Stack Developer',
-    startDate: '2/24',
-    endDate: '8/25',
+    dates: '2/24 - 8/25', 
     location: 'Remote - Guadalajara, Jalisco',
     responsibilities: [
       'Review AI generated code to ensure it meets the standards of the company, and make sure it is functional.',
@@ -31,8 +29,7 @@ export const jobs = [
   {
     company: 'HCL Technologies',
     position: 'Underwriter',
-    startDate: '2/23',
-    endDate: '2/25',
+    dates: '2/23 - 2/25',
     location: 'Minerva Av Vallarta - Guadalajara, Jalisco',
     responsibilities: [
       'review financial profiles for a USA bank, to determine if it would be best to approve or decline credit inquiries for cars, recreational vehicles, boats or cash.',

@@ -11,7 +11,7 @@ import {
   softSkills,
 } from '../../data/skills.ts';
 import { contacts } from '../../data/contacts.tsx';
-import { useDownloadCV } from '../../hooks/home/useDownloadCV';
+import { useDownloadCV } from '../../hooks/home/useDownloadCV.ts';
 
 export const SideBar = () => {
   const { downloadCV, isDownloading } = useDownloadCV();

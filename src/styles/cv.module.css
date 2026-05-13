@@ -259,8 +259,11 @@
 }
 
 .contactDiv {
-  margin-bottom: 30px;
   display: flex;
+}
+
+.locationIcon {
+  color: rgb(68, 255, 0);
 }
 
 .contentJobs svg {
@@ -272,7 +275,6 @@
 }
 
 .contentJobs span {
-  margin-right: 20px;
   font-size: 1rem;
   font-weight: 700;
 }

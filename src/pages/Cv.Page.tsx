@@ -2,6 +2,8 @@ import styles from '../styles/cv.module.css';
 import { SideBar, Experience } from '../components/cv/index';
 import usePageBackground from '../hooks/usePageBackground';
 import { Certifications } from '../components/cv/certifications.Component';
+import { jobs } from '../data';
+import { certifications, linkedin } from '../data';
 
 export default function Cv() {
   usePageBackground('cv', 'linear-gradient(120deg,#071013,#0f2b2b)');
@@ -26,8 +28,8 @@ export default function Cv() {
             continuous improvement.
           </p>
         </div>
-        <Experience />
-        <Certifications />
+        <Experience jobs={jobs} />
+        <Certifications certifications={certifications} linkedin={linkedin} />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 import { EpamSystems, FreeCodeCamp, AWS } from '../components/common/icons';
 
+export const linkedin = 'https://www.linkedin.com/in/luis-angel-m-084449165/details/certifications/'
+
 export const certifications = [
   {
     issuer: 'EPAM Systems',
@@ -60,3 +62,5 @@ export const certifications = [
     ],
   },
 ];
+
+

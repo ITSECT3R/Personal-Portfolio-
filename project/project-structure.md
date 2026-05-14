@@ -1,6 +1,6 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: May 13, 2026
+Last Updated: May 14, 2026
 
 ## Root Directory
 
@@ -37,7 +37,10 @@ Personal-Portfolio/
 │   │   │   └── NavBar.tsx   # Navigation bar component
 │   │   │
 │   │   ├── cv/        
-│   │   │   └── sideBar.tsx  
+│   │   │   ├── certifications.Component.tsx  
+│   │   │   ├── experience.Component.tsx      
+│   │   │   ├── index.ts                       # Barrel export
+│   │   │   └── sideBar.Component.tsx         
 │   │   │
 │   │   ├── projects/  
 │   │   │   └── ProjectCard.tsx   # Project card component
@@ -73,7 +76,7 @@ Personal-Portfolio/
 │   │   └── Skills.Page.tsx      
 │   │
 │   ├── styles/      
-│   │   ├── borders/         
+│   │   ├── borders/               
 │   │   │   ├── effects/    
 │   │   │   │   ├── dots.css         
 │   │   │   │   ├── dual-spin.css    
@@ -92,7 +95,7 @@ Personal-Portfolio/
 │   │   │   ├── base.css    
 │   │   │   └── index.ts     # Barrel export
 │   │   │
-│   │   ├── text/            
+│   │   ├── text/                  
 │   │   │   ├── effects/    
 │   │   │   │   ├── glitch.css      
 │   │   │   │   ├── index.css        # Barrel import for styles
@@ -107,11 +110,11 @@ Personal-Portfolio/
 │   │   │   ├── base.css    
 │   │   │   └── index.ts     # Barrel export
 │   │   │
-│   │   ├── cv.module.css    
-│   │   ├── experience.css    # Experience page styles
-│   │   ├── home.module.css  
-│   │   ├── projects.css      # Projects page styles
-│   │   └── skills.css        # Skills page styles
+│   │   ├── cv.module.css          
+│   │   ├── experience.module.css  
+│   │   ├── home.module.css        
+│   │   ├── projects.module.css    
+│   │   └── skills.module.css      
 │   │
 │   ├── types/       
 │   │   └── project.ts  

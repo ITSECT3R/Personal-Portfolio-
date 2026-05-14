@@ -325,6 +325,8 @@
 }
 
 .certifications svg {
+  height: 45px;
+  width: 45px;
   display: inline;
   margin-bottom: -15px;
   margin-right: 20px;
@@ -340,7 +342,6 @@
 .ulSkills li {
   font-size: 1.7rem;
   font-weight: 700;
-  margin-bottom: 15px;
   color: #ffe600;
   text-shadow:
     0 0 3px #000000,
@@ -348,7 +349,7 @@
 }
 
 .ulSkills1 {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .ulSkills1 a {
@@ -369,5 +370,5 @@
   font-size: 1rem;
   display: block;
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }

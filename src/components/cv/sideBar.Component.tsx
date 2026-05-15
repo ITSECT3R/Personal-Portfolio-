@@ -1,30 +1,15 @@
 import React from 'react';
-import styles from '../../styles/cv.module.css';
-import {
-  programmingSkills,
-  frontendSkills,
-  backendAndDatabase,
-  testingAndQA,
-  devOpsAndCICD,
-  cloudPlatforms,
-  developmentTools,
-  softSkills,
-} from '../../data/skills.ts';
-import { contacts } from '../../data/contacts.tsx';
+import styles from '../../styles/cv/sidebar.module.css';
 import { useDownloadCV } from '../../hooks/home/useDownloadCV.ts';
+import type { SkillSet, ContactItem } from '../../types/cv';
 
-export const SideBar = () => {
+type Props = {
+  skills: SkillSet[];
+  contacts: ContactItem[];
+};
+
+export const SideBar = ({ skills, contacts }: Props) => {
   const { downloadCV, isDownloading } = useDownloadCV();
-  const skills = [
-    programmingSkills,
-    frontendSkills,
-    backendAndDatabase,
-    testingAndQA,
-    devOpsAndCICD,
-    cloudPlatforms,
-    developmentTools,
-    softSkills,
-  ];
 
   return (
     <div className={styles.sideBar}>

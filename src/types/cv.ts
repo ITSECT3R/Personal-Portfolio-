@@ -3,11 +3,14 @@ export interface Job {
   company: string;
   position: string;
   date?: string;
+  dates?: string;
   startDate?: string;
   endDate?: string;
   location?: string;
   responsibilities: string[];
 }
+
+import type { ReactElement } from 'react';
 
 export interface Certificate {
   name: string;
@@ -16,6 +19,17 @@ export interface Certificate {
 
 export interface CertificationIssuer {
   issuer: string;
-  svg?: any;
+  svg?: ReactElement | null;
   certificates: Certificate[];
+}
+
+export interface SkillSet {
+  category: string;
+  skills: string[];
+}
+
+export interface ContactItem {
+  svg: ReactElement | null;
+  name: string;
+  link: string;
 }

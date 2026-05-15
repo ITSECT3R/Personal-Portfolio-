@@ -1,0 +1,65 @@
+.education {
+  text-align: left;
+}
+
+.education h3 {
+  font-size: 1.4rem;
+  text-shadow:
+    1px 1px 2px rgb(81, 255, 0),
+    0 0 10px rgb(43, 0, 255),
+    0 0 5px rgb(0, 244, 8);
+}
+
+.education a {
+  font-size: initial;
+  font-weight: 600;
+}
+
+.certifications svg {
+  height: 45px;
+  width: 45px;
+  display: inline;
+  margin-bottom: -15px;
+  margin-right: 20px;
+}
+
+.certifications h4 {
+  display: inline;
+  font-size: 1.6rem;
+  color: #ffe600;
+  text-shadow: 0 0 3px #000;
+}
+
+.ulSkills li {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffe600;
+  text-shadow:
+    0 0 3px #000000,
+    0 0 15px rgb(255, 13, 0);
+}
+
+.ulSkills1 {
+  margin-bottom: 10px;
+}
+
+.ulSkills1 a {
+  color: #d9ff00;
+  text-decoration: none;
+  text-shadow:
+    0 0 3px #000000,
+    0 0 15px rgb(0, 255, 4);
+  transition: 0.3s ease-in-out;
+}
+
+.ulSkills1 a:hover {
+  color: #ffbf00;
+  margin-left: 10px;
+}
+
+.linkAllCertifications {
+  font-size: 1rem;
+  display: block;
+  text-align: center;
+  margin: 2rem 0;
+}

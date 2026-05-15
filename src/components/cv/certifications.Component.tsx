@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "../../styles/cv.module.css";
+import styles from "../../styles/cv/certifications.module.css";
 import type { CertificationIssuer } from '../../types/cv';
 
 type Props = {
@@ -24,9 +23,9 @@ export const Certifications = ({ certifications, linkedin }: Props) => {
       </div>
       <div>
         <div className={styles.certifications}>
+          <h3>Certifications</h3>
           {certifications.map((certification) => (
             <div key={certification.issuer}>
-              <h3>Certifications</h3>
               {certification.svg}
               <h4>{certification.issuer}</h4>
               <div>

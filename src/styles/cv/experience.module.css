@@ -1,0 +1,108 @@
+.jobs {
+  border-bottom: #000000 solid 5px;
+}
+
+.workHistory span {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.headerJobs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerJobs h3 {
+  font-size: 1.4rem;
+  text-shadow:
+    1px 1px 2px rgb(81, 255, 0),
+    0 0 10px rgb(43, 0, 255),
+    0 0 5px rgb(0, 244, 8);
+}
+
+.jobPosition {
+  font-weight: 800;
+  margin-left: 20px;
+  text-shadow:
+    1px 1px 2px rgb(0, 0, 0),
+    0 0 10px rgb(43, 0, 255),
+    0 0 5px rgb(0, 30, 255);
+  color: #ff9500;
+}
+
+.section2Dates {
+  color: #ffaa00;
+  font-weight: 800;
+}
+
+.mainTasks {
+  font-size: 1rem;
+  font-weight: 700;
+  text-shadow:
+    0 0 1px rgb(0, 0, 0),
+    0 0 2px rgb(239, 247, 0),
+    0 0 2px rgb(174, 255, 0);
+  margin-top: 0;
+}
+
+.contentJobs ul {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  line-height: 1.3rem;
+}
+
+.contentJobs li {
+  margin-bottom: 15px;
+  text-shadow:
+    0 0 1px rgb(0, 0, 0),
+    0 0 2px rgb(170, 0, 255),
+    0 0 2px rgb(0, 30, 255);
+}
+
+.contactDiv {
+  display: flex;
+}
+.contactDiv p {
+  font-size: .8rem;
+  font-weight: 700;
+  margin-left: 10px;
+  text-shadow:
+    0 0 1px rgb(0, 0, 0),
+    0 0 2px rgb(170, 0, 255),
+    0 0 2px rgb(0, 30, 255);
+}
+
+.locationIcon {
+  color: rgb(68, 255, 0);
+}
+
+.contentJobs svg {
+  margin-right: 10px;
+  position: relative;
+  top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.contentJobs span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.contentJobs a {
+  font-weight: 600;
+}
+
+.contactInfo {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-shadow:
+    0 0 1px rgb(0, 0, 0),
+    0 0 2px rgb(239, 247, 0),
+    0 0 2px rgb(174, 255, 0);
+}

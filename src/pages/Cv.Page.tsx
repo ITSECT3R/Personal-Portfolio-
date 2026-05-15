@@ -1,9 +1,20 @@
-import styles from '../styles/cv.module.css';
+import styles from '../styles/cv/cvPage.module.css';
 import { SideBar, Experience } from '../components/cv/index';
 import usePageBackground from '../hooks/usePageBackground';
 import { Certifications } from '../components/cv/certifications.Component';
 import { jobs } from '../data';
 import { certifications, linkedin } from '../data';
+import {
+  programmingSkills,
+  frontendSkills,
+  backendAndDatabase,
+  testingAndQA,
+  devOpsAndCICD,
+  cloudPlatforms,
+  developmentTools,
+  softSkills,
+} from '../data';
+import { contacts } from '../data';
 
 export default function Cv() {
   usePageBackground('cv', 'linear-gradient(120deg,#071013,#0f2b2b)');
@@ -11,7 +22,19 @@ export default function Cv() {
   return (
     <div className={styles.cvPage}>
       {/* Left Side */}
-      <SideBar />
+      <SideBar
+        skills={[
+          programmingSkills,
+          frontendSkills,
+          backendAndDatabase,
+          testingAndQA,
+          devOpsAndCICD,
+          cloudPlatforms,
+          developmentTools,
+          softSkills,
+        ]}
+        contacts={contacts}
+      />
 
       {/* Right Side */}
       <div className={styles.divRight}>

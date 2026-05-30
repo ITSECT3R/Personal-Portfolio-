@@ -1,16 +1,13 @@
+import type { ReactElement } from 'react';
+
 export interface Job {
   id?: string;
   company: string;
   position: string;
-  date?: string;
-  dates?: string;
-  startDate?: string;
-  endDate?: string;
+  displayDate: string;
   location?: string;
   responsibilities: string[];
 }
-
-import type { ReactElement } from 'react';
 
 export interface Certificate {
   name: string;

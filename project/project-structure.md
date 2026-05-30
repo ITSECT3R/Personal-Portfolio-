@@ -1,15 +1,21 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: May 14, 2026
+Last Updated: May 29, 2026
 
 ## Root Directory
 
 ```
 Personal-Portfolio/
 ├── project/            
-│   ├── border-animations.md   # Border styling documentation
-│   ├── project-structure.md   # This file
-│   └── text-animations.md     # Text animation documentation
+│   ├── api-architecture.md     
+│   ├── architecture-plan.md    
+│   ├── border-animations.md     # Border styling documentation
+│   ├── code-review.md          
+│   ├── project-structure.md     # This file
+│   ├── review-cv-refactor.md   
+│   ├── testing-strategy.md     
+│   ├── text-animations.md       # Text animation documentation
+│   └── typescript-strategy.md  
 │
 ├── public/             
 │   ├── CV-Luis-Angel-Marin-Rodriguez_compressed.pdf  
@@ -40,10 +46,12 @@ Personal-Portfolio/
 │   │   │   ├── certifications.Component.tsx  
 │   │   │   ├── experience.Component.tsx      
 │   │   │   ├── index.ts                       # Barrel export
+│   │   │   ├── JobItem.tsx                   
 │   │   │   └── sideBar.Component.tsx         
 │   │   │
 │   │   ├── projects/  
-│   │   │   └── ProjectCard.tsx   # Project card component
+│   │   │   ├── ProjectCard.tsx     # Project card component
+│   │   │   └── ProjectFilter.tsx  
 │   │   │
 │   │   └── shared/    
 │   │       └── SkillBadge.tsx   # Skill badge component
@@ -95,6 +103,16 @@ Personal-Portfolio/
 │   │   │   ├── base.css    
 │   │   │   └── index.ts     # Barrel export
 │   │   │
+│   │   ├── cv/                    
+│   │   │   ├── certifications.module.css  
+│   │   │   ├── cvPage.module.css          
+│   │   │   ├── experience.module.css      
+│   │   │   └── sidebar.module.css         
+│   │   │
+│   │   ├── projects/              
+│   │   │   ├── card.module.css    
+│   │   │   └── filter.module.css  
+│   │   │
 │   │   ├── text/                  
 │   │   │   ├── effects/    
 │   │   │   │   ├── glitch.css      
@@ -110,13 +128,13 @@ Personal-Portfolio/
 │   │   │   ├── base.css    
 │   │   │   └── index.ts     # Barrel export
 │   │   │
-│   │   ├── cv.module.css          
 │   │   ├── experience.module.css  
 │   │   ├── home.module.css        
 │   │   ├── projects.module.css    
 │   │   └── skills.module.css      
 │   │
 │   ├── types/       
+│   │   ├── cv.ts       
 │   │   └── project.ts  
 │   │
 │   ├── utils/       
@@ -128,6 +146,7 @@ Personal-Portfolio/
 │   ├── main.tsx      # Application entry point
 │   └── routes.tsx    # Route configuration (lazy loading)
 │
+├── CLAUDE.md           
 ├── eslint.config.js     # ESLint configuration (flat config)
 ├── index.html           # Entry HTML file
 ├── package.json         # NPM dependencies and scripts

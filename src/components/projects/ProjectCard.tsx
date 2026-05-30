@@ -1,0 +1,158 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import type { Project } from '../../types/project';
+import styles from '../../styles/projects/card.module.css';
+
+// Threshold: at or below this number, badges sit static. Above it they marquee.
+const MARQUEE_THRESHOLD = 5;
+
+type Props = {
+  project: Project;
+};
+
+export function ProjectCard({ project }: Props) {
+  const [imageIndex, setImageIndex] = useState(0);
+  const [overlayOpen, setOverlayOpen] = useState(false);
+
+  const hasMultipleImages = project.imageUrl.length > 1;
+  const hasImage = project.imageUrl.length > 0;
+  const shouldMarquee = project.technologies.length > MARQUEE_THRESHOLD;
+  const kindClass = project.kind === 'demo' ? styles.demo : styles.project;
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setImageIndex(i => (i === 0 ? project.imageUrl.length - 1 : i - 1));
+  };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setImageIndex(i => (i === project.imageUrl.length - 1 ? 0 : i + 1));
+  };
+
+  const toggleOverlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setOverlayOpen(open => !open);
+  };
+
+  return (
+    <article
+      className={`${styles.card} ${kindClass} ${overlayOpen ? styles.overlayOpen : ''} border-effect border-dual-spin border-hover-only`}
+    >
+      <div className={styles.cardInner}>
+      {/* ── Image section ──────────────────────────────────────────── */}
+      <div className={styles.imageSection}>
+        {hasImage ? (
+          <img
+            src={project.imageUrl[imageIndex]}
+            alt={`${project.title} screenshot ${imageIndex + 1}`}
+            className={styles.image}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder} aria-hidden="true">
+            {project.title[0]}
+          </div>
+        )}
+
+        {hasMultipleImages && (
+          <>
+            <button
+              className={`${styles.carouselBtn} ${styles.carouselBtnPrev}`}
+              onClick={prevImage}
+              aria-label="Previous screenshot"
+            >
+              ‹
+            </button>
+            <button
+              className={`${styles.carouselBtn} ${styles.carouselBtnNext}`}
+              onClick={nextImage}
+              aria-label="Next screenshot"
+            >
+              ›
+            </button>
+            <div className={styles.dots} aria-hidden="true">
+              {project.imageUrl.map((_, i) => (
+                <span
+                  key={i}
+                  className={`${styles.dot} ${i === imageIndex ? styles.dotActive : ''}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* ── Footer ─────────────────────────────────────────────────── */}
+      <div className={styles.footer}>
+        <h3 className={styles.title}>{project.title}</h3>
+
+        <div className={styles.techWrapper}>
+          <div
+            className={`${styles.techTrack} ${shouldMarquee ? styles.techAnimate : ''}`}
+          >
+            {project.technologies.map(tech => (
+              <span key={tech} className={styles.techBadge}>
+                {tech}
+              </span>
+            ))}
+            {/* Duplicate for seamless marquee loop */}
+            {shouldMarquee &&
+              project.technologies.map(tech => (
+                <span
+                  key={`${tech}-dup`}
+                  className={styles.techBadge}
+                  aria-hidden="true"
+                >
+                  {tech}
+                </span>
+              ))}
+          </div>
+        </div>
+
+        {/* Info toggle — always visible, drives mobile overlay */}
+        <button
+          className={styles.infoToggle}
+          onClick={toggleOverlay}
+          aria-label={overlayOpen ? 'Hide project details' : 'Show project details'}
+          aria-expanded={overlayOpen}
+        >
+          <span
+            className={`${styles.infoArrow} ${overlayOpen ? styles.infoArrowOpen : ''}`}
+          >
+            ↑
+          </span>
+        </button>
+      </div>
+
+      {/* ── Overlay ─────────────────────────────────────────────────── */}
+      <div className={styles.overlay} aria-hidden={!overlayOpen}>
+        <p className={styles.summary}>{project.summary}</p>
+        <div className={styles.overlayLinks}>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              Live Demo
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              GitHub
+            </a>
+          )}
+          <Link to={`/projects/${project.slug}`} className={`${styles.link} ${styles.linkDetails}`}>
+            Details →
+          </Link>
+        </div>
+      </div>
+      </div> {/* cardInner */}
+    </article>
+  );
+}

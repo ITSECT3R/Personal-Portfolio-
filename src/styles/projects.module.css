@@ -1,0 +1,25 @@
+.page {
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.empty {
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 0.95rem;
+}

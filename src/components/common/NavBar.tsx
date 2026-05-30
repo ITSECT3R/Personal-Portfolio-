@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { HomeIcon, ExperienceIcon, ProjectsIcon, SkillsIcon } from './icons';
+import { HomeIcon, ProjectsIcon, SkillsIcon } from './icons';
 import { getActiveClass, ROUTES } from '../../utils/navigation';
 import './NavBar.css';
 
@@ -14,12 +14,6 @@ export default function NavBar() {
         className={`nav-button nav-button-home ${getActiveClass(currentPath, ROUTES.HOME)}`}
       >
         <HomeIcon className="nav-icon" />
-      </Link>
-      <Link
-        to={ROUTES.EXPERIENCE}
-        className={`nav-button nav-button-experience ${getActiveClass(currentPath, ROUTES.EXPERIENCE)}`}
-      >
-        <ExperienceIcon className="nav-icon" />
       </Link>
       <Link
         to={ROUTES.PROJECTS}

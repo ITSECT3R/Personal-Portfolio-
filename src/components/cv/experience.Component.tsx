@@ -12,10 +12,7 @@ export const Experience = ({ jobs }: Props) => {
       <h2>Experience</h2>
       <div className={styles.workHistory}>
         {jobs.map(job => {
-          const date = job.dates ?? job.date ?? (
-            job.startDate && job.endDate ? `${job.startDate} - ${job.endDate}` : (job.startDate ?? job.endDate ?? '')
-          );
-          const key = job.id ?? `${job.company}-${job.position || ''}-${date}`;
+          const key = job.id ?? `${job.company}-${job.position}-${job.displayDate}`;
 
           return <JobItem key={key} job={job} />;
         })}

@@ -1,8 +1,10 @@
-export const jobs = [
+import type { Job } from '../types/cv';
+
+export const jobs: Job[] = [
   {
     company: 'Nielsen',
     position: 'Full-Stack QA',
-    dates: '8/25 - Present',
+    displayDate: '8/25 - Present',
     location: 'Hybrid - Guadalajara, Jalisco',
     responsibilities: [
       'Verify Data collection and quality assurance processes. Audit SQL Data collected to guarantee accuracy and completeness.',
@@ -15,7 +17,7 @@ export const jobs = [
   {
     company: 'Outlier',
     position: 'Full-Stack Developer',
-    dates: '2/24 - 8/25', 
+    displayDate: '2/24 - 8/25',
     location: 'Remote - Guadalajara, Jalisco',
     responsibilities: [
       'Review AI generated code to ensure it meets the standards of the company, and make sure it is functional.',
@@ -29,7 +31,7 @@ export const jobs = [
   {
     company: 'HCL Technologies',
     position: 'Underwriter',
-    dates: '2/23 - 2/25',
+    displayDate: '2/23 - 2/25',
     location: 'Minerva Av Vallarta - Guadalajara, Jalisco',
     responsibilities: [
       'review financial profiles for a USA bank, to determine if it would be best to approve or decline credit inquiries for cars, recreational vehicles, boats or cash.',

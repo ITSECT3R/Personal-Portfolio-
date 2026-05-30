@@ -5,9 +5,7 @@ import { LocationIcon } from '../common/icons';
 type Props = { job: Job };
 
 export const JobItem = ({ job }: Props) => {
-  const date = job.dates ?? job.date ?? (
-    job.startDate && job.endDate ? `${job.startDate} - ${job.endDate}` : (job.startDate ?? job.endDate ?? '')
-  );
+  const date = job.displayDate;
 
   return (
     <div className={`${styles.job1} ${styles.jobs}`}>

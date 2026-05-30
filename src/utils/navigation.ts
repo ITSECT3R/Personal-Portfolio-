@@ -32,7 +32,6 @@ export function getActiveClass(
  */
 export const ROUTES = {
   HOME: '/',
-  EXPERIENCE: '/experience',
   PROJECTS: '/projects',
   SKILLS: '/skills',
 } as const;

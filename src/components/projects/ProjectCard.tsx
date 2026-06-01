@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Project } from '../../types/project';
+import { TECH_ICON_MAP } from '../common/icons/tech';
 import styles from '../../styles/projects/card.module.css';
 
 // Threshold: at or below this number, badges sit static. Above it they marquee.
-const MARQUEE_THRESHOLD = 5;
+// Icons are ~4× narrower than text pills so the threshold is raised accordingly.
+const MARQUEE_THRESHOLD = 8;
 
 type Props = {
   project: Project;
@@ -89,22 +91,36 @@ export function ProjectCard({ project }: Props) {
           <div
             className={`${styles.techTrack} ${shouldMarquee ? styles.techAnimate : ''}`}
           >
-            {project.technologies.map(tech => (
-              <span key={tech} className={styles.techBadge}>
-                {tech}
-              </span>
-            ))}
-            {/* Duplicate for seamless marquee loop */}
-            {shouldMarquee &&
-              project.technologies.map(tech => (
-                <span
-                  key={`${tech}-dup`}
-                  className={styles.techBadge}
-                  aria-hidden="true"
-                >
+            {project.technologies.map(tech => {
+              const IconComponent = TECH_ICON_MAP[tech];
+              return IconComponent ? (
+                <span key={tech} className={styles.techBadge} title={tech} aria-label={tech}>
+                  <IconComponent width={20} height={20} />
+                </span>
+              ) : (
+                <span key={tech} className={`${styles.techBadge} ${styles.techBadgeFallback}`}>
                   {tech}
                 </span>
-              ))}
+              );
+            })}
+            {/* Duplicate for seamless marquee loop */}
+            {shouldMarquee &&
+              project.technologies.map(tech => {
+                const IconComponent = TECH_ICON_MAP[tech];
+                return IconComponent ? (
+                  <span key={`${tech}-dup`} className={styles.techBadge} aria-hidden="true">
+                    <IconComponent width={20} height={20} />
+                  </span>
+                ) : (
+                  <span
+                    key={`${tech}-dup`}
+                    className={`${styles.techBadge} ${styles.techBadgeFallback}`}
+                    aria-hidden="true"
+                  >
+                    {tech}
+                  </span>
+                );
+              })}
           </div>
         </div>
 

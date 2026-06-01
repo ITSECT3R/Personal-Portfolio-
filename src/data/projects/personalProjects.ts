@@ -11,7 +11,7 @@ export const personalProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'React'],
     imageUrl: ['/personal-pictures/Picture-2-portfolio.webp'],
     githubUrl: 'https://github.com/ITSECT3R/E-commerce-Artes-Sacro',
     liveUrl: 'https://itsect3r.github.io/E-commerce-Artes-Sacro/',

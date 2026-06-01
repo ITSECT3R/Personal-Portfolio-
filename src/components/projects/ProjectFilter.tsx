@@ -1,33 +1,36 @@
-import type { ProjectCategory, ProjectKind } from '../../types/project';
+import type { FilterState } from '../../hooks/projects/useProjectFilters';
+import { MultiSelectDropdown } from './MultiSelectDropdown';
 import styles from '../../styles/projects/filter.module.css';
 
-export type FilterState = {
-  kind: ProjectKind | 'all';
-  category: ProjectCategory | 'all';
-  language: string | 'all';
-};
+const KIND_OPTIONS = [
+  { value: 'all', label: 'All' },
+  { value: 'demo', label: 'Demos' },
+  { value: 'project', label: 'Projects' },
+] as const;
+
+const CATEGORY_OPTIONS = [
+  { value: 'all', label: 'All' },
+  { value: 'frontend', label: 'Front-End' },
+  { value: 'backend', label: 'Back-End' },
+  { value: 'fullstack', label: 'Full Stack' },
+] as const;
 
 type Props = {
   languages: string[];
+  technologies: string[];
   filter: FilterState;
   onChange: (next: FilterState) => void;
 };
 
-export function ProjectFilter({ languages, filter, onChange }: Props) {
+export function ProjectFilter({ languages, technologies, filter, onChange }: Props) {
   const set = <K extends keyof FilterState>(key: K, value: FilterState[K]) =>
     onChange({ ...filter, [key]: value });
 
   return (
     <div className={styles.filterBar}>
-      {/* Kind */}
+      {/* Kind — single-select pills */}
       <div className={styles.group}>
-        {(
-          [
-            { value: 'all', label: 'All' },
-            { value: 'demo', label: 'Demos' },
-            { value: 'project', label: 'Projects' },
-          ] as const
-        ).map(({ value, label }) => {
+        {KIND_OPTIONS.map(({ value, label }) => {
           const isActive = filter.kind === value;
           const kindStyle =
             value === 'demo'
@@ -38,6 +41,7 @@ export function ProjectFilter({ languages, filter, onChange }: Props) {
           return (
             <button
               key={value}
+              type="button"
               className={`${styles.pill} ${kindStyle} ${isActive ? styles.pillActive : ''}`}
               onClick={() => set('kind', value)}
               aria-pressed={isActive}
@@ -48,20 +52,14 @@ export function ProjectFilter({ languages, filter, onChange }: Props) {
         })}
       </div>
 
-      {/* Category */}
+      {/* Category — single-select pills */}
       <div className={styles.group}>
-        {(
-          [
-            { value: 'all', label: 'All' },
-            { value: 'frontend', label: 'Front-End' },
-            { value: 'backend', label: 'Back-End' },
-            { value: 'fullstack', label: 'Full Stack' },
-          ] as const
-        ).map(({ value, label }) => {
+        {CATEGORY_OPTIONS.map(({ value, label }) => {
           const isActive = filter.category === value;
           return (
             <button
               key={value}
+              type="button"
               className={`${styles.pill} ${isActive ? styles.pillActive : ''}`}
               onClick={() => set('category', value)}
               aria-pressed={isActive}
@@ -72,22 +70,21 @@ export function ProjectFilter({ languages, filter, onChange }: Props) {
         })}
       </div>
 
-      {/* Language */}
-      <div className={styles.group}>
-        {(['all', ...languages] as const).map(lang => {
-          const isActive = filter.language === lang;
-          return (
-            <button
-              key={lang}
-              className={`${styles.pill} ${isActive ? styles.pillActive : ''}`}
-              onClick={() => set('language', lang)}
-              aria-pressed={isActive}
-            >
-              {lang === 'all' ? 'All Languages' : lang}
-            </button>
-          );
-        })}
-      </div>
+      {/* Languages — multi-select dropdown */}
+      <MultiSelectDropdown
+        label="Languages"
+        options={languages}
+        selected={filter.languages}
+        onChange={next => set('languages', next)}
+      />
+
+      {/* Technologies — multi-select dropdown */}
+      <MultiSelectDropdown
+        label="Technologies"
+        options={technologies}
+        selected={filter.technologies}
+        onChange={next => set('technologies', next)}
+      />
     </div>
   );
 }

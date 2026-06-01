@@ -14,7 +14,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['React', 'Redux', 'Sass', 'Vite', 'ESLint'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-19-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R',
+    githubUrl: 'https://github.com/ITSECT3R/Clock-app-freeCodeCamp',
     liveUrl: 'https://clock-app-freecodecamp.pages.dev/',
   },
   {
@@ -29,7 +29,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['React', 'Redux', 'Sass', 'Vite', 'ESLint'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-18-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R',
+    githubUrl: 'https://github.com/ITSECT3R/Calculator-freeCodeCamp',
     liveUrl: 'https://calculator-freecodecamp.pages.dev/',
   },
   {
@@ -44,7 +44,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['React', 'Redux', 'Vite', 'ESLint'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-17-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R',
+    githubUrl: 'https://github.com/ITSECT3R/Drum-Machine-freeCodeCamp',
     liveUrl: 'https://drum-machine-freecodecamp.pages.dev/',
   },
   {
@@ -59,7 +59,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['React', 'Redux', 'Vite', 'ESLint'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-16-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R',
+    githubUrl: 'https://github.com/ITSECT3R/markdown-previewer',
     liveUrl: 'https://markdown-previewer-bgy.pages.dev/',
   },
   {
@@ -74,7 +74,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['React', 'HTML', 'CSS'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-15-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R',
+    githubUrl: 'https://github.com/ITSECT3R/freeCodeCamp-Quote-Generator',
     liveUrl: 'https://freecodecamp-quote-generator.pages.dev/',
   },
   // ── Data Visualization ───────────────────────────────────────────────
@@ -90,7 +90,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-14-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram/',
   },
@@ -106,7 +106,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-13-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map/',
   },
@@ -122,7 +122,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-12-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-3-Heat-Map',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-3-Heat-Map/',
   },
@@ -138,7 +138,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-11-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph/',
   },
@@ -154,7 +154,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-10-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-1-Bar-Chart',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-1-Bar-Chart/',
   },
@@ -171,7 +171,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-9-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-5-Pokemon-App',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-5-Pokemon-App/',
   },
@@ -187,7 +187,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-8-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-4-Cash-Register',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-4-Cash-Register/',
   },
@@ -203,7 +203,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-7-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-3-Telephone-Number-Validator',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-3-Telephone-Number-Validator/',
   },
@@ -219,7 +219,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-6-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-2-Roman-Numeral-Converter',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-2-Roman-Numeral-Converter/',
   },
@@ -235,7 +235,7 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['HTML', 'CSS', 'JavaScript'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-5-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-1-Palindrome-Checker',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-1-Palindrome-Checker/',
   },
@@ -252,7 +252,7 @@ export const demoProjects: Project[] = [
     languages: ['CSS', 'HTML'],
     technologies: ['HTML', 'CSS'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-4-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-4-ProductLandingPage',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-4-ProductLandingPage/',
   },
@@ -268,7 +268,7 @@ export const demoProjects: Project[] = [
     languages: ['CSS', 'HTML'],
     technologies: ['HTML', 'CSS'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-3-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-3-TechnicalDocumentationPage',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-3-TechnicalDocumentationPage/',
   },
@@ -284,7 +284,7 @@ export const demoProjects: Project[] = [
     languages: ['CSS', 'HTML'],
     technologies: ['HTML', 'CSS'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-2-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-2-TributePage',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-2-TributePage/',
   },
@@ -300,7 +300,7 @@ export const demoProjects: Project[] = [
     languages: ['CSS', 'HTML'],
     technologies: ['HTML', 'CSS'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-1-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix',
+    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-1-Surveyform',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-1-Surveyform/',
   },

@@ -13,6 +13,6 @@ export const realProjects: Project[] = [
     languages: ['TypeScript', 'CSS'],
     technologies: ['React', 'Vite', 'TypeScript', 'CSS Modules', 'Node.js'],
     imageUrl: [],
-    githubUrl: 'https://github.com/ITSECT3R',
+    githubUrl: 'https://github.com/ITSECT3R/Shadow',
   },
 ];

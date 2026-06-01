@@ -185,14 +185,25 @@
 
 .techBadge {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Technologies with no icon entry — keep the original pill-with-text style */
+.techBadgeFallback {
+  width: auto;
+  height: auto;
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
   font-size: 0.68rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.07);
   color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  white-space: nowrap;
 }
 
 /* ─── Info toggle button (↑ arrow) ───────────────────────────────────── */

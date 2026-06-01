@@ -195,6 +195,20 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Language badges — same dimensions, blue-tinted to distinguish from tech */
+.langBadge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 6px;
+  background: rgba(235, 212, 4, 0.288);
+  border: 1px solid rgba(235, 212, 4, 0.3);
+  box-shadow: 0 0 6px rgba(235, 212, 4, 0.2);
+}
+
 /* Technologies with no icon entry — keep the original pill-with-text style */
 .techBadgeFallback {
   width: auto;
@@ -204,6 +218,20 @@
   font-size: 0.68rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* Language fallback pill — gold glow to match langBadge */
+.langBadgeFallback {
+  width: auto;
+  height: auto;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  background: rgba(235, 212, 4, 0.288);
+  border: 1px solid rgba(235, 212, 4, 0.3);
+  box-shadow: 0 0 6px rgba(235, 212, 4, 0.2);
+  color: rgba(235, 212, 4, 0.9);
 }
 
 /* ─── Info toggle button (↑ arrow) ───────────────────────────────────── */

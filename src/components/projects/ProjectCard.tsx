@@ -18,7 +18,8 @@ export function ProjectCard({ project }: Props) {
 
   const hasMultipleImages = project.imageUrl.length > 1;
   const hasImage = project.imageUrl.length > 0;
-  const shouldMarquee = project.technologies.length > MARQUEE_THRESHOLD;
+  const allBadges = [...project.languages, ...project.technologies];
+  const shouldMarquee = allBadges.length > MARQUEE_THRESHOLD;
   const kindClass = project.kind === 'demo' ? styles.demo : styles.project;
 
   const prevImage = (e: React.MouseEvent) => {
@@ -91,6 +92,20 @@ export function ProjectCard({ project }: Props) {
           <div
             className={`${styles.techTrack} ${shouldMarquee ? styles.techAnimate : ''}`}
           >
+            {/* Languages first — blue-tinted badges */}
+            {project.languages.map(lang => {
+              const IconComponent = TECH_ICON_MAP[lang];
+              return IconComponent ? (
+                <span key={lang} className={styles.langBadge} title={lang} aria-label={lang}>
+                  <IconComponent width={20} height={20} />
+                </span>
+              ) : (
+                <span key={lang} className={`${styles.langBadge} ${styles.langBadgeFallback}`}>
+                  {lang}
+                </span>
+              );
+            })}
+            {/* Technologies after — neutral badges */}
             {project.technologies.map(tech => {
               const IconComponent = TECH_ICON_MAP[tech];
               return IconComponent ? (
@@ -103,24 +118,43 @@ export function ProjectCard({ project }: Props) {
                 </span>
               );
             })}
-            {/* Duplicate for seamless marquee loop */}
-            {shouldMarquee &&
-              project.technologies.map(tech => {
-                const IconComponent = TECH_ICON_MAP[tech];
-                return IconComponent ? (
-                  <span key={`${tech}-dup`} className={styles.techBadge} aria-hidden="true">
-                    <IconComponent width={20} height={20} />
-                  </span>
-                ) : (
-                  <span
-                    key={`${tech}-dup`}
-                    className={`${styles.techBadge} ${styles.techBadgeFallback}`}
-                    aria-hidden="true"
-                  >
-                    {tech}
-                  </span>
-                );
-              })}
+            {/* Duplicate the full combined set for seamless marquee loop */}
+            {shouldMarquee && (
+              <>
+                {project.languages.map(lang => {
+                  const IconComponent = TECH_ICON_MAP[lang];
+                  return IconComponent ? (
+                    <span key={`${lang}-dup`} className={styles.langBadge} aria-hidden="true">
+                      <IconComponent width={20} height={20} />
+                    </span>
+                  ) : (
+                    <span
+                      key={`${lang}-dup`}
+                      className={`${styles.langBadge} ${styles.langBadgeFallback}`}
+                      aria-hidden="true"
+                    >
+                      {lang}
+                    </span>
+                  );
+                })}
+                {project.technologies.map(tech => {
+                  const IconComponent = TECH_ICON_MAP[tech];
+                  return IconComponent ? (
+                    <span key={`${tech}-dup`} className={styles.techBadge} aria-hidden="true">
+                      <IconComponent width={20} height={20} />
+                    </span>
+                  ) : (
+                    <span
+                      key={`${tech}-dup`}
+                      className={`${styles.techBadge} ${styles.techBadgeFallback}`}
+                      aria-hidden="true"
+                    >
+                      {tech}
+                    </span>
+                  );
+                })}
+              </>
+            )}
           </div>
         </div>
 

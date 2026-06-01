@@ -72,7 +72,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['React', 'HTML', 'CSS'],
+    technologies: ['React'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-15-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/freeCodeCamp-Quote-Generator',
     liveUrl: 'https://freecodecamp-quote-generator.pages.dev/',
@@ -88,7 +88,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
+    technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-14-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram',
     liveUrl:
@@ -104,7 +104,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
+    technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-13-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map',
     liveUrl:
@@ -120,7 +120,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
+    technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-12-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-3-Heat-Map',
     liveUrl:
@@ -136,7 +136,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
+    technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-11-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph',
     liveUrl:
@@ -152,7 +152,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['D3.js', 'HTML', 'CSS', 'JavaScript'],
+    technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-10-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-1-Bar-Chart',
     liveUrl:
@@ -169,7 +169,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-9-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-5-Pokemon-App',
     liveUrl:
@@ -185,7 +185,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-8-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-4-Cash-Register',
     liveUrl:
@@ -201,7 +201,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-7-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-3-Telephone-Number-Validator',
     liveUrl:
@@ -217,7 +217,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-6-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-2-Roman-Numeral-Converter',
     liveUrl:
@@ -233,7 +233,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
-    technologies: ['HTML', 'CSS', 'JavaScript'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-5-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-1-Palindrome-Checker',
     liveUrl:
@@ -250,7 +250,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['CSS', 'HTML'],
-    technologies: ['HTML', 'CSS'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-4-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-4-ProductLandingPage',
     liveUrl:
@@ -266,7 +266,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['CSS', 'HTML'],
-    technologies: ['HTML', 'CSS'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-3-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-3-TechnicalDocumentationPage',
     liveUrl:
@@ -282,7 +282,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['CSS', 'HTML'],
-    technologies: ['HTML', 'CSS'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-2-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-2-TributePage',
     liveUrl:
@@ -298,7 +298,7 @@ export const demoProjects: Project[] = [
     kind: 'demo',
     category: 'frontend',
     languages: ['CSS', 'HTML'],
-    technologies: ['HTML', 'CSS'],
+    technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-1-freeCodeCamp.webp'],
     githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-1-Surveyform',
     liveUrl:

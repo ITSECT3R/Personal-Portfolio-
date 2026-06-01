@@ -11,7 +11,7 @@ export const realProjects: Project[] = [
     kind: 'project',
     category: 'fullstack',
     languages: ['TypeScript', 'CSS'],
-    technologies: ['React', 'Vite', 'TypeScript', 'CSS Modules', 'Node.js'],
+    technologies: ['React', 'Vite', 'Node.js'],
     imageUrl: [],
     githubUrl: 'https://github.com/ITSECT3R/Shadow',
   },

@@ -142,6 +142,15 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 
 ---
 
+## Projects Section
+
+- Data split across `src/data/projects/` — `realProjects.ts`, `personalProjects.ts`, `demoProjects.ts`
+- Filters are data-driven: adding a value to any project's `languages` or `technologies` array automatically adds it to the filter dropdowns — no filter code changes needed
+- `languages` = programming languages only; `technologies` = frameworks, libraries, APIs, tools
+- See `project/projects-page-architecture.md` for full conventions, data model, and how to extend filters
+
+---
+
 ## Testing Strategy (not yet implemented)
 
 - **Unit tests:** Vitest — domain types, util functions, hooks in isolation

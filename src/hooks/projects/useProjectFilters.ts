@@ -2,10 +2,13 @@ import { useMemo, useState } from 'react';
 import type { ProjectCategory, ProjectKind } from '../../types/project';
 import { projects } from '../../data/projects';
 import { filterProjects } from '../../utils/filterProjects';
+import { KIND_LABEL_MAP, CATEGORY_LABEL_MAP } from '../../utils/projectLabels';
 
 export type FilterState = {
-  kind: ProjectKind | 'all';
-  category: ProjectCategory | 'all';
+  /** OR multi-select — empty means "no kind filter applied" */
+  kinds: ProjectKind[];
+  /** OR multi-select — empty means "no category filter applied" */
+  categories: ProjectCategory[];
   /** OR multi-select — empty means "no language filter applied" */
   languages: string[];
   /** OR multi-select — empty means "no technology filter applied" */
@@ -13,14 +16,32 @@ export type FilterState = {
 };
 
 export const DEFAULT_FILTER: FilterState = {
-  kind: 'all',
-  category: 'all',
+  kinds: [],
+  categories: [],
   languages: [],
   technologies: [],
 };
 
 export function useProjectFilters() {
   const [filter, setFilter] = useState<FilterState>(DEFAULT_FILTER);
+
+  // Derive available options from actual data — only values present in at least
+  // one project appear in the dropdowns. Sort by label for consistent ordering.
+  const allKinds = useMemo(
+    () =>
+      ([...new Set(projects.map(p => p.kind))] as ProjectKind[]).sort((a, b) =>
+        KIND_LABEL_MAP[a].localeCompare(KIND_LABEL_MAP[b]),
+      ),
+    [],
+  );
+
+  const allCategories = useMemo(
+    () =>
+      ([...new Set(projects.map(p => p.category))] as ProjectCategory[]).sort((a, b) =>
+        CATEGORY_LABEL_MAP[a].localeCompare(CATEGORY_LABEL_MAP[b]),
+      ),
+    [],
+  );
 
   const allLanguages = useMemo(
     () => [...new Set(projects.flatMap(p => p.languages))].sort(),
@@ -40,6 +61,8 @@ export function useProjectFilters() {
     filter,
     setFilter,
     filtered,
+    allKinds,
+    allCategories,
     allLanguages,
     allTechnologies,
     resetFilters,

@@ -1,5 +1,11 @@
 export type ProjectKind = 'demo' | 'project';
-export type ProjectCategory = 'frontend' | 'backend' | 'fullstack';
+export type ProjectCategory =
+  | 'frontend'
+  | 'backend'
+  | 'fullstack'
+  | 'devops'
+  | 'testing'
+  | 'networking';
 
 export interface Project {
   id: string;

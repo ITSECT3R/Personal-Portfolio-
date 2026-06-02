@@ -37,9 +37,14 @@ export function ProjectCard({ project }: Props) {
     setOverlayOpen(open => !open);
   };
 
+  const borderClass =
+    project.kind === 'project'
+      ? 'border-effect border-rainbow border-hover-only'
+      : 'border-effect border-dual-spin border-hover-only';
+
   return (
     <article
-      className={`${styles.card} ${kindClass} ${overlayOpen ? styles.overlayOpen : ''} border-effect border-dual-spin border-hover-only`}
+      className={`${styles.card} ${kindClass} ${overlayOpen ? styles.overlayOpen : ''} ${borderClass}`}
     >
       <div className={styles.cardInner}>
       {/* ── Image section ──────────────────────────────────────────── */}

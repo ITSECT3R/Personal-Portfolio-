@@ -6,9 +6,11 @@ type Props = {
   options: string[];
   selected: string[];
   onChange: (next: string[]) => void;
+  /** Optional map of raw option value → display label (e.g. 'frontend' → 'Front-End') */
+  labelMap?: Record<string, string>;
 };
 
-export function MultiSelectDropdown({ label, options, selected, onChange }: Props) {
+export function MultiSelectDropdown({ label, options, selected, onChange, labelMap }: Props) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
@@ -94,7 +96,7 @@ export function MultiSelectDropdown({ label, options, selected, onChange }: Prop
                       className={styles.checkInput}
                     />
                     <span className={styles.checkMark} aria-hidden="true" />
-                    {option}
+                    {labelMap ? (labelMap[option] ?? option) : option}
                   </label>
                 </li>
               );

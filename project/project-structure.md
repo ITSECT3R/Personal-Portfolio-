@@ -1,23 +1,49 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: May 29, 2026
+Last Updated: June 5, 2026
 
 ## Root Directory
 
 ```
 Personal-Portfolio/
 ├── project/            
-│   ├── api-architecture.md     
-│   ├── architecture-plan.md    
-│   ├── border-animations.md     # Border styling documentation
-│   ├── code-review.md          
-│   ├── project-structure.md     # This file
-│   ├── review-cv-refactor.md   
-│   ├── testing-strategy.md     
-│   ├── text-animations.md       # Text animation documentation
-│   └── typescript-strategy.md  
+│   ├── api-architecture.md            
+│   ├── architecture-plan.md           
+│   ├── border-animations.md            # Border styling documentation
+│   ├── code-review.md                 
+│   ├── project-structure.md            # This file
+│   ├── projects-page-architecture.md  
+│   ├── review-cv-refactor.md          
+│   ├── testing-strategy.md            
+│   ├── text-animations.md              # Text animation documentation
+│   └── typescript-strategy.md         
 │
 ├── public/             
+│   ├── freeCodeCamp-pictures/                        
+│   │   ├── Picture-1-freeCodeCamp.webp   
+│   │   ├── Picture-10-freeCodeCamp.webp  
+│   │   ├── Picture-11-freeCodeCamp.webp  
+│   │   ├── Picture-12-freeCodeCamp.webp  
+│   │   ├── Picture-13-freeCodeCamp.webp  
+│   │   ├── Picture-14-freeCodeCamp.webp  
+│   │   ├── Picture-15-freeCodeCamp.webp  
+│   │   ├── Picture-16-freeCodeCamp.webp  
+│   │   ├── Picture-17-freeCodeCamp.webp  
+│   │   ├── Picture-18-freeCodeCamp.webp  
+│   │   ├── Picture-19-freeCodeCamp.webp  
+│   │   ├── Picture-2-freeCodeCamp.webp   
+│   │   ├── Picture-3-freeCodeCamp.webp   
+│   │   ├── Picture-4-freeCodeCamp.webp   
+│   │   ├── Picture-5-freeCodeCamp.webp   
+│   │   ├── Picture-6-freeCodeCamp.webp   
+│   │   ├── Picture-7-freeCodeCamp.webp   
+│   │   ├── Picture-8-freeCodeCamp.webp   
+│   │   └── Picture-9-freeCodeCamp.webp   
+│   │
+│   ├── personal-pictures/                            
+│   │   ├── Picture-1-portfolio.webp  
+│   │   └── Picture-2-portfolio.webp  
+│   │
 │   ├── CV-Luis-Angel-Marin-Rodriguez_compressed.pdf  
 │   ├── profile-picture.jpg                           
 │   └── vite.svg                                       # Vite logo
@@ -50,13 +76,20 @@ Personal-Portfolio/
 │   │   │   └── sideBar.Component.tsx         
 │   │   │
 │   │   ├── projects/  
-│   │   │   ├── ProjectCard.tsx     # Project card component
-│   │   │   └── ProjectFilter.tsx  
+│   │   │   ├── MultiSelectDropdown.tsx  
+│   │   │   ├── ProjectCard.tsx           # Project card component
+│   │   │   └── ProjectFilter.tsx        
 │   │   │
 │   │   └── shared/    
 │   │       └── SkillBadge.tsx   # Skill badge component
 │   │
 │   ├── data/        
+│   │   ├── projects/           
+│   │   │   ├── demoProjects.ts      
+│   │   │   ├── index.ts              # Barrel export
+│   │   │   ├── personalProjects.ts  
+│   │   │   └── realProjects.ts      
+│   │   │
 │   │   ├── certifications.tsx  
 │   │   ├── contacts.tsx        
 │   │   ├── experience.ts       
@@ -69,6 +102,9 @@ Personal-Portfolio/
 │   │   │   ├── calculateAge.ts        
 │   │   │   ├── useAnimateOnScroll.ts  
 │   │   │   └── useDownloadCV.ts       
+│   │   │
+│   │   ├── projects/             
+│   │   │   └── useProjectFilters.ts  
 │   │   │
 │   │   ├── index.ts               # Barrel export
 │   │   └── usePageBackground.ts  
@@ -110,8 +146,9 @@ Personal-Portfolio/
 │   │   │   └── sidebar.module.css         
 │   │   │
 │   │   ├── projects/              
-│   │   │   ├── card.module.css    
-│   │   │   └── filter.module.css  
+│   │   │   ├── card.module.css     
+│   │   │   ├── details.module.css  
+│   │   │   └── filter.module.css   
 │   │   │
 │   │   ├── text/                  
 │   │   │   ├── effects/    
@@ -138,7 +175,9 @@ Personal-Portfolio/
 │   │   └── project.ts  
 │   │
 │   ├── utils/       
-│   │   └── navigation.ts  
+│   │   ├── filterProjects.ts  
+│   │   ├── navigation.ts      
+│   │   └── projectLabels.ts   
 │   │
 │   ├── App.css       # App-level styles
 │   ├── App.tsx       # Root component

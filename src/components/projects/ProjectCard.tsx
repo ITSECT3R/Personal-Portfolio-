@@ -78,9 +78,9 @@ export function ProjectCard({ project }: Props) {
               ›
             </button>
             <div className={styles.dots} aria-hidden="true">
-              {project.imageUrl.map((_, i) => (
+              {project.imageUrl.map((url, i) => (
                 <span
-                  key={i}
+                  key={url}
                   className={`${styles.dot} ${i === imageIndex ? styles.dotActive : ''}`}
                 />
               ))}

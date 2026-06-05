@@ -145,9 +145,11 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 ## Projects Section
 
 - Data split across `src/data/projects/` — `realProjects.ts`, `personalProjects.ts`, `demoProjects.ts`
-- Filters are data-driven: adding a value to any project's `languages` or `technologies` array automatically adds it to the filter dropdowns — no filter code changes needed
+- All four filters (kind, category, languages, technologies) are data-driven multi-select dropdowns — adding a value to any project's arrays updates the dropdowns automatically
+- Display labels for `kind` and `category` live in `src/utils/projectLabels.ts` (`KIND_LABEL_MAP`, `CATEGORY_LABEL_MAP`)
 - `languages` = programming languages only; `technologies` = frameworks, libraries, APIs, tools
-- See `project/projects-page-architecture.md` for full conventions, data model, and how to extend filters
+- Details page (`src/pages/projects/ProjectDetails.tsx`) — hero carousel + content panel with badges, chips, and external links
+- See `project/projects-page-architecture.md` for full conventions, data model, border convention, and how to extend filters
 
 ---
 
@@ -164,10 +166,9 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 
 1. `src/data/experience.ts` exports `jobs` without `Job[]` annotation
 2. `Job` interface has 4 overlapping optional date fields — needs normalization
-3. `src/data/projects.ts` is empty — `export const projects = []` with no type
-4. `calculateAge()` is recomputed on every render in `Home.Page.tsx`
-5. Components in `cv/` still import data directly (partially fixed) — finish container pattern
-6. No tests exist yet
+3. `calculateAge()` is recomputed on every render in `Home.Page.tsx`
+4. Components in `cv/` still import data directly (partially fixed) — finish container pattern
+5. No tests exist yet
 
 ---
 

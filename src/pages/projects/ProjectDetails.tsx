@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import type { CSSProperties } from 'react';
 import { projects } from '../../data/projects';
 import usePageBackground from '../../hooks/usePageBackground';
 import { TECH_ICON_MAP } from '../../components/common/icons/tech';
@@ -47,7 +46,6 @@ export default function ProjectDetails() {
       {/* ── Hero image carousel ────────────────────────────────────── */}
       <div
         className={`${styles.heroOuter} ${heroBorderClass}`}
-        style={{ '--border-effect-radius': '14px' } as CSSProperties}
       >
         <div className={styles.heroInner}>
           {hasImage ? (
@@ -79,9 +77,9 @@ export default function ProjectDetails() {
                 ›
               </button>
               <div className={styles.dots} aria-hidden="true">
-                {project.imageUrl.map((_, i) => (
+                {project.imageUrl.map((url, i) => (
                   <button
-                    key={i}
+                    key={url}
                     className={`${styles.dot} ${i === imageIndex ? styles.dotActive : ''}`}
                     onClick={() => setImageIndex(i)}
                     aria-label={`Screenshot ${i + 1}`}
@@ -101,10 +99,7 @@ export default function ProjectDetails() {
         {/* Title + meta chips */}
         <div className={styles.header}>
           <div className={styles.titleWrapper}>
-            <h1
-              className={`${styles.title} text-effect text-reveal-up is-animated`}
-              style={{ '--text-effect-speed': '0.65s' } as CSSProperties}
-            >
+            <h1 className={`${styles.title} text-effect text-reveal-up is-animated`}>
               {project.title}
             </h1>
           </div>
@@ -181,7 +176,7 @@ export default function ProjectDetails() {
               Live Demo →
             </a>
           )}
-          <Link to="/projects" className={styles.back} style={{ marginLeft: 'auto' }}>
+          <Link to="/projects" className={`${styles.back} ${styles.backInRow}`}>
             ← Back to Projects
           </Link>
         </div>

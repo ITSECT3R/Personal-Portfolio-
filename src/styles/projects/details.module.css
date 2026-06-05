@@ -28,6 +28,11 @@
   color: var(--kind-accent, #4fc3f7);
 }
 
+/* Pushes the back link to the trailing end of the links row */
+.backInRow {
+  margin-left: auto;
+}
+
 /* ─── Hero — outer shell carries the border-effect ───────────────── */
 /* overflow:visible so border ::after is NOT clipped */
 .heroOuter {
@@ -168,8 +173,10 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.15;
-  /* text-reveal-up sets display:inline-block — display is overridden below */
+  /* text-reveal-up sets display:inline-block — override to block */
   display: block !important;
+  /* text animation speed — faster than the default 0.8s */
+  --text-effect-speed: 0.65s;
 }
 
 .meta {

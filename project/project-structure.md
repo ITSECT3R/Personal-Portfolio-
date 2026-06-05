@@ -14,6 +14,7 @@ Personal-Portfolio/
 │   ├── project-structure.md            # This file
 │   ├── projects-page-architecture.md  
 │   ├── review-cv-refactor.md          
+│   ├── skills-page-architecture.md    
 │   ├── testing-strategy.md            
 │   ├── text-animations.md              # Text animation documentation
 │   └── typescript-strategy.md         
@@ -80,24 +81,38 @@ Personal-Portfolio/
 │   │   │   ├── ProjectCard.tsx           # Project card component
 │   │   │   └── ProjectFilter.tsx        
 │   │   │
-│   │   └── shared/    
-│   │       └── SkillBadge.tsx   # Skill badge component
+│   │   ├── shared/    
+│   │   │   └── SkillBadge.tsx   # Skill badge component
+│   │   │
+│   │   └── skills/    
+│   │       ├── CertificationCard.tsx    
+│   │       ├── CertificationFilter.tsx  
+│   │       └── SkillsGrid.tsx           
 │   │
 │   ├── data/        
-│   │   ├── projects/           
+│   │   ├── common/        
+│   │   │   └── certifications/  
+│   │   │       ├── awsCertifications.ts   
+│   │   │       ├── epamCertifications.ts  
+│   │   │       ├── fccCertifications.ts   
+│   │   │       └── index.tsx               # Barrel export for components
+│   │   │
+│   │   ├── projects/      
 │   │   │   ├── demoProjects.ts      
 │   │   │   ├── index.ts              # Barrel export
 │   │   │   ├── personalProjects.ts  
 │   │   │   └── realProjects.ts      
 │   │   │
-│   │   ├── certifications.tsx  
-│   │   ├── contacts.tsx        
-│   │   ├── experience.ts       
-│   │   ├── index.ts             # Barrel export
-│   │   ├── projects.ts          # Project data
-│   │   └── skills.ts           
+│   │   ├── contacts.tsx   
+│   │   ├── experience.ts  
+│   │   ├── index.ts        # Barrel export
+│   │   ├── projects.ts     # Project data
+│   │   └── skills.ts      
 │   │
 │   ├── hooks/       
+│   │   ├── certifications/       
+│   │   │   └── useCertificationFilters.ts  
+│   │   │
 │   │   ├── home/                 
 │   │   │   ├── calculateAge.ts        
 │   │   │   ├── useAnimateOnScroll.ts  
@@ -150,6 +165,11 @@ Personal-Portfolio/
 │   │   │   ├── details.module.css  
 │   │   │   └── filter.module.css   
 │   │   │
+│   │   ├── skills/                
+│   │   │   ├── certificationCard.module.css    
+│   │   │   ├── certificationFilter.module.css  
+│   │   │   └── skillsGrid.module.css           
+│   │   │
 │   │   ├── text/                  
 │   │   │   ├── effects/    
 │   │   │   │   ├── glitch.css      
@@ -171,13 +191,18 @@ Personal-Portfolio/
 │   │   └── skills.module.css      
 │   │
 │   ├── types/       
-│   │   ├── cv.ts       
-│   │   └── project.ts  
+│   │   ├── certification.ts  
+│   │   ├── cv.ts             
+│   │   └── project.ts        
 │   │
 │   ├── utils/       
-│   │   ├── filterProjects.ts  
-│   │   ├── navigation.ts      
-│   │   └── projectLabels.ts   
+│   │   ├── certificationLabels.ts           
+│   │   ├── filterCertifications.ts          
+│   │   ├── filterProjects.ts                
+│   │   ├── groupCertificationsByIssuer.tsx  
+│   │   ├── issuerIcons.tsx                  
+│   │   ├── navigation.ts                    
+│   │   └── projectLabels.ts                 
 │   │
 │   ├── App.css       # App-level styles
 │   ├── App.tsx       # Root component

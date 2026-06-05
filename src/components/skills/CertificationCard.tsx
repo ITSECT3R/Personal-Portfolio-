@@ -1,17 +1,8 @@
-import type { Certification, CertificationIssuer } from '../../types/certification';
+import type { Certification } from '../../types/certification';
 import { ISSUER_LABEL_MAP, DOMAIN_LABEL_MAP } from '../../utils/certificationLabels';
+import { ISSUER_ICON_MAP } from '../../utils/issuerIcons';
 import { TECH_ICON_MAP } from '../common/icons/tech';
-import { EpamSystems, FreeCodeCamp, AWS } from '../common/icons/brands';
 import styles from '../../styles/skills/certificationCard.module.css';
-
-type IssuerIconFn = () => React.ReactElement;
-
-// Map issuer → brand icon component
-const ISSUER_ICON_MAP: Record<CertificationIssuer, IssuerIconFn> = {
-  epam: () => <EpamSystems width={22} height={22} />,
-  freecodecamp: () => <FreeCodeCamp width={22} height={22} />,
-  aws: () => <AWS width={22} height={22} />,
-};
 
 type Props = {
   cert: Certification;
@@ -26,7 +17,7 @@ export function CertificationCard({ cert }: Props) {
         {/* ── Header ─────────────────────────────────────────────── */}
         <div className={styles.header}>
           <span className={styles.issuerIcon} aria-hidden="true">
-            {IssuerIcon && <IssuerIcon />}
+            <IssuerIcon width={22} height={22} />
           </span>
           <div className={styles.headerText}>
             <span className={styles.issuerName}>{ISSUER_LABEL_MAP[cert.issuer]}</span>

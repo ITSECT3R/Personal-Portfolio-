@@ -1,4 +1,4 @@
-import type { Certification } from '../../types/certification';
+import type { Certification } from '../../../types/certification';
 
 export const epamCertifications: Certification[] = [
   {

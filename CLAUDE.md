@@ -56,14 +56,20 @@ src/
     shared/         # Reusable across domains (SkillBadge, etc.)
   data/             # TEMPORARY: hardcoded static data
                     # Will be replaced by src/infrastructure/repositories/hardcoded/
+    common/         # Shared data used by multiple pages (certifications)
+    projects/       # Project-specific data (split by kind)
   hooks/            # Custom React hooks (application layer)
     home/           # Home-page-specific hooks
+    projects/       # Project filter hooks
+    certifications/ # Certification filter hooks
   pages/            # Route-level components — one file per route
     projects/       # Sub-routes under /projects
   styles/           # CSS Modules + global animation classes
     borders/        # Border animation system
     text/           # Text animation system
     cv/             # CV-specific module CSS
+    projects/       # Project-specific module CSS
+    skills/         # Skills-specific module CSS
   types/            # Shared TypeScript types
   utils/            # Pure utility functions (no React)
 ```
@@ -150,6 +156,20 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 - `languages` = programming languages only; `technologies` = frameworks, libraries, APIs, tools
 - Details page (`src/pages/projects/ProjectDetails.tsx`) — hero carousel + content panel with badges, chips, and external links
 - See `project/projects-page-architecture.md` for full conventions, data model, border convention, and how to extend filters
+
+---
+
+## Skills Section
+
+- Two independent sections: **Certifications** (filterable cards) and **Technical Skills** (category grid)
+- Certification data lives in `src/data/common/certifications/` — shared canonical source for both CV page and Skills page
+  - `src/data/common/certifications/index.tsx` exports `certificationList` (flat), `certifications` (grouped for CV), and `linkedin`
+- Skills data lives in `src/data/skills.ts` — shared between CV sidebar and Skills grid
+- Filters (issuer, domain, technologies) are data-driven multi-select dropdowns + a Newest/Oldest sort toggle — mirrors `useProjectFilters` pattern
+- `MultiSelectDropdown` is reused from projects (no code duplication)
+- `TECH_ICON_MAP` in `src/components/common/icons/tech.tsx` is the single icon registry — keys must match the exact strings used in `skills.ts` and certification `technologies[]` arrays
+- `ISSUER_ICON_MAP` in `src/utils/issuerIcons.tsx` is the single issuer-brand icon registry — used by `groupCertificationsByIssuer` and `CertificationCard`
+- See `project/skills-page-architecture.md` for full conventions, data model, and how to extend
 
 ---
 

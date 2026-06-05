@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { CertificationDomain, CertificationIssuer } from '../../types/certification';
-import { certificationList } from '../../data/certifications/index';
+import { certificationList } from '../../data/common/certifications';
 import { filterCertifications } from '../../utils/filterCertifications';
 import type { SortOrder } from '../../utils/filterCertifications';
 import { ISSUER_LABEL_MAP, DOMAIN_LABEL_MAP } from '../../utils/certificationLabels';

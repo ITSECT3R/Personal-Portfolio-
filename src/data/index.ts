@@ -1,4 +1,4 @@
-export * from './certifications.tsx';
+export * from './common/certifications';
 export * from './contacts.tsx';
 export * from './experience.ts';
 export * from './projects.ts';

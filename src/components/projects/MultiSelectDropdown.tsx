@@ -78,7 +78,7 @@ export function MultiSelectDropdown({ label, options, selected, onChange, labelM
               Clear all
             </button>
           )}
-          <ul className={styles.optionList} role="list">
+          <ul className={styles.optionList}>
             {options.map(option => {
               const checked = selected.includes(option);
               const inputId = `${panelId}-${option}`;

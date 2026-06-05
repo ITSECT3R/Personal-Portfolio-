@@ -77,7 +77,7 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className={`${styles.imgContainer} border-effect border-dual-spin border-thick border-hover-only`}>
+          <div className={`${styles.imgContainer} border-effect border-shimmer border-hover-only border-thick `}>
             <img
               src="/profile-picture.jpg"
               alt="Me in a professional setting"
@@ -89,13 +89,16 @@ export default function Home() {
               Luis A Marin
             </p>
             <button
-              className={styles.downloadCvButton}
+              className={`${styles.downloadCvButton} border-effect border-pulse border-hover-only `}
               onClick={downloadCV}
               disabled={isDownloading}
             >
               {isDownloading ? 'Downloading...' : 'Download CV'}
             </button>
-            <Link to="/cv" className={styles.cvLink}>
+            <Link
+              to="/cv"
+              className={`${styles.cvLink} border-effect border-shimmer border-hover-only`}
+            >
               View My Web CV
             </Link>
           </div>

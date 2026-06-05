@@ -18,7 +18,11 @@ src/styles/borders/
 │   ├── gradient.css  # Static gradient with shifting animation
 │   ├── shimmer.css   # Silver streak passing through
 │   ├── dots.css      # Moving dotted border effect
-│   └── dual-spin.css # Two colors chasing each other
+│   ├── dual-spin.css # Two colors chasing each other
+│   ├── neon.css      # Neon tube with subtle flicker
+│   ├── ripple.css    # Three wave pulses rotating around
+│   ├── corner-highlight.css # Glowing corner accents
+│   └── dash-chase.css # Two colored dash groups chasing
 └── modifiers/        # Effect modifiers and variants
     ├── index.css     # Modifier implementations
     └── index.ts      # TypeScript imports for modifiers
@@ -59,6 +63,22 @@ A moving dotted/dashed border effect that creates the illusion of marching ants.
 #### Dual Spin (`border-dual-spin`)
 
 Two colors chasing each other around the border, creating a dynamic dual-tone rotating effect.
+
+#### Neon (`border-neon`)
+
+A solid color border with a subtle, organic flicker resembling a real neon tube. Pairs best with the `.border-glow` modifier for the full neon sign effect. Supports speed modifiers.
+
+#### Ripple (`border-ripple`)
+
+Three evenly-spaced wave pulses that rotate around the border, creating a ripple or sonar-like effect. Uses both accent and secondary accent colors for a dual-tone wave.
+
+#### Corner Highlight (`border-corner-highlight`)
+
+Four glowing corner highlights that rotate around the border while the sides remain dim. Gives a tech/cyberpunk accent feel — only the corners light up as they travel.
+
+#### Dash Chase (`border-dash-chase`)
+
+Two sets of colored dashes (primary accent and secondary accent) that chase each other around the border, creating a racing-stripe effect.
 
 ## Available Modifiers
 

@@ -140,6 +140,42 @@ export const WebDriverIOIcon = (props: TechIconProps) => (
   <Icon icon="simple-icons:webdriverio" {...props} />
 );
 
+export const MochaIcon = (props: TechIconProps) => (
+  <Icon icon="logos:mocha" {...props} />
+);
+
+export const ChaiIcon = (props: TechIconProps) => (
+  <Icon icon="simple-icons:chai" {...props} />
+);
+
+export const CucumberIcon = (props: TechIconProps) => (
+  <Icon icon="logos:cucumber" {...props} />
+);
+
+export const JQueryIcon = (props: TechIconProps) => (
+  <Icon icon="devicon:jquery" {...props} />
+);
+
+export const PrettierIcon = (props: TechIconProps) => (
+  <Icon icon="simple-icons:prettier" {...props} />
+);
+
+export const N8NIcon = (props: TechIconProps) => (
+  <Icon icon="logos:n8n-icon" {...props} />
+);
+
+export const AxiosIcon = (props: TechIconProps) => (
+  <Icon icon="simple-icons:axios" {...props} />
+);
+
+export const VSCodeIcon = (props: TechIconProps) => (
+  <Icon icon="devicon:vscode" {...props} />
+);
+
+export const GitHubCopilotIcon = (props: TechIconProps) => (
+  <Icon icon="simple-icons:githubcopilot" {...props} />
+);
+
 // ─── Map: technology name → icon component ─────────────────────────────────
 // Technologies not present here render as a text fallback badge in ProjectCard.
 type TechIconComponent = (props: TechIconProps) => ReactElement;
@@ -166,19 +202,25 @@ export const TECH_ICON_MAP: Record<string, TechIconComponent> = {
   Vite: ViteIcon,
   'Tailwind CSS': TailwindIcon,
   Bootstrap: BootstrapIcon,
+  jQuery: JQueryIcon,
   'React Native': ReactNativeIcon,
   // Back-end ecosystem
   'Node.js': NodeIcon,
   'Express.js': ExpressIcon,
   'Next.js': NextJsIcon,
+  Axios: AxiosIcon,
   // Testing
   Jest: JestIcon,
   Playwright: PlaywrightIcon,
   WebDriverIO: WebDriverIOIcon,
+  Mocha: MochaIcon,
+  Chai: ChaiIcon,
+  Cucumber: CucumberIcon,
   // CI/CD
   Jenkins: JenkinsIcon,
   'GitHub Actions': GithubActionsIcon,
   Postman: PostmanIcon,
+  N8N: N8NIcon,
   // Cloud
   AWS: AWSIcon,
   Azure: AzureIcon,
@@ -186,7 +228,10 @@ export const TECH_ICON_MAP: Record<string, TechIconComponent> = {
   Vercel: VercelIcon,
   // Misc
   ESLint: ESLintIcon,
+  Prettier: PrettierIcon,
   GitHub: GithubIcon,
+  'GitHub Copilot': GitHubCopilotIcon,
+  'Visual Studio Code': VSCodeIcon,
   'D3.js': D3Icon,
   // Legacy / kept for backwards compat
   'CSS Modules': CssIcon,

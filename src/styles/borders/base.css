@@ -7,13 +7,17 @@
  * Base class (required): .border-effect
  * 
  * Effects:
- *   - .border-rainbow      → Rainbow rotating gradient
- *   - .border-light-trail  → Single light moving around
- *   - .border-pulse        → Pulsing glow effect
- *   - .border-gradient     → Static gradient border
- *   - .border-shimmer      → Silver streak passing through
- *   - .border-dots         → Moving dotted border
- *   - .border-dual-spin    → Two colors chasing each other
+ *   - .border-rainbow           → Rainbow rotating gradient
+ *   - .border-light-trail       → Single light moving around
+ *   - .border-pulse             → Pulsing glow effect
+ *   - .border-gradient          → Static gradient border
+ *   - .border-shimmer           → Silver streak passing through
+ *   - .border-dots              → Moving dotted border
+ *   - .border-dual-spin         → Two colors chasing each other
+ *   - .border-neon              → Solid neon tube with subtle flicker
+ *   - .border-ripple            → Three wave pulses rotating around
+ *   - .border-corner-highlight  → Four glowing corner accents
+ *   - .border-dash-chase        → Two colored dash groups chasing
  * 
  * Modifiers:
  *   - .border-hover-only   → Only animate on hover
@@ -120,11 +124,9 @@
 @keyframes pulse-glow {
   0%,
   100% {
-    filter: blur(2px);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   50% {
-    filter: blur(8px);
     opacity: 1;
   }
 }
@@ -145,6 +147,40 @@
   }
   to {
     background-position: 100% 0;
+  }
+}
+
+@keyframes neon-flicker {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  4% {
+    opacity: 0.4;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  12% {
+    opacity: 0.5;
+  }
+  16% {
+    opacity: 0.8;
+  }
+  40% {
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  64% {
+    opacity: 1;
+  }
+  68% {
+    opacity: 0.45;
+  }
+  72% {
+    opacity: 0.9;
   }
 }
 

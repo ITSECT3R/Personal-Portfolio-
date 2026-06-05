@@ -1,0 +1,35 @@
+/* ============================================
+   EFFECT: Neon Flicker
+
+   A solid color border with a subtle,
+   organic flicker — like a real neon tube.
+   Pairs best with .border-glow for the
+   full neon sign effect.
+   ============================================ */
+
+.border-neon::after {
+  background: var(--border-effect-accent, #8b52fd);
+}
+
+/* Always animate (default behavior) */
+.border-neon:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+/* Hover-only animation */
+.border-neon.border-hover-only:hover::after {
+  opacity: 1;
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+/* Speed modifiers */
+.border-neon.border-slow:not(.border-hover-only)::after,
+.border-neon.border-slow.border-hover-only:hover::after {
+  animation-duration: 5s;
+}
+
+.border-neon.border-fast:not(.border-hover-only)::after,
+.border-neon.border-fast.border-hover-only:hover::after {
+  animation-duration: 1.5s;
+}

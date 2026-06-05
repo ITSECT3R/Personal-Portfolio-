@@ -1,0 +1,62 @@
+/* ============================================
+   EFFECT: Corner Highlight
+
+   Four glowing corner highlights that rotate
+   around the border, leaving the sides dim.
+   Gives a tech/cyberpunk accent feel.
+   ============================================ */
+
+.border-corner-highlight::after {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    /* Corner 1: top-left */
+    var(--border-effect-accent, #8b52fd) 0deg,
+    #ffffff 7deg,
+    var(--border-effect-accent, #8b52fd) 14deg,
+    transparent 20deg,
+    /* Side: right */
+    transparent 70deg,
+    /* Corner 2: top-right */
+    var(--border-effect-accent, #8b52fd) 83deg,
+    #ffffff 90deg,
+    var(--border-effect-accent, #8b52fd) 97deg,
+    transparent 103deg,
+    /* Side: bottom */
+    transparent 160deg,
+    /* Corner 3: bottom-right */
+    var(--border-effect-accent, #8b52fd) 173deg,
+    #ffffff 180deg,
+    var(--border-effect-accent, #8b52fd) 187deg,
+    transparent 193deg,
+    /* Side: left */
+    transparent 250deg,
+    /* Corner 4: bottom-left */
+    var(--border-effect-accent, #8b52fd) 263deg,
+    #ffffff 270deg,
+    var(--border-effect-accent, #8b52fd) 277deg,
+    transparent 283deg,
+    /* Side: top */
+    transparent 360deg
+  );
+}
+
+/* Always animate (default behavior) */
+.border-corner-highlight:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+/* Reverse modifier */
+.border-corner-highlight.border-reverse:not(.border-hover-only)::after {
+  animation-name: border-rotate-reverse;
+}
+
+/* Hover-only animation */
+.border-corner-highlight.border-hover-only:hover::after {
+  opacity: 1;
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+.border-corner-highlight.border-reverse.border-hover-only:hover::after {
+  animation-name: border-rotate-reverse;
+}

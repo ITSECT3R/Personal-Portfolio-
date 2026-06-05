@@ -1,8 +1,9 @@
 /* ============================================
    EFFECT: Pulse Glow
-   
-   A pulsing glow effect that breathes in and out.
-   Uses filter: blur() for the glow effect.
+
+   A breathing border that fades in and out
+   smoothly. Pairs naturally with .border-glow
+   for a soft bloom around the border edges.
    ============================================ */
 
 .border-pulse::after {

@@ -92,6 +92,58 @@
   animation: gradient-shift var(--border-effect-speed, 3s) ease infinite;
 }
 
+.border-glow.border-neon::before {
+  background: var(--border-effect-accent, #8b52fd);
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+.border-glow.border-ripple::before {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    transparent 0deg,
+    var(--border-effect-accent, #8b52fd) 4deg,
+    var(--border-effect-accent-secondary, #00ffff) 8deg,
+    transparent 12deg,
+    transparent 110deg,
+    var(--border-effect-accent, #8b52fd) 114deg,
+    var(--border-effect-accent-secondary, #00ffff) 118deg,
+    transparent 122deg,
+    transparent 230deg,
+    var(--border-effect-accent, #8b52fd) 234deg,
+    var(--border-effect-accent-secondary, #00ffff) 238deg,
+    transparent 242deg,
+    transparent 360deg
+  );
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
+.border-glow.border-corner-highlight::before {
+  background: conic-gradient(
+    from var(--effect-angle, 0deg),
+    var(--border-effect-accent, #8b52fd) 0deg,
+    #ffffff 7deg,
+    var(--border-effect-accent, #8b52fd) 14deg,
+    transparent 20deg,
+    transparent 70deg,
+    var(--border-effect-accent, #8b52fd) 83deg,
+    #ffffff 90deg,
+    var(--border-effect-accent, #8b52fd) 97deg,
+    transparent 103deg,
+    transparent 160deg,
+    var(--border-effect-accent, #8b52fd) 173deg,
+    #ffffff 180deg,
+    var(--border-effect-accent, #8b52fd) 187deg,
+    transparent 193deg,
+    transparent 250deg,
+    var(--border-effect-accent, #8b52fd) 263deg,
+    #ffffff 270deg,
+    var(--border-effect-accent, #8b52fd) 277deg,
+    transparent 283deg,
+    transparent 360deg
+  );
+  animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
+}
+
 /* Apply blur to ::before (glow layer) - always visible when not hover-only */
 .border-glow:not(.border-hover-only)::before {
   filter: blur(var(--border-effect-intensity, 6px));
@@ -112,7 +164,9 @@
 
 .border-glow.border-hover-only.border-rainbow:hover::before,
 .border-glow.border-hover-only.border-light-trail:hover::before,
-.border-glow.border-hover-only.border-dual-spin:hover::before {
+.border-glow.border-hover-only.border-dual-spin:hover::before,
+.border-glow.border-hover-only.border-ripple:hover::before,
+.border-glow.border-hover-only.border-corner-highlight:hover::before {
   animation: border-rotate var(--border-effect-speed, 3s) linear infinite;
 }
 
@@ -122,6 +176,10 @@
 
 .border-glow.border-hover-only.border-gradient:hover::before {
   animation: gradient-shift var(--border-effect-speed, 3s) ease infinite;
+}
+
+.border-glow.border-hover-only.border-neon:hover::before {
+  animation: neon-flicker 3s ease-in-out infinite;
 }
 
 /* ============================================

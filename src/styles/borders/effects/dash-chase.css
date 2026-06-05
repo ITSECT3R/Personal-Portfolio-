@@ -1,0 +1,41 @@
+/* ============================================
+   EFFECT: Dash Chase
+
+   Two sets of colored dashes that chase
+   each other around the border — the primary
+   accent color followed by the secondary.
+   Creates a dynamic, racing-stripe feel.
+   ============================================ */
+
+.border-dash-chase::after {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border-effect-accent, #8b52fd) 0px,
+    var(--border-effect-accent, #8b52fd) 12px,
+    transparent 12px,
+    transparent 28px,
+    var(--border-effect-accent-secondary, #00ffff) 28px,
+    var(--border-effect-accent-secondary, #00ffff) 40px,
+    transparent 40px,
+    transparent 56px
+  );
+  background-size: 200% 100%;
+}
+
+/* Always animate (default behavior) */
+.border-dash-chase:not(.border-hover-only)::after {
+  opacity: 1;
+  animation: dash-move var(--border-effect-speed, 3s) linear infinite;
+}
+
+/* Hover-only animation */
+.border-dash-chase.border-hover-only:hover::after {
+  opacity: 1;
+  animation: dash-move var(--border-effect-speed, 3s) linear infinite;
+}
+
+/* Reverse modifier */
+.border-dash-chase.border-reverse:not(.border-hover-only)::after,
+.border-dash-chase.border-reverse.border-hover-only:hover::after {
+  animation-direction: reverse;
+}

@@ -64,25 +64,130 @@ export const ESLintIcon = (props: TechIconProps) => (
   <Icon icon="devicon:eslint" {...props} />
 );
 
+export const PostgreSQLIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:postgresql-dark" {...props} />
+);
+
+export const DynamoDBIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:dynamodb-dark" {...props} />
+);
+
+export const ExpressIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:expressjs-dark" {...props} />
+);
+
+export const NextJsIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:nextjs-dark" {...props} />
+);
+
+export const PlaywrightIcon = (props: TechIconProps) => (
+  <Icon icon="simple-icons:playwright" {...props} />
+);
+
+export const JestIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:jest" {...props} />
+);
+
+export const TailwindIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:tailwindcss-dark" {...props} />
+);
+
+export const BootstrapIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:bootstrap" {...props} />
+);
+
+export const JenkinsIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:jenkins-dark" {...props} />
+);
+
+export const GithubActionsIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:githubactions-dark" {...props} />
+);
+
+export const KubernetesIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:kubernetes" {...props} />
+);
+
+export const PostmanIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:postman" {...props} />
+);
+
+export const AWSIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:aws-dark" {...props} />
+);
+
+export const AzureIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:azure-dark" {...props} />
+);
+
+export const CloudflareIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:cloudflare-dark" {...props} />
+);
+
+export const VercelIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:vercel-dark" {...props} />
+);
+
+export const GithubIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:github-dark" {...props} />
+);
+
+export const ReactNativeIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:react-dark" {...props} />
+);
+
+export const WebDriverIOIcon = (props: TechIconProps) => (
+  <Icon icon="simple-icons:webdriverio" {...props} />
+);
+
 // ─── Map: technology name → icon component ─────────────────────────────────
 // Technologies not present here render as a text fallback badge in ProjectCard.
 type TechIconComponent = (props: TechIconProps) => ReactElement;
 
 export const TECH_ICON_MAP: Record<string, TechIconComponent> = {
+  // Languages
   React: ReactIcon,
   TypeScript: TypeScriptIcon,
   JavaScript: JavaScriptIcon,
   Python: PythonIcon,
   HTML: HtmlIcon,
   CSS: CssIcon,
+  // Infrastructure / tools
   Git: GitIcon,
   Docker: DockerIcon,
+  Kubernetes: KubernetesIcon,
+  // Databases
   MongoDB: MongoDBIcon,
+  PostgreSQL: PostgreSQLIcon,
+  DynamoDB: DynamoDBIcon,
+  // Front-end ecosystem
   Redux: ReduxIcon,
   Sass: SassIcon,
   Vite: ViteIcon,
-  ESLint: ESLintIcon,
-  'CSS Modules': CssIcon,
+  'Tailwind CSS': TailwindIcon,
+  Bootstrap: BootstrapIcon,
+  'React Native': ReactNativeIcon,
+  // Back-end ecosystem
   'Node.js': NodeIcon,
+  'Express.js': ExpressIcon,
+  'Next.js': NextJsIcon,
+  // Testing
+  Jest: JestIcon,
+  Playwright: PlaywrightIcon,
+  WebDriverIO: WebDriverIOIcon,
+  // CI/CD
+  Jenkins: JenkinsIcon,
+  'GitHub Actions': GithubActionsIcon,
+  Postman: PostmanIcon,
+  // Cloud
+  AWS: AWSIcon,
+  Azure: AzureIcon,
+  CloudFlare: CloudflareIcon,
+  Vercel: VercelIcon,
+  // Misc
+  ESLint: ESLintIcon,
+  GitHub: GithubIcon,
   'D3.js': D3Icon,
+  // Legacy / kept for backwards compat
+  'CSS Modules': CssIcon,
 };

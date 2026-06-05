@@ -1,6 +1,6 @@
 export const programmingSkills = {
   category: 'Programming Languages',
-  skills: ['JavaScript', 'NodeJs', 'TypeScript', 'Python'],
+  skills: ['JavaScript', 'Node.js', 'TypeScript', 'Python'],
 };
 
 export const frontendSkills = {
@@ -31,14 +31,14 @@ export const backendAndDatabase = {
 export const testingAndQA = {
   category: 'Testing & QA',
   skills: [
-    'WebDriver IO',
+    'WebDriverIO',
     'Playwright',
     'Jest',
     'Mocha',
     'Chai',
     'Cucumber',
     'Prettier',
-    'Eslint',
+    'ESLint',
     'SDLC / STLC',
   ],
 };

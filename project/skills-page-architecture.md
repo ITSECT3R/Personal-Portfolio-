@@ -37,16 +37,16 @@ src/
 
 ## Data Model — `Certification` (see `src/types/certification.ts`)
 
-| Field          | Type                             | Role                                                        |
-| -------------- | -------------------------------- | ----------------------------------------------------------- |
-| `id`           | `string`                         | Unique, kebab-case identifier                               |
-| `title`        | `string`                         | Certificate display name                                    |
-| `issuer`       | `'epam'\|'freecodecamp'\|'aws'`  | Issuer brand — drives icon + filter dropdown                |
-| `issuedYear`   | `number`                         | Year issued — drives sort order                             |
-| `domain`       | `'frontend'\|…`                  | Architecture domain — multi-select dropdown filter          |
-| `technologies` | `string[]`                       | **Must match TECH_ICON_MAP keys**. Drives tech badge icons  |
-| `description`  | `string`                         | 1-2 sentence summary shown on the card                      |
-| `link`         | `string`                         | External URL to the certificate                             |
+| Field          | Type                            | Role                                                       |
+| -------------- | ------------------------------- | ---------------------------------------------------------- |
+| `id`           | `string`                        | Unique, kebab-case identifier                              |
+| `title`        | `string`                        | Certificate display name                                   |
+| `issuer`       | `'epam'\|'freecodecamp'\|'aws'` | Issuer brand — drives icon + filter dropdown               |
+| `issuedYear`   | `number`                        | Year issued — drives sort order                            |
+| `domain`       | `'frontend'\|…`                 | Architecture domain — multi-select dropdown filter         |
+| `technologies` | `string[]`                      | **Must match TECH_ICON_MAP keys**. Drives tech badge icons |
+| `description`  | `string`                        | 1-2 sentence summary shown on the card                     |
+| `link`         | `string`                        | External URL to the certificate                            |
 
 ### `Domain` values
 
@@ -68,10 +68,12 @@ mirroring the `useProjectFilters` pattern exactly.
 ```ts
 const allIssuers = useMemo(
   () =>
-    ([...new Set(certificationList.map(c => c.issuer))] as CertificationIssuer[]).sort(
-      (a, b) => ISSUER_LABEL_MAP[a].localeCompare(ISSUER_LABEL_MAP[b]),
-    ),
-  [],
+    (
+      [
+        ...new Set(certificationList.map(c => c.issuer)),
+      ] as CertificationIssuer[]
+    ).sort((a, b) => ISSUER_LABEL_MAP[a].localeCompare(ISSUER_LABEL_MAP[b])),
+  []
 );
 ```
 
@@ -98,7 +100,7 @@ its issuer, domain, and technologies to the filter dropdowns.
 ## Filter Logic
 
 - **All filters** — multi-select dropdowns; **OR logic** — a cert passes if it matches
-  *at least one* of the selected values. Empty selection = no restriction.
+  _at least one_ of the selected values. Empty selection = no restriction.
 - **Sort** — Newest/Oldest toggle, applied after filtering. Sorts by `issuedYear`.
 - `MultiSelectDropdown` is the same generic component used by the Projects section.
 - Filter state lives in `useCertificationFilters`; filter logic in `filterCertifications.ts`.
@@ -155,6 +157,7 @@ registry for technology icons. Keys must **exactly match** the strings used in:
 - Project `languages[]` and `technologies[]` arrays
 
 Common mismatches to avoid:
+
 - `NodeJs` → use `Node.js`
 - `WebDriver IO` → use `WebDriverIO`
 - `Eslint` → use `ESLint`

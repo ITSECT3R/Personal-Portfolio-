@@ -11,7 +11,7 @@ export default function ProjectsPage() {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.heading}>Projects</h1>
+      <h1 className={`${styles.heading} text-effect text-glitch is-animated`}>Projects</h1>
       <ProjectFilter
         kinds={allKinds}
         categories={allCategories}

@@ -29,8 +29,12 @@ const CARD_BORDER_EFFECTS = [
   'border-effect border-gradient border-hover-only',
   'border-effect border-shimmer border-hover-only',
   'border-effect border-pulse border-hover-only',
-  'border-effect border-dual-spin border-hover-only',
   'border-effect border-light-trail border-hover-only',
+  'border-effect border-neon border-hover-only',
+  'border-effect border-ripple border-hover-only',
+  'border-effect border-corner-highlight border-hover-only',
+  'border-effect border-dash-chase border-hover-only',
+  'border-effect border-dots border-hover-only',
 ];
 
 export function SkillsGrid() {

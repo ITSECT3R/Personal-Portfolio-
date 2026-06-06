@@ -1,4 +1,5 @@
 import type { Certification } from '../../types/certification';
+import type { CertificationIssuer } from '../../types/certification';
 import { ISSUER_LABEL_MAP, DOMAIN_LABEL_MAP } from '../../utils/certificationLabels';
 import { ISSUER_ICON_MAP } from '../../utils/issuerIcons';
 import { TECH_ICON_MAP } from '../common/icons/tech';
@@ -8,11 +9,19 @@ type Props = {
   cert: Certification;
 };
 
+/** Border effect per issuer — gives each issuer a distinct visual identity. */
+const ISSUER_BORDER_MAP: Record<CertificationIssuer, string> = {
+  epam: 'border-effect border-dual-spin border-hover-only',
+  freecodecamp: 'border-effect border-rainbow border-hover-only',
+  aws: 'border-effect border-corner-highlight border-hover-only',
+};
+
 export function CertificationCard({ cert }: Props) {
   const IssuerIcon = ISSUER_ICON_MAP[cert.issuer];
+  const borderClass = ISSUER_BORDER_MAP[cert.issuer];
 
   return (
-    <article className={`${styles.card} border-effect border-shimmer border-hover-only`}>
+    <article className={`${styles.card} ${borderClass}`}>
       <div className={styles.inner}>
         {/* ── Header ─────────────────────────────────────────────── */}
         <div className={styles.header}>

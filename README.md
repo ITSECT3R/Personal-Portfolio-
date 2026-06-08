@@ -118,4 +118,4 @@ npm run format:check   # Check if files are formatted
 - **CV download functionality**: Shared hook for PDF/text CV downloads
 - **Interactive CV page**: Tabbed interface with professional layout
 
-Note: test deploy attempt 5
+Note: test deploy attempt 6

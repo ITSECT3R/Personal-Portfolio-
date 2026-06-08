@@ -117,3 +117,5 @@ npm run format:check   # Check if files are formatted
 - **Modular styling architecture**: Organized CSS effects with TypeScript integration
 - **CV download functionality**: Shared hook for PDF/text CV downloads
 - **Interactive CV page**: Tabbed interface with professional layout
+
+Note: test deploy attempt 3

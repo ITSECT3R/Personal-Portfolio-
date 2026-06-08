@@ -19,4 +19,4 @@ export const certifications = groupCertificationsByIssuer(certificationList);
 
 // ── LinkedIn link ───────────────────────────────────────────────────────────
 export const linkedin =
-  'https://my-portfolio.itsect3r.workers.dev/details/certifications/';
+  'https://www.linkedin.com/in/luis-angel-m-084449165/details/certifications/';

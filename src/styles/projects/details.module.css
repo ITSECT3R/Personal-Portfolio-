@@ -360,3 +360,27 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 420px) {
+  .heroInner {
+    height: 200px;
+  }
+
+  .title {
+    font-size: 1.35rem;
+  }
+
+  .contentPanel {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .linksRow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .link {
+    justify-content: center;
+  }
+}

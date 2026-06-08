@@ -114,8 +114,14 @@
     right: auto;
     bottom: 1rem;
     top: auto;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(0);
     flex-direction: row;
     width: auto;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hidden state — slides below the viewport */
+  .navbar.navbar-hidden {
+    transform: translateX(-50%) translateY(calc(100% + 2rem));
   }
 }

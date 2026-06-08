@@ -4,6 +4,7 @@
   max-width: 1200px;
   margin: 0 auto;
   color: #fff;
+  width: 100%;
 }
 
 /* ─── Section headings ───────────────────────────────────────────── */
@@ -38,6 +39,14 @@
 @media (max-width: 560px) {
   .certGrid {
     grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 1rem 0.5rem 3rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.35rem;
   }
 }
 

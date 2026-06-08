@@ -3,8 +3,16 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100%;
 }
 
 .app {
   min-height: 100vh;
+}
+
+/* Reduce padding on mobile so content has breathing room */
+@media (max-width: 560px) {
+  #root {
+    padding: 1rem 0.75rem;
+  }
 }

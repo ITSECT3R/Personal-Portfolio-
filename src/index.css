@@ -18,6 +18,22 @@
   box-sizing: border-box;
 }
 
+/* ── Scroll chain: only html handles vertical scrolling ── */
+html {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Critical: body must NOT create its own scroll context */
+  overflow: visible;
+}
+
 a {
   font-weight: 500;
   color: var(--golden);
@@ -25,14 +41,6 @@ a {
 }
 a:hover {
   color: #ffffff;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 /* App-level background controlled via CSS variable so pages can override */

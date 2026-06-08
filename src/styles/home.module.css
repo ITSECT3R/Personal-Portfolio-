@@ -150,3 +150,90 @@
 .cvLink:active {
   transform: translateY(-1px);
 }
+
+/* ================================================================
+   RESPONSIVE — Mobile & Tablet
+   ================================================================ */
+
+/* Tablet: stack and shrink image */
+@media (max-width: 900px) {
+  .contentWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .descriptionContainer {
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutMeContainer {
+    text-align: center;
+  }
+
+  .image {
+    width: 320px;
+    height: 320px;
+  }
+
+  .list {
+    display: inline-block;
+    text-align: left;
+  }
+}
+
+/* Mobile: further shrink and tighten spacing */
+@media (max-width: 560px) {
+  .contentWrapper {
+    gap: 1rem;
+  }
+
+  .image {
+    width: 240px;
+    height: 240px;
+  }
+
+  .homeDescription {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .aboutMe {
+    font-size: 1.2rem;
+  }
+
+  .list {
+    font-size: 1rem;
+  }
+
+  .icons {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .downloadCvButton {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .cvLink {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .myName {
+    font-size: 1.1rem;
+  }
+}
+
+/* Scale down the h1 subtitle on mobile (global class used in Home.Page) */
+:global(.home-subtitle) {
+  font-size: 3.2em;
+}
+
+@media (max-width: 560px) {
+  :global(.home-subtitle) {
+    font-size: 2em;
+  }
+}

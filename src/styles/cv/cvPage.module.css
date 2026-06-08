@@ -21,6 +21,17 @@
   grid-template-columns: 210px 1fr;
   border-radius: 20px;
   overflow: hidden;
+
+  /* Zoom-out on narrow viewports so the PDF-like layout is preserved.
+     Using `zoom` instead of `transform: scale` so layout space shrinks too. */
+  zoom: var(--cv-zoom, 1);
+}
+
+/* Wrapper centres the CV horizontally */
+.scaleWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .divRight {

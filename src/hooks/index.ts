@@ -9,3 +9,4 @@ export { useProjectFilters } from './projects/useProjectFilters';
 export type { FilterState } from './projects/useProjectFilters';
 export { useCertificationFilters } from './certifications/useCertificationFilters';
 export type { CertificationFilterState } from './certifications/useCertificationFilters';
+export { useCvScale } from './cv/useCvScale';

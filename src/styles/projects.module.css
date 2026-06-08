@@ -2,6 +2,7 @@
   padding: 2rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .heading {
@@ -29,6 +30,14 @@
 @media (max-width: 560px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 1rem 0.5rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
   }
 }
 

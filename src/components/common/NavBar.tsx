@@ -1,14 +1,18 @@
 import { Link, useLocation } from 'react-router-dom';
 import { HomeIcon, ProjectsIcon, SkillsIcon } from './icons';
 import { getActiveClass, ROUTES } from '../../utils/navigation';
+import { useScrollDirection } from '../../hooks/useScrollDirection';
 import './NavBar.css';
 
 export default function NavBar() {
   const location = useLocation();
   const currentPath = location.pathname;
+  const scrollDir = useScrollDirection();
 
   return (
-    <nav className="navbar border-effect border-rainbow border-hover-only ">
+    <nav
+      className={`navbar border-effect border-rainbow border-hover-only ${scrollDir === 'down' ? 'navbar-hidden' : ''}`}
+    >
       <Link
         to={ROUTES.HOME}
         className={`nav-button nav-button-home ${getActiveClass(currentPath, ROUTES.HOME)}`}

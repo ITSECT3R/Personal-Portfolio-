@@ -18,7 +18,13 @@ export const epamCertifications: Certification[] = [
     issuer: 'epam',
     issuedYear: 2023,
     domain: 'testing',
-    technologies: ['JavaScript', 'TypeScript', 'Jest', 'Playwright', 'WebDriverIO'],
+    technologies: [
+      'JavaScript',
+      'TypeScript',
+      'Jest',
+      'Playwright',
+      'WebDriverIO',
+    ],
     description:
       'Specialisation track covering end-to-end, unit, and integration testing strategies using the JavaScript ecosystem.',
     link: 'https://certificates.epam.com/certificates/ce97b0ed-768c-4394-b36a-cc7ee7fec276',
@@ -29,7 +35,13 @@ export const epamCertifications: Certification[] = [
     issuer: 'epam',
     issuedYear: 2023,
     domain: 'testing',
-    technologies: ['JavaScript', 'TypeScript', 'Playwright', 'WebDriverIO', 'Cucumber'],
+    technologies: [
+      'JavaScript',
+      'TypeScript',
+      'Playwright',
+      'WebDriverIO',
+      'Cucumber',
+    ],
     description:
       'Advanced automated testing course: BDD with Cucumber, cross-browser testing with Playwright and WebDriverIO.',
     link: 'https://certificates.epam.com/certificates/11e97e15-d94e-4a88-afd8-27034d473d4d',

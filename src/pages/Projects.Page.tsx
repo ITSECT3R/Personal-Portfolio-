@@ -7,11 +7,21 @@ import styles from '../styles/projects.module.css';
 export default function ProjectsPage() {
   usePageBackground('projects', 'linear-gradient(120deg,#1a1a2e,#2b2b55)');
 
-  const { filter, setFilter, filtered, allKinds, allCategories, allLanguages, allTechnologies } = useProjectFilters();
+  const {
+    filter,
+    setFilter,
+    filtered,
+    allKinds,
+    allCategories,
+    allLanguages,
+    allTechnologies,
+  } = useProjectFilters();
 
   return (
     <div className={styles.page}>
-      <h1 className={`${styles.heading} text-effect text-glitch is-animated`}>Projects</h1>
+      <h1 className={`${styles.heading} text-effect text-glitch is-animated`}>
+        Projects
+      </h1>
       <ProjectFilter
         kinds={allKinds}
         categories={allCategories}
@@ -32,4 +42,3 @@ export default function ProjectsPage() {
     </div>
   );
 }
-

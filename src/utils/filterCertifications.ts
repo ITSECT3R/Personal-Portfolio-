@@ -1,4 +1,8 @@
-import type { Certification, CertificationDomain, CertificationIssuer } from '../types/certification';
+import type {
+  Certification,
+  CertificationDomain,
+  CertificationIssuer,
+} from '../types/certification';
 
 export type SortOrder = 'newest' | 'oldest';
 
@@ -19,11 +23,13 @@ export type CertificationFilterInput = {
  */
 export function filterCertifications(
   certifications: Certification[],
-  filter: CertificationFilterInput,
+  filter: CertificationFilterInput
 ): Certification[] {
   const result = certifications.filter(c => {
-    if (filter.issuers.length > 0 && !filter.issuers.includes(c.issuer)) return false;
-    if (filter.domains.length > 0 && !filter.domains.includes(c.domain)) return false;
+    if (filter.issuers.length > 0 && !filter.issuers.includes(c.issuer))
+      return false;
+    if (filter.domains.length > 0 && !filter.domains.includes(c.domain))
+      return false;
     if (
       filter.technologies.length > 0 &&
       !filter.technologies.some(t => c.technologies.includes(t))
@@ -33,6 +39,8 @@ export function filterCertifications(
   });
 
   return result.sort((a, b) =>
-    filter.sort === 'newest' ? b.issuedYear - a.issuedYear : a.issuedYear - b.issuedYear,
+    filter.sort === 'newest'
+      ? b.issuedYear - a.issuedYear
+      : a.issuedYear - b.issuedYear
   );
 }

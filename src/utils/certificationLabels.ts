@@ -1,4 +1,7 @@
-import type { CertificationDomain, CertificationIssuer } from '../types/certification';
+import type {
+  CertificationDomain,
+  CertificationIssuer,
+} from '../types/certification';
 
 export const ISSUER_LABEL_MAP: Record<CertificationIssuer, string> = {
   epam: 'EPAM Systems',

@@ -20,11 +20,12 @@ type ProjectFilterInput = {
  */
 export function filterProjects(
   projects: Project[],
-  filter: ProjectFilterInput,
+  filter: ProjectFilterInput
 ): Project[] {
   return projects.filter(p => {
     if (filter.kinds.length > 0 && !filter.kinds.includes(p.kind)) return false;
-    if (filter.categories.length > 0 && !filter.categories.includes(p.category)) return false;
+    if (filter.categories.length > 0 && !filter.categories.includes(p.category))
+      return false;
     if (
       filter.languages.length > 0 &&
       !filter.languages.some(l => p.languages.includes(l))

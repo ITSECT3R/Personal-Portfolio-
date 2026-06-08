@@ -37,12 +37,12 @@ src/
 
 ## Data Model — `Project` (see `src/types/project.ts`)
 
-| Field          | Type               | Role                                                   |
-| -------------- | ------------------ | ------------------------------------------------------ |
-| `kind`         | `'demo'|'project'` | High-level bucket — drives card accent colour          |
-| `category`     | `'frontend'\|…`     | Architecture category — multi-select dropdown filter (see `ProjectCategory` union) |
-| `languages`    | `string[]`         | **Programming languages only**: `HTML`, `CSS`, `JS`, `TS`, future: `Java`, `C#`, `C++` |
-| `technologies` | `string[]`         | **Frameworks / libraries / APIs / tools**: `React`, `D3.js`, `REST API`, `GraphQL`, etc. |
+| Field          | Type            | Role                                                                                     |
+| -------------- | --------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `kind`         | `'demo'         | 'project'`                                                                               | High-level bucket — drives card accent colour |
+| `category`     | `'frontend'\|…` | Architecture category — multi-select dropdown filter (see `ProjectCategory` union)       |
+| `languages`    | `string[]`      | **Programming languages only**: `HTML`, `CSS`, `JS`, `TS`, future: `Java`, `C#`, `C++`   |
+| `technologies` | `string[]`      | **Frameworks / libraries / APIs / tools**: `React`, `D3.js`, `REST API`, `GraphQL`, etc. |
 
 ### `languages` vs `technologies` — the distinction matters
 
@@ -62,15 +62,15 @@ All four filters (kind, category, languages, technologies) are fully data-driven
 const allKinds = useMemo(
   () =>
     ([...new Set(projects.map(p => p.kind))] as ProjectKind[]).sort((a, b) =>
-      KIND_LABEL_MAP[a].localeCompare(KIND_LABEL_MAP[b]),
+      KIND_LABEL_MAP[a].localeCompare(KIND_LABEL_MAP[b])
     ),
-  [],
+  []
 );
 
 // Languages + technologies — derived from data, sorted alphabetically
 const allLanguages = useMemo(
   () => [...new Set(projects.flatMap(p => p.languages))].sort(),
-  [],
+  []
 );
 ```
 
@@ -79,12 +79,14 @@ adds or removes it from the corresponding dropdown at runtime.
 **No filter code, component, or CSS ever needs to change when the vocabulary grows.**
 
 ### Adding a new `ProjectCategory` value (e.g. `'devops'`)
+
 1. Add `'devops'` to the `ProjectCategory` union in `src/types/project.ts`
 2. Add `devops: 'DevOps'` to `CATEGORY_LABEL_MAP` in `src/utils/projectLabels.ts`
 3. Tag at least one project with `category: 'devops'`
 4. The dropdown entry appears automatically — no other changes needed
 
 To add a new filter dimension in the future (e.g. `apiStyle: 'REST'|'GraphQL'`):
+
 1. Add the field to the `Project` type in `src/types/project.ts`
 2. Populate it in the data files
 3. Derive `allX` from `useMemo` in `useProjectFilters.ts`
@@ -95,16 +97,16 @@ To add a new filter dimension in the future (e.g. `apiStyle: 'REST'|'GraphQL'`):
 
 ## Filter Logic
 
-- **All four filters** (kind, category, languages, technologies) — multi-select dropdowns; **OR logic** — a project passes if it matches *at least one* of the selected values. Empty selection = no restriction.
+- **All four filters** (kind, category, languages, technologies) — multi-select dropdowns; **OR logic** — a project passes if it matches _at least one_ of the selected values. Empty selection = no restriction.
 - `kind` and `category` display human-readable labels via `KIND_LABEL_MAP` / `CATEGORY_LABEL_MAP` in `src/utils/projectLabels.ts`, while the raw type union values are used internally.
 - All filter logic lives exclusively in `src/utils/filterProjects.ts`
 
 ## Border Convention (ProjectCard + ProjectDetails)
 
-| `kind`      | Card border         | Hero border         |
-| ----------- | ------------------- | ------------------- |
-| `'project'` | `border-rainbow`    | `border-rainbow`    |
-| `'demo'`    | `border-dual-spin`  | `border-shimmer`    |
+| `kind`      | Card border        | Hero border      |
+| ----------- | ------------------ | ---------------- |
+| `'project'` | `border-rainbow`   | `border-rainbow` |
+| `'demo'`    | `border-dual-spin` | `border-shimmer` |
 
 Content panel on the details page always uses `border-gradient border-slow`.
 

@@ -30,7 +30,9 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.45);
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
   white-space: nowrap;
 }
 

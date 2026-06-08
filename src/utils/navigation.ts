@@ -18,7 +18,7 @@ export function getActiveClass(
   targetPath: string
 ): string {
   // Special case for projects - match all /projects/* routes
-  // This ensures the Projects button stays active on detail pages
+  // This ensures the Projects Nav button stays active on detail pages
   if (targetPath === '/projects') {
     return currentPath.startsWith('/projects') ? 'active' : '';
   }

@@ -1,14 +1,39 @@
 # Testing Strategy
 
+> **Status:** Increment 1 complete (pure utils). Increment 2 in progress (jsdom setup).
+> **Approach:** Architecture-Guided Incremental Testing (see section below).
+
+---
+
+## Testing Approach
+
+| Decision                    | What we chose                                     | Why                                                                                                                             |
+| --------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Methodology**             | Architecture-Guided Incremental Testing           | Not pure TDD (code exists). Not BDD (no Gherkin overhead for solo dev). Tests are designed around hexagonal ports (interfaces). |
+| **Test style**              | Specification-style (`describe`/`it`)             | Readable, structured, standard in React ecosystem                                                                               |
+| **When to write tests**     | After refactoring to ports, before for pure utils | Pragmatic: test what's testable now, refactor toward testability                                                                |
+| **What drives test design** | Repository interfaces (ports) define the contract | Tests verify the contract, not the implementation                                                                               |
+
+### What to Test vs What NOT to Test
+
+| ✅ Test                                                             | ❌ Don't Test                                                 |
+| ------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Pure utility functions with branching logic                         | Static configuration objects (`ROUTES`, icon maps)            |
+| Hooks with business logic                                           | Mirror tests that repeat source code                          |
+| Components: render output, user interactions, conditional rendering | CSS class names (fragile)                                     |
+| Repository contract (interface)                                     | Hardcoded data values (test the contract, not specific names) |
+
+---
+
 ## Stack
 
-| Tool                            | Purpose                                         |
-| ------------------------------- | ----------------------------------------------- |
-| **Vitest**                      | Test runner (Vite-native, zero config overhead) |
-| **@testing-library/react**      | Component rendering + user-event simulation     |
-| **@testing-library/user-event** | Realistic user interactions                     |
-| **jsdom**                       | DOM environment for Vitest                      |
-| **msw** (Mock Service Worker)   | API mocking for integration tests (future)      |
+| Tool                            | Purpose                                                                   |
+| ------------------------------- | ------------------------------------------------------------------------- |
+| **Vitest**                      | Test runner (Vite-native, NOT Jest)                                       |
+| **@testing-library/react**      | Component rendering + queries                                             |
+| **@testing-library/user-event** | Realistic user interactions (future)                                      |
+| **@testing-library/jest-dom**   | DOM assertion matchers (`.toBeInTheDocument()`, etc.) — works with Vitest |
+| **jsdom**                       | Browser DOM simulation in Node.js                                         |
 
 ### Install
 
@@ -20,17 +45,19 @@ bun add -d vitest @testing-library/react @testing-library/user-event @testing-li
 
 ## Vitest Configuration
 
-Add to `vite.config.ts`:
+`vite.config.ts` (actual, not example):
 
 ```ts
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
 export default defineConfig({
   plugins: [react()],
+
   test: {
     globals: true, // no need to import expect/it/describe
-    environment: 'jsdom',
+    environment: 'jsdom', // switched from 'node' in Increment 2
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.test.{ts,tsx}', 'tests/**/*.test.{ts,tsx}'],
     coverage: {
@@ -42,18 +69,23 @@ export default defineConfig({
 });
 ```
 
-Add `"types": ["vitest/globals"]` to `tsconfig.app.json` compilerOptions.
+`tsconfig.app.json` — add `"vitest/globals"` to `compilerOptions.types`:
 
-### Setup file
+```json
+"types": ["vite/client", "vitest/globals"]
+```
+
+`src/test/setup.ts`:
 
 ```ts
-// src/test/setup.ts
 import '@testing-library/jest-dom';
 ```
 
 ---
 
-## Directory Structure
+## Directory Structure (Hybrid: Co-located + Centralized)
+
+**Rule**: Unit tests live next to their source file in `__tests__/`. Cross-module integration tests live in top-level `tests/`.
 
 ```
 src/
@@ -101,13 +133,13 @@ src/
 
   utils/
     __tests__/
-      navigation.test.ts                # Unit: pure function tests
+      navigation.test.ts                # ✅ Unit: pure function tests (Increment 1 — DONE)
 
   test/
     setup.ts                            # Global test setup (jest-dom matchers)
-    renderWithRouter.tsx                 # Helper: wraps component in BrowserRouter
+    renderWithRouter.tsx                 # Helper: wraps component in MemoryRouter
 
-tests/                                  # Top-level: integration tests
+tests/                                  # Top-level: cross-module integration tests
   integration/
     projects.integration.test.tsx       # Integration: full flow from hook → component
 ```
@@ -277,3 +309,23 @@ so it can be imported by both unit tests and integration tests.
 - Implementation details of hooks (internal `useState` values)
 - The hardcoded data itself (test the repo contract, not the specific company name)
 - Third-party libraries (`react-router-dom`, `@iconify/react`)
+
+---
+
+## Implementation Plan (Increments)
+
+| Increment | What                                                                  | Status         |
+| --------- | --------------------------------------------------------------------- | -------------- |
+| **1**     | Pure utils: `navigation.test.ts` (11 tests)                           | ✅ Done        |
+| **2**     | Test infrastructure: `jsdom`, `@testing-library/jest-dom`, `setup.ts` | 🔄 In progress |
+| **3**     | Domain types + Repository interfaces (ports)                          | ⬜ Planned     |
+| **4**     | First hook test: `useProjects` with `MockProjectRepository`           | ⬜ Planned     |
+| **5**     | First component test: `SkillBadge`                                    | ⬜ Planned     |
+| **6+**    | Expand: CV domain, certifications, pages                              | ⬜ Planned     |
+
+---
+
+## CI/CD
+
+Tests run automatically on every push and PR via GitHub Actions.
+See [`project/ci-cd-pipeline.md`](./ci-cd-pipeline.md) for details.

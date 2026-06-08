@@ -30,27 +30,27 @@ export function useProjectFilters() {
   const allKinds = useMemo(
     () =>
       ([...new Set(projects.map(p => p.kind))] as ProjectKind[]).sort((a, b) =>
-        KIND_LABEL_MAP[a].localeCompare(KIND_LABEL_MAP[b]),
+        KIND_LABEL_MAP[a].localeCompare(KIND_LABEL_MAP[b])
       ),
-    [],
+    []
   );
 
   const allCategories = useMemo(
     () =>
-      ([...new Set(projects.map(p => p.category))] as ProjectCategory[]).sort((a, b) =>
-        CATEGORY_LABEL_MAP[a].localeCompare(CATEGORY_LABEL_MAP[b]),
+      ([...new Set(projects.map(p => p.category))] as ProjectCategory[]).sort(
+        (a, b) => CATEGORY_LABEL_MAP[a].localeCompare(CATEGORY_LABEL_MAP[b])
       ),
-    [],
+    []
   );
 
   const allLanguages = useMemo(
     () => [...new Set(projects.flatMap(p => p.languages))].sort(),
-    [],
+    []
   );
 
   const allTechnologies = useMemo(
     () => [...new Set(projects.flatMap(p => p.technologies))].sort(),
-    [],
+    []
   );
 
   const filtered = useMemo(() => filterProjects(projects, filter), [filter]);

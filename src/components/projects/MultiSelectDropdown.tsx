@@ -10,7 +10,13 @@ type Props = {
   labelMap?: Record<string, string>;
 };
 
-export function MultiSelectDropdown({ label, options, selected, onChange, labelMap }: Props) {
+export function MultiSelectDropdown({
+  label,
+  options,
+  selected,
+  onChange,
+  labelMap,
+}: Props) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
@@ -39,7 +45,7 @@ export function MultiSelectDropdown({ label, options, selected, onChange, labelM
     onChange(
       selected.includes(option)
         ? selected.filter(s => s !== option)
-        : [...selected, option],
+        : [...selected, option]
     );
 
   const count = selected.length;
@@ -56,7 +62,10 @@ export function MultiSelectDropdown({ label, options, selected, onChange, labelM
       >
         <span>{label}</span>
         {count > 0 && (
-          <span className={styles.dropdownBadge} aria-label={`${count} selected`}>
+          <span
+            className={styles.dropdownBadge}
+            aria-label={`${count} selected`}
+          >
             {count}
           </span>
         )}
@@ -74,7 +83,11 @@ export function MultiSelectDropdown({ label, options, selected, onChange, labelM
           aria-label={`${label} filter options`}
         >
           {count > 0 && (
-            <button type="button" className={styles.clearBtn} onClick={() => onChange([])}>
+            <button
+              type="button"
+              className={styles.clearBtn}
+              onClick={() => onChange([])}
+            >
               Clear all
             </button>
           )}

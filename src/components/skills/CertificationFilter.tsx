@@ -1,7 +1,13 @@
-import type { CertificationDomain, CertificationIssuer } from '../../types/certification';
+import type {
+  CertificationDomain,
+  CertificationIssuer,
+} from '../../types/certification';
 import type { CertificationFilterState } from '../../hooks/certifications/useCertificationFilters';
 import type { SortOrder } from '../../utils/filterCertifications';
-import { ISSUER_LABEL_MAP, DOMAIN_LABEL_MAP } from '../../utils/certificationLabels';
+import {
+  ISSUER_LABEL_MAP,
+  DOMAIN_LABEL_MAP,
+} from '../../utils/certificationLabels';
 import { MultiSelectDropdown } from '../projects/MultiSelectDropdown';
 import styles from '../../styles/skills/certificationFilter.module.css';
 
@@ -27,7 +33,7 @@ export function CertificationFilter({
 }: Props) {
   const set = <K extends keyof CertificationFilterState>(
     key: K,
-    value: CertificationFilterState[K],
+    value: CertificationFilterState[K]
   ) => onChange({ ...filter, [key]: value });
 
   return (

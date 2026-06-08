@@ -1,6 +1,9 @@
 import type { Certification } from '../../types/certification';
 import type { CertificationIssuer } from '../../types/certification';
-import { ISSUER_LABEL_MAP, DOMAIN_LABEL_MAP } from '../../utils/certificationLabels';
+import {
+  ISSUER_LABEL_MAP,
+  DOMAIN_LABEL_MAP,
+} from '../../utils/certificationLabels';
 import { ISSUER_ICON_MAP } from '../../utils/issuerIcons';
 import { TECH_ICON_MAP } from '../common/icons/tech';
 import styles from '../../styles/skills/certificationCard.module.css';
@@ -29,7 +32,9 @@ export function CertificationCard({ cert }: Props) {
             <IssuerIcon width={22} height={22} />
           </span>
           <div className={styles.headerText}>
-            <span className={styles.issuerName}>{ISSUER_LABEL_MAP[cert.issuer]}</span>
+            <span className={styles.issuerName}>
+              {ISSUER_LABEL_MAP[cert.issuer]}
+            </span>
             <span className={styles.year}>{cert.issuedYear}</span>
           </div>
         </div>
@@ -39,7 +44,9 @@ export function CertificationCard({ cert }: Props) {
           <h3 className={styles.title}>{cert.title}</h3>
 
           <div className={styles.chips}>
-            <span className={styles.domainChip}>{DOMAIN_LABEL_MAP[cert.domain]}</span>
+            <span className={styles.domainChip}>
+              {DOMAIN_LABEL_MAP[cert.domain]}
+            </span>
           </div>
 
           <p className={styles.description}>{cert.description}</p>

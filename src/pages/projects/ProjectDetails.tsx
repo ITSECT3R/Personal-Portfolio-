@@ -27,7 +27,8 @@ export default function ProjectDetails() {
   const hasImage = project.imageUrl.length > 0;
   const hasMultipleImages = project.imageUrl.length > 1;
   const kindClass = project.kind === 'demo' ? styles.demo : styles.project;
-  const kindChipClass = project.kind === 'demo' ? styles.chipDemo : styles.chipProject;
+  const kindChipClass =
+    project.kind === 'demo' ? styles.chipDemo : styles.chipProject;
 
   // Hero border follows the same convention as ProjectCard
   const heroBorderClass =
@@ -44,9 +45,7 @@ export default function ProjectDetails() {
   return (
     <div className={`${styles.page} ${kindClass}`}>
       {/* ── Hero image carousel ────────────────────────────────────── */}
-      <div
-        className={`${styles.heroOuter} ${heroBorderClass}`}
-      >
+      <div className={`${styles.heroOuter} ${heroBorderClass}`}>
         <div className={styles.heroInner}>
           {hasImage ? (
             <img
@@ -95,11 +94,15 @@ export default function ProjectDetails() {
       </div>
 
       {/* ── Content panel ──────────────────────────────────────────── */}
-      <div className={`${styles.contentPanel} border-effect border-gradient border-slow`}>
+      <div
+        className={`${styles.contentPanel} border-effect border-gradient border-slow`}
+      >
         {/* Title + meta chips */}
         <div className={styles.header}>
           <div className={styles.titleWrapper}>
-            <h1 className={`${styles.title} text-effect text-reveal-up is-animated`}>
+            <h1
+              className={`${styles.title} text-effect text-reveal-up is-animated`}
+            >
               {project.title}
             </h1>
           </div>
@@ -184,4 +187,3 @@ export default function ProjectDetails() {
     </div>
   );
 }
-

@@ -77,7 +77,9 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <div className={`${styles.imgContainer} border-effect border-shimmer border-hover-only border-thick `}>
+          <div
+            className={`${styles.imgContainer} border-effect border-shimmer border-hover-only border-thick `}
+          >
             <img
               src="/profile-picture.jpg"
               alt="Me in a professional setting"
@@ -85,7 +87,10 @@ export default function Home() {
             />
           </div>
           <div className={styles.downloadCvContainer}>
-            <p ref={typewriter} className={`${styles.myName} text-effect text-typewriter`}>
+            <p
+              ref={typewriter}
+              className={`${styles.myName} text-effect text-typewriter`}
+            >
               Luis A Marin
             </p>
             <button

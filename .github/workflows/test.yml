@@ -1,0 +1,47 @@
+name: Test & Lint
+
+# ─── Triggers ─────────────────────────────────────────────────
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# ─── Jobs ─────────────────────────────────────────────────────
+jobs:
+  test:
+    name: Run Tests (Bun + Vitest)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5 # Our tests run in <1s, 5 min is plenty of headroom
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Install Bun runtime
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # Step 4: Type checking (catches type errors before tests)
+      - name: Type check
+        run: bun run build
+        # tsc -b runs as part of `bun run build`
+
+      # Step 5: Run tests
+      - name: Run tests
+        run: bun run test
+
+      # Step 6: Lint
+      - name: Lint
+        run: bun run lint
+
+      # Step 7: Check formatting
+      - name: Check formatting
+        run: bun run format:check

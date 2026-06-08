@@ -1,4 +1,7 @@
-import type { Certification, CertificationIssuer } from '../types/certification';
+import type {
+  Certification,
+  CertificationIssuer,
+} from '../types/certification';
 import type { CertificationIssuer as CvCertificationIssuer } from '../types/cv';
 import { ISSUER_LABEL_MAP } from './certificationLabels';
 import { ISSUER_ICON_MAP } from './issuerIcons';
@@ -15,7 +18,7 @@ const ISSUER_ORDER: CertificationIssuer[] = ['epam', 'freecodecamp', 'aws'];
  * display data from the same canonical array.
  */
 export function groupCertificationsByIssuer(
-  certs: Certification[],
+  certs: Certification[]
 ): CvCertificationIssuer[] {
   const groups = new Map<CertificationIssuer, Certification[]>();
 
@@ -28,19 +31,17 @@ export function groupCertificationsByIssuer(
     }
   }
 
-  return ISSUER_ORDER
-    .filter(issuer => groups.has(issuer))
-    .map(issuer => {
-      const group = groups.get(issuer)!;
-      const IconComponent = ISSUER_ICON_MAP[issuer];
+  return ISSUER_ORDER.filter(issuer => groups.has(issuer)).map(issuer => {
+    const group = groups.get(issuer)!;
+    const IconComponent = ISSUER_ICON_MAP[issuer];
 
-      return {
-        issuer: ISSUER_LABEL_MAP[issuer],
-        svg: <IconComponent />,
-        certificates: group.map(c => ({
-          name: c.title,
-          link: c.link,
-        })),
-      };
-    });
+    return {
+      issuer: ISSUER_LABEL_MAP[issuer],
+      svg: <IconComponent />,
+      certificates: group.map(c => ({
+        name: c.title,
+        link: c.link,
+      })),
+    };
+  });
 }

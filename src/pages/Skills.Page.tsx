@@ -8,8 +8,14 @@ import styles from '../styles/skills.module.css';
 export default function Skills() {
   usePageBackground('skills', 'linear-gradient(120deg,#16213e,#1f4068)');
 
-  const { filter, setFilter, filtered, allIssuers, allDomains, allTechnologies } =
-    useCertificationFilters();
+  const {
+    filter,
+    setFilter,
+    filtered,
+    allIssuers,
+    allDomains,
+    allTechnologies,
+  } = useCertificationFilters();
 
   return (
     <div className={styles.page}>
@@ -36,7 +42,9 @@ export default function Skills() {
         {filtered.length > 0 ? (
           filtered.map(cert => <CertificationCard key={cert.id} cert={cert} />)
         ) : (
-          <p className={styles.empty}>No certifications match the selected filters.</p>
+          <p className={styles.empty}>
+            No certifications match the selected filters.
+          </p>
         )}
       </div>
 
@@ -45,14 +53,20 @@ export default function Skills() {
       {/* ── Section 2: Skills ──────────────────────────────────── */}
       <h2
         className={`${styles.sectionHeading} text-effect text-reveal-up is-animated`}
-        style={{ '--text-effect-speed': '0.6s', '--text-effect-delay': '0.1s' } as React.CSSProperties}
+        style={
+          {
+            '--text-effect-speed': '0.6s',
+            '--text-effect-delay': '0.1s',
+          } as React.CSSProperties
+        }
       >
         Technical Skills
       </h2>
-      <p className={styles.sectionSub}>Technologies, tools, and platforms I work with</p>
+      <p className={styles.sectionSub}>
+        Technologies, tools, and platforms I work with
+      </p>
 
       <SkillsGrid />
     </div>
   );
 }
-

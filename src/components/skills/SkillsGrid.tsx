@@ -42,9 +42,13 @@ export function SkillsGrid() {
     <section>
       <div className={styles.grid}>
         {TECH_SKILL_GROUPS.map((group, groupIdx) => {
-          const borderClass = CARD_BORDER_EFFECTS[groupIdx % CARD_BORDER_EFFECTS.length];
+          const borderClass =
+            CARD_BORDER_EFFECTS[groupIdx % CARD_BORDER_EFFECTS.length];
           return (
-            <div key={group.category} className={`${styles.categoryCard} ${borderClass}`}>
+            <div
+              key={group.category}
+              className={`${styles.categoryCard} ${borderClass}`}
+            >
               <div className={styles.categoryHeader}>
                 <p className={styles.categoryTitle}>{group.category}</p>
               </div>
@@ -58,7 +62,10 @@ export function SkillsGrid() {
                       {skill}
                     </span>
                   ) : (
-                    <span key={skill} className={`${styles.badge} ${styles.badgeText}`}>
+                    <span
+                      key={skill}
+                      className={`${styles.badge} ${styles.badgeText}`}
+                    >
                       {skill}
                     </span>
                   );

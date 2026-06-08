@@ -8,7 +8,8 @@ export const demoProjects: Project[] = [
     title: 'Clock App',
     description:
       'A Pomodoro-style timer built with React, Redux, Sass, and Vite. Features a configurable 25/5 work-break cycle, audio notification at session end, and real-time countdown display.',
-    summary: 'Pomodoro timer with React & Redux. Configurable work/break cycles with audio feedback.',
+    summary:
+      'Pomodoro timer with React & Redux. Configurable work/break cycles with audio feedback.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
@@ -23,7 +24,8 @@ export const demoProjects: Project[] = [
     title: 'Calculator',
     description:
       'A fully functional calculator built with React and Redux. Supports chained operations, decimal inputs, and handles floating-point edge cases. Built with Vite and Sass.',
-    summary: 'React + Redux calculator with chained operations and decimal support.',
+    summary:
+      'React + Redux calculator with chained operations and decimal support.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
@@ -38,7 +40,8 @@ export const demoProjects: Project[] = [
     title: 'Drum Machine',
     description:
       'An interactive drum pad application with 9 pads built using React and Redux. Supports keyboard shortcuts, volume control, and a live display showing the currently playing sound.',
-    summary: 'Interactive drum pads with keyboard support, volume control, and live display.',
+    summary:
+      'Interactive drum pads with keyboard support, volume control, and live display.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
@@ -53,7 +56,8 @@ export const demoProjects: Project[] = [
     title: 'Markdown Previewer',
     description:
       'A real-time Markdown editor with a live-rendered preview pane, built with React and Redux. Supports GitHub-flavored Markdown including tables, code blocks, and inline styles.',
-    summary: 'Real-time Markdown editor with live preview. GitHub-flavored syntax support.',
+    summary:
+      'Real-time Markdown editor with live preview. GitHub-flavored syntax support.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
@@ -84,13 +88,15 @@ export const demoProjects: Project[] = [
     title: 'Treemap Diagram',
     description:
       'A D3.js treemap visualization of video game sales data grouped by platform. Each rectangle is sized proportionally to total sales, with interactive tooltips showing game name, platform, and value.',
-    summary: 'D3.js treemap of video game sales by platform, with interactive tooltips.',
+    summary:
+      'D3.js treemap of video game sales by platform, with interactive tooltips.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-14-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram/',
   },
@@ -100,13 +106,15 @@ export const demoProjects: Project[] = [
     title: 'Choropleth Map',
     description:
       "An interactive D3.js choropleth map displaying US county-level educational attainment data. Counties are shaded by percentage of adults with a bachelor's degree, with a colour legend and tooltips.",
-    summary: 'D3.js choropleth map of US education data at county level with colour legend.',
+    summary:
+      'D3.js choropleth map of US education data at county level with colour legend.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-13-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map/',
   },
@@ -116,13 +124,15 @@ export const demoProjects: Project[] = [
     title: 'Heat Map',
     description:
       'A D3.js heat map displaying monthly global land-surface temperature variance from 1753 to 2015. Each cell represents one month, colour-coded from cold blue to hot red with a tooltip on hover.',
-    summary: 'D3.js heat map of monthly global temperature variance over 260 years.',
+    summary:
+      'D3.js heat map of monthly global temperature variance over 260 years.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-12-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-3-Heat-Map',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-3-Heat-Map',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-3-Heat-Map/',
   },
@@ -132,13 +142,15 @@ export const demoProjects: Project[] = [
     title: 'Scatterplot Graph',
     description:
       "A D3.js scatterplot of professional cyclists' climb times at Alpe d'Huez, annotated with doping allegations. Hover tooltips display rider name, country, year, and doping notes.",
-    summary: 'D3.js scatterplot of cycling performance data with doping annotations.',
+    summary:
+      'D3.js scatterplot of cycling performance data with doping annotations.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-11-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph/',
   },
@@ -154,7 +166,8 @@ export const demoProjects: Project[] = [
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['D3.js'],
     imageUrl: ['/freeCodeCamp-pictures/Picture-10-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-1-Bar-Chart',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Data-Visualization/Project-1-Bar-Chart',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-1-Bar-Chart/',
   },
@@ -165,13 +178,15 @@ export const demoProjects: Project[] = [
     title: 'Pokémon Search App',
     description:
       "A JavaScript app that queries the PokéAPI by name or ID and displays the matched Pokémon's sprite, stats, types, and HP. Handles API errors with descriptive user messages.",
-    summary: 'Fetches and displays Pokémon stats, types, and sprites from PokéAPI.',
+    summary:
+      'Fetches and displays Pokémon stats, types, and sprites from PokéAPI.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-9-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-5-Pokemon-App',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-5-Pokemon-App',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-5-Pokemon-App/',
   },
@@ -181,13 +196,15 @@ export const demoProjects: Project[] = [
     title: 'Cash Register',
     description:
       'A JavaScript cash register simulator that calculates the exact change to return, handles insufficient-funds and exact-change edge cases, and displays the denomination breakdown.',
-    summary: 'Calculates and displays denomination breakdown for change, with edge-case handling.',
+    summary:
+      'Calculates and displays denomination breakdown for change, with edge-case handling.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-8-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-4-Cash-Register',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-4-Cash-Register',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-4-Cash-Register/',
   },
@@ -197,13 +214,15 @@ export const demoProjects: Project[] = [
     title: 'Telephone Number Validator',
     description:
       'A JavaScript utility that validates US phone numbers using regular expressions. Accepts multiple valid formats (with or without country code, dashes, dots, and parentheses) and rejects invalid ones.',
-    summary: 'Validates US phone number formats including multiple notation styles via regex.',
+    summary:
+      'Validates US phone number formats including multiple notation styles via regex.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-7-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-3-Telephone-Number-Validator',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-3-Telephone-Number-Validator',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-3-Telephone-Number-Validator/',
   },
@@ -213,13 +232,15 @@ export const demoProjects: Project[] = [
     title: 'Roman Numeral Converter',
     description:
       'A JavaScript converter that transforms integers from 1 to 3999 into their Roman numeral equivalent. Built with a greedy subtraction algorithm and input validation.',
-    summary: 'Converts integers 1–3999 to Roman numerals using a greedy algorithm.',
+    summary:
+      'Converts integers 1–3999 to Roman numerals using a greedy algorithm.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-6-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-2-Roman-Numeral-Converter',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-2-Roman-Numeral-Converter',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-2-Roman-Numeral-Converter/',
   },
@@ -229,13 +250,15 @@ export const demoProjects: Project[] = [
     title: 'Palindrome Checker',
     description:
       'A JavaScript palindrome checker that strips punctuation, spaces, and normalises case before validating the input string. Displays a clear pass or fail result with the sanitised form shown.',
-    summary: 'Checks if a string is a palindrome, ignoring punctuation, spaces, and case.',
+    summary:
+      'Checks if a string is a palindrome, ignoring punctuation, spaces, and case.',
     kind: 'demo',
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-5-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-1-Palindrome-Checker',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-1-Palindrome-Checker',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-1-Palindrome-Checker/',
   },
@@ -246,13 +269,15 @@ export const demoProjects: Project[] = [
     title: '"Knights" PC Store',
     description:
       'A responsive product landing page for a fictional PC hardware brand called Knights. Features a fixed navigation bar, feature highlights, and a product showcase — built with HTML and CSS only.',
-    summary: 'Responsive product landing page for a fictional PC hardware brand.',
+    summary:
+      'Responsive product landing page for a fictional PC hardware brand.',
     kind: 'demo',
     category: 'frontend',
     languages: ['CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-4-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-4-ProductLandingPage',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-4-ProductLandingPage',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-4-ProductLandingPage/',
   },
@@ -262,13 +287,15 @@ export const demoProjects: Project[] = [
     title: 'How to Build Your PC',
     description:
       'A technical documentation page that walks through the process of building a PC from scratch, structured as a multi-section guide with a sticky sidebar navigation. Built with HTML and CSS.',
-    summary: 'Technical documentation page for building a PC, with sticky sidebar navigation.',
+    summary:
+      'Technical documentation page for building a PC, with sticky sidebar navigation.',
     kind: 'demo',
     category: 'frontend',
     languages: ['CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-3-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-3-TechnicalDocumentationPage',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-3-TechnicalDocumentationPage',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-3-TechnicalDocumentationPage/',
   },
@@ -284,7 +311,8 @@ export const demoProjects: Project[] = [
     languages: ['CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-2-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-2-TributePage',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-2-TributePage',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-2-TributePage/',
   },
@@ -294,13 +322,15 @@ export const demoProjects: Project[] = [
     title: 'Survey Form',
     description:
       'A styled survey form built as part of the FreeCodeCamp Responsive Web Design certification. Uses semantic form elements, labels, fieldsets, and custom CSS without any framework.',
-    summary: 'Styled survey form using semantic HTML form elements and custom CSS.',
+    summary:
+      'Styled survey form using semantic HTML form elements and custom CSS.',
     kind: 'demo',
     category: 'frontend',
     languages: ['CSS', 'HTML'],
     technologies: [],
     imageUrl: ['/freeCodeCamp-pictures/Picture-1-freeCodeCamp.webp'],
-    githubUrl: 'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-1-Surveyform',
+    githubUrl:
+      'https://github.com/ITSECT3R/fenix/tree/main/freeCodeCamp/Resonsive-web-design/Project-1-Surveyform',
     liveUrl:
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-1-Surveyform/',
   },

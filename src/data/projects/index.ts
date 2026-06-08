@@ -7,4 +7,8 @@ export { realProjects } from './realProjects';
 export { personalProjects } from './personalProjects';
 export { demoProjects } from './demoProjects';
 
-export const projects: Project[] = [...realProjects, ...personalProjects, ...demoProjects];
+export const projects: Project[] = [
+  ...realProjects,
+  ...personalProjects,
+  ...demoProjects,
+];

@@ -1,4 +1,4 @@
-import styles from "../../styles/cv/experience.module.css";
+import styles from '../../styles/cv/experience.module.css';
 import type { Job } from '../../types/cv';
 import { JobItem } from './JobItem';
 
@@ -12,7 +12,8 @@ export const Experience = ({ jobs }: Props) => {
       <h2>Experience</h2>
       <div className={styles.workHistory}>
         {jobs.map(job => {
-          const key = job.id ?? `${job.company}-${job.position}-${job.displayDate}`;
+          const key =
+            job.id ?? `${job.company}-${job.position}-${job.displayDate}`;
 
           return <JobItem key={key} job={job} />;
         })}

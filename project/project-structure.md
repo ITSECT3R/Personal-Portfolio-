@@ -115,6 +115,9 @@ Personal-Portfolio/
 │   │   │   └── useCertificationFilters.ts
 │   │   │
 │   │   ├── home/
+│   │   │   ├── __tests__/
+│   │   │   │   └── calculateAge.test.ts
+│   │   │   │
 │   │   │   ├── calculateAge.ts
 │   │   │   ├── useAnimateOnScroll.ts
 │   │   │   └── useDownloadCV.ts
@@ -205,6 +208,12 @@ Personal-Portfolio/
 │   │
 │   ├── utils/
 │   │   ├── __tests__/
+│   │   │   ├── data/
+│   │   │   │   ├── filterCertifications.data.ts
+│   │   │   │   └── filterProjects.data.ts
+│   │   │   │
+│   │   │   ├── filterCertifications.test.ts
+│   │   │   ├── filterProjects.test.ts
 │   │   │   └── navigation.test.ts
 │   │   │
 │   │   ├── certificationLabels.ts

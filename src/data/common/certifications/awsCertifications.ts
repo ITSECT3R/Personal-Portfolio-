@@ -21,6 +21,6 @@ export const awsCertifications: Certification[] = [
     technologies: ['AWS'],
     description:
       'Certification covering AWS AI/ML services: SageMaker, Rekognition, Bedrock, and foundational generative AI concepts.',
-    link: 'https://www.linkedin.com/in/luis-angel-m-084449165/',
+    link: 'https://my-portfolio.itsect3r.workers.dev/',
   },
 ];

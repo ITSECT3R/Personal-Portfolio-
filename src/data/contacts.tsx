@@ -21,7 +21,7 @@ export const contacts = [
   {
     svg: <LinkedInIcon />,
     name: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/luis-angel-m-084449165/',
+    link: 'https://my-portfolio.itsect3r.workers.dev/',
   },
   {
     svg: <GitHubIcon />,

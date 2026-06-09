@@ -1,6 +1,6 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: June 8, 2026
+Last Updated: June 9, 2026
 
 ## Root Directory
 
@@ -114,6 +114,9 @@ Personal-Portfolio/
 │   │   ├── certifications/
 │   │   │   └── useCertificationFilters.ts
 │   │   │
+│   │   ├── cv/
+│   │   │   └── useCvScale.ts
+│   │   │
 │   │   ├── home/
 │   │   │   ├── __tests__/
 │   │   │   │   └── calculateAge.test.ts
@@ -125,8 +128,9 @@ Personal-Portfolio/
 │   │   ├── projects/
 │   │   │   └── useProjectFilters.ts
 │   │   │
-│   │   ├── index.ts               # Barrel export
-│   │   └── usePageBackground.ts
+│   │   ├── index.ts                # Barrel export
+│   │   ├── usePageBackground.ts
+│   │   └── useScrollDirection.ts
 │   │
 │   ├── pages/
 │   │   ├── projects/

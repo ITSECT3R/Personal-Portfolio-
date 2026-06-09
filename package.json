@@ -10,11 +10,12 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "bun run build && wrangler dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "generate-structure": "node scripts/generate-structure.js"
+    "generate-structure": "node scripts/generate-structure.js",
+    "deploy": "bun run build && wrangler deploy"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -32,6 +33,7 @@
     "react-router-dom": "^7.11.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.40.0",
     "@eslint/js": "^9.39.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@types/node": "^24.10.1",
@@ -53,7 +55,8 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "npm:rolldown-vite@7.2.5",
-    "vitest": "^4.1.7"
+    "vitest": "^4.1.7",
+    "wrangler": "^4.98.0"
   },
   "overrides": {
     "vite": "npm:rolldown-vite@7.2.5"

@@ -204,7 +204,8 @@ Personal-Portfolio/
 ├── tsconfig.app.json    # TypeScript app config
 ├── tsconfig.json        # TypeScript base config
 ├── tsconfig.node.json   # TypeScript node config
-└── vite.config.ts       # Vite configuration
+├── vite.config.ts       # Vite configuration
+└── wrangler.jsonc
 ```
 
 ## Directory Explanations

@@ -16,20 +16,21 @@
 
 ## Tech Stack
 
-| Concern         | Tool                                             |
-| --------------- | ------------------------------------------------ |
-| Framework       | React 19 (functional components)                 |
-| Language        | TypeScript (strict mode ON)                      |
-| Build tool      | Vite 6 + @vitejs/plugin-react-swc                |
-| Routing         | React Router v7                                  |
-| Styling         | CSS Modules + global CSS classes                 |
-| Icons           | @iconify/react + custom SVG components           |
-| Animations      | @itsect3r/bortx (border + text CSS, React hooks) |
-| Linting         | ESLint 9 (flat config) + eslint-plugin-jsx-a11y  |
-| Formatting      | Prettier                                         |
-| Git hooks       | Husky + lint-staged                              |
-| Package manager | Bun                                              |
-| Testing         | Vitest + @testing-library/react                  |
+| Concern         | Tool                                                      |
+| --------------- | --------------------------------------------------------- |
+| Framework       | React 19 (functional components)                          |
+| Language        | TypeScript (strict mode ON)                               |
+| Build tool      | Vite 6 + @vitejs/plugin-react-swc                         |
+| Routing         | React Router v7                                           |
+| Styling         | CSS Modules + global CSS classes                          |
+| Icons           | @iconify/react + custom SVG components                    |
+| Animations      | @itsect3r/bortx (border + text CSS, React hooks)          |
+| Linting         | ESLint 9 (flat config) + eslint-plugin-jsx-a11y           |
+| Formatting      | Prettier                                                  |
+| Git hooks       | Husky + lint-staged                                       |
+| Package manager | Bun                                                       |
+| Testing         | Vitest + @testing-library/react                           |
+| Deployment      | Cloudflare Workers via @cloudflare/vite-plugin + Wrangler |
 
 ---
 
@@ -41,6 +42,7 @@ bun run build            # Type-check + production build
 bun run lint             # ESLint check
 bun run format           # Prettier write
 bun run format:check     # Prettier check (CI)
+bun run deploy           # Build + deploy to Cloudflare Workers
 bun run generate-structure  # Regenerate project-structure.md
 ```
 
@@ -137,6 +139,16 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 
 ---
 
+## Deployment
+
+- **Platform:** Cloudflare Workers via `@cloudflare/vite-plugin` + Wrangler
+- **Config:** `wrangler.jsonc` — SPA routing, Node.js compat, observability enabled
+- **Deploy command:** `bun run deploy` (builds then runs `wrangler deploy`)
+- **Preview:** `bun run preview` (builds then runs `wrangler dev`)
+- **URL:** https://my-portfolio.itsect3r.workers.dev/
+
+---
+
 ## Planned Backend (not yet implemented)
 
 - **API:** Node.js / AWS Lambda (REST)
@@ -185,7 +197,6 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 
 1. Full component and integration test suite is not yet implemented (4 unit tests exist)
 2. `src/data/` is still the direct data layer — awaiting hexagonal refactor
-3. Project documentation files in `project/` may reference the old embedded animation library (now replaced by `@itsect3r/bortx`) — update as encountered
 
 ---
 

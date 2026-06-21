@@ -12,13 +12,37 @@ git push → GitHub Actions triggers → ubuntu-latest VM
     1. Checkout code                    │  actions/checkout@v4
     2. Setup Bun                        │  oven-sh/setup-bun@v2
     3. Install dependencies             │  bun install --frozen-lockfile
-    4. Type check                       │  tsc -b (via bun run build)
-    5. Run tests                        │  vitest run
-    6. Lint                             │  eslint .
-    7. Check formatting                 │  prettier --check .
+    4. Postinstall (Bortx build)        │  builds @itsect3r/bortx dist if missing
+    5. Type check                       │  tsc -b (via bun run build)
+    6. Run tests                        │  vitest run
+    7. Lint                             │  eslint .
+    8. Check formatting                 │  prettier --check .
+                                        │
+    9. Cloudflare Workers (auto)        │  deploys to my-portfolio.itsect3r.workers.dev
                                         │
                                     ✅ All pass → green checkmark
                                     ❌ Any fail → red X, notification
+```
+
+---
+
+## Deployment
+
+The project is auto-deployed to Cloudflare Workers on every push to `main` via
+[Cloudflare's Git integration](https://developers.cloudflare.com/workers/ci-cd/builds/git-integration/).
+
+- **Platform:** Cloudflare Workers (`@cloudflare/vite-plugin`)
+- **Config:** `wrangler.jsonc` — SPA routing, Node.js compat, observability
+- **Build command:** `bun run build`
+- **Deploy command:** `bun run deploy` / `wrangler deploy`
+- **PReview:** `bun run preview` → `bun run build && wrangler dev`
+- **URL:** https://my-portfolio.itsect3r.workers.dev/
+
+To deploy manually:
+
+```bash
+bun run deploy           # Build + deploy to Workers
+bun run preview          # Build + local Workers preview
 ```
 
 ---
@@ -106,4 +130,4 @@ jobs:
 
 - [ ] Add coverage report upload (Codecov / Coveralls)
 - [ ] Add Playwright E2E tests when API is implemented
-- [ ] Add deployment step (Vercel / Cloudflare Pages) after tests pass
+- [x] Add deployment step — Cloudflare Workers auto-deployment via Git integration

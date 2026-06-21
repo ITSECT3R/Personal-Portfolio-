@@ -152,6 +152,11 @@ The profile picture and CTA buttons stack below the description text on mobile.
 | ≤ 900px    | Project grid → 2 columns                                                                              |
 | ≤ 560px    | Project grid → 1 column; `.page` padding → `1rem 0.5rem`; heading → `1.5rem`; filter bar gap tightens |
 
+Grid columns use `minmax(0, 1fr)` instead of plain `1fr` to prevent content from forcing
+columns wider than their allocated track — without this, long card content (titles, badge
+marquees) can push grid items past the page container at narrow viewport widths just above
+a breakpoint, causing horizontal overflow.
+
 ### Skills Page
 
 **Files:** `src/styles/skills.module.css`, `src/styles/skills/certificationFilter.module.css`
@@ -226,11 +231,12 @@ The profile picture and CTA buttons stack below the description text on mobile.
 
 ## Common Pitfalls
 
-| Symptom                             | Likely Cause                                             | Fix                                                     |
-| ----------------------------------- | -------------------------------------------------------- | ------------------------------------------------------- |
-| Double scrollbar                    | `overflow-*` set on `body` or inner container            | Move to `html`; set `body { overflow: visible }`        |
-| Content shifted right on mobile     | Padding too large; no `width: 100%` on wrapper           | Reduce padding; add `width: 100%`                       |
-| Navbar invisible / hard to find     | `transform: scale()` making layout taller than viewport  | Use `zoom` instead of `transform: scale()`              |
-| Green border gap on CV page         | Same as above (`transform: scale` doesn't shrink layout) | Use `zoom`                                              |
-| Dropdown panel cut off horizontally | `min-width` exceeds viewport                             | Add `max-width: calc(100vw - 2rem)`                     |
-| Navbar glitches on scroll           | No dead-zone; iOS momentum bounce                        | Ignore scroll deltas < 8px; use `requestAnimationFrame` |
+| Symptom                                 | Likely Cause                                                                    | Fix                                                         |
+| --------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Double scrollbar                        | `overflow-*` set on `body` or inner container                                   | Move to `html`; set `body { overflow: visible }`            |
+| Content shifted right on mobile         | Padding too large; no `width: 100%` on wrapper                                  | Reduce padding; add `width: 100%`                           |
+| Navbar invisible / hard to find         | `transform: scale()` making layout taller than viewport                         | Use `zoom` instead of `transform: scale()`                  |
+| Green border gap on CV page             | Same as above (`transform: scale` doesn't shrink layout)                        | Use `zoom`                                                  |
+| Dropdown panel cut off horizontally     | `min-width` exceeds viewport                                                    | Add `max-width: calc(100vw - 2rem)`                         |
+| Navbar glitches on scroll               | No dead-zone; iOS momentum bounce                                               | Ignore scroll deltas < 8px; use `requestAnimationFrame`     |
+| Grid items overflow page at breakpoints | `min-width: auto` on grid items (default) prevents shrinking below content size | Use `repeat(n, minmax(0, 1fr))` instead of `repeat(n, 1fr)` |

@@ -1,6 +1,6 @@
 # Personal Portfolio - Current Project Structure
 
-Last Updated: June 9, 2026
+Last Updated: June 21, 2026
 
 ## Root Directory
 
@@ -14,7 +14,7 @@ Personal-Portfolio/
 │   ├── code-review.md
 │   ├── project-structure.md            # This file
 │   ├── projects-page-architecture.md
-│   ├── review-cv-refactor.md
+│   ├── responsive-design.md
 │   ├── skills-page-architecture.md
 │   ├── testing-strategy.md
 │   ├── text-animations.md              # Text animation documentation
@@ -122,7 +122,6 @@ Personal-Portfolio/
 │   │   │   │   └── calculateAge.test.ts
 │   │   │   │
 │   │   │   ├── calculateAge.ts
-│   │   │   ├── useAnimateOnScroll.ts
 │   │   │   └── useDownloadCV.ts
 │   │   │
 │   │   ├── projects/
@@ -143,29 +142,6 @@ Personal-Portfolio/
 │   │   └── Skills.Page.tsx
 │   │
 │   ├── styles/
-│   │   ├── borders/
-│   │   │   ├── effects/
-│   │   │   │   ├── corner-highlight.css
-│   │   │   │   ├── dash-chase.css
-│   │   │   │   ├── dots.css
-│   │   │   │   ├── dual-spin.css
-│   │   │   │   ├── gradient.css
-│   │   │   │   ├── index.css              # Barrel import for styles
-│   │   │   │   ├── index.ts               # Barrel export
-│   │   │   │   ├── light-trail.css
-│   │   │   │   ├── neon.css
-│   │   │   │   ├── pulse.css
-│   │   │   │   ├── rainbow.css
-│   │   │   │   ├── ripple.css
-│   │   │   │   └── shimmer.css
-│   │   │   │
-│   │   │   ├── modifiers/
-│   │   │   │   ├── index.css   # Barrel import for styles
-│   │   │   │   └── index.ts    # Barrel export
-│   │   │   │
-│   │   │   ├── base.css
-│   │   │   └── index.ts     # Barrel export
-│   │   │
 │   │   ├── cv/
 │   │   │   ├── certifications.module.css
 │   │   │   ├── cvPage.module.css
@@ -182,21 +158,6 @@ Personal-Portfolio/
 │   │   │   ├── certificationFilter.module.css
 │   │   │   └── skillsGrid.module.css
 │   │   │
-│   │   ├── text/
-│   │   │   ├── effects/
-│   │   │   │   ├── glitch.css
-│   │   │   │   ├── index.css        # Barrel import for styles
-│   │   │   │   ├── index.ts         # Barrel export
-│   │   │   │   ├── reveal-up.css
-│   │   │   │   └── typewriter.css
-│   │   │   │
-│   │   │   ├── modifiers/
-│   │   │   │   ├── index.css   # Barrel import for styles
-│   │   │   │   └── index.ts    # Barrel export
-│   │   │   │
-│   │   │   ├── base.css
-│   │   │   └── index.ts     # Barrel export
-│   │   │
 │   │   ├── experience.module.css
 │   │   ├── home.module.css
 │   │   ├── projects.module.css
@@ -206,6 +167,7 @@ Personal-Portfolio/
 │   │   └── setup.ts
 │   │
 │   ├── types/
+│   │   ├── bortx.d.ts
 │   │   ├── certification.ts
 │   │   ├── cv.ts
 │   │   └── project.ts

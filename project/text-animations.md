@@ -2,32 +2,35 @@
 
 ## Overview
 
-The text animation system in this portfolio consists of three main components:
+Text animations are provided by the [`@itsect3r/bortx`](https://github.com/ITSECT3R/Bortx) open-source library.
+The library ships compiled CSS and TypeScript, with optional React hooks for scroll-triggered animations.
 
-1. **React Hooks** (`src/hooks/useAnimateOnScroll.ts`) - Handle viewport detection and animation triggering
-2. **CSS Effects** (`src/styles/text/`) - Define the actual animation styles
-3. **Component Integration** - How components use the hooks and styles together
+- **CSS effects**: imported via `import '@itsect3r/bortx/text'` in `src/main.tsx`
+- **React hooks**: imported via `import { useAnimateOnScroll } from '@itsect3r/bortx/react'`
+- **Trigger system**: all text animations are paused by default — add `.is-animated` to start
 
 ## How It Works
 
-### 1. Animation Trigger System (React Hooks)
+### 1. Animation Trigger System
 
-The system uses `IntersectionObserver` via the `useAnimateOnScroll` hook to detect when text elements enter the viewport. When an element becomes visible, the hook automatically adds the `is-animated` CSS class, which triggers the animations.
+Text animations are paused/hidden by default. They activate when the `.is-animated` class is added.
+There are three ways to trigger animations:
 
-#### Key Hook Features:
+| Method                        | Usage                                                     |
+| ----------------------------- | --------------------------------------------------------- |
+| `useAnimateOnScroll` hook     | Scroll-triggered via `IntersectionObserver` (recommended) |
+| `useAnimateOnScrollMany` hook | Staggered multi-element animation                         |
+| Hardcoded `is-animated`       | Always-on, no viewport detection                          |
 
-- **Automatic Class Toggle**: Adds/removes `is-animated` class based on viewport intersection
-- **Configurable Options**: Threshold, root margin, trigger once, delay
-- **Multiple Elements**: `useAnimateOnScrollMany` for staggered animations on multiple elements
-- **Reset Functionality**: Can manually reset animation state
-
-#### Hook Usage Example:
+#### Hook Usage
 
 ```tsx
-const { ref, isAnimated } = useAnimateOnScroll({
-  threshold: 0.5, // Trigger when 50% visible
-  delay: 200, // Wait 200ms before adding class
-  triggerOnce: true, // Only animate once
+import { useAnimateOnScroll } from '@itsect3r/bortx/react';
+
+const { ref, isAnimated } = useAnimateOnScroll<HTMLHeadingElement>({
+  threshold: 0.5,
+  delay: 200,
+  triggerOnce: true,
 });
 
 return (
@@ -37,60 +40,62 @@ return (
 );
 ```
 
+#### Static (Always-On)
+
+```tsx
+<h1 className="text-effect text-typewriter is-animated">
+  Always animated on mount
+</h1>
+```
+
 ### 2. CSS Animation Effects
 
-All animations are CSS-based and triggered by the `is-animated` class. The system includes:
+#### Base Requirements
 
-#### Base Requirements:
+- **Required class**: `text-effect`
+- **Trigger class**: `is-animated`
 
-- **Required Class**: `text-effect` (base styles and variables)
-- **Trigger Class**: `is-animated` (added by hook when element enters viewport)
-- **Effect Classes**: Specific animation types (see below)
+#### Available Effects
 
-#### Available Effects:
+| Effect                 | Class                       | Description                                              |
+| ---------------------- | --------------------------- | -------------------------------------------------------- |
+| Typewriter             | `text-typewriter`           | Typing with blinking cursor; needs `--text-effect-chars` |
+| Typewriter (no cursor) | `text-typewriter-no-cursor` | Variant without cursor                                   |
+| Typewriter (loop)      | `text-typewriter-loop`      | Infinite type/erase cycle                                |
+| Reveal Up              | `text-reveal-up`            | Slides up from below                                     |
+| Reveal Down            | `text-reveal-down`          | Slides down from above                                   |
+| Reveal Left            | `text-reveal-left`          | Slides in from right                                     |
+| Reveal Right           | `text-reveal-right`         | Slides in from left                                      |
+| Glitch                 | `text-glitch`               | Digital distortion with color separation                 |
+| Glitch Intense         | `text-glitch-intense`       | Pseudo-element slices (requires `data-text`)             |
+| Glitch Subtle          | `text-glitch-subtle`        | Slow, subdued distortion                                 |
 
-**Typewriter Effect** (`text-typewriter`)
+#### Modifiers
 
-- Simulates typing with blinking cursor
-- Requires `--text-effect-chars` CSS variable (character count)
-- Uses `ch` units for accurate character width
-- Variants: `text-typewriter-no-cursor`, `text-typewriter-loop`
+| Category | Class                            | Description                      |
+| -------- | -------------------------------- | -------------------------------- |
+| Glow     | `text-glow`                      | Static two-layer drop-shadow     |
+| Glow     | `text-glow-pulse`                | Animated pulsing glow (2s cycle) |
+| Glow     | `text-glow-intense`              | Four-layer static glow           |
+| Gradient | `text-gradient`                  | Static two-color linear gradient |
+| Gradient | `text-gradient-animated`         | Shifting gradient (3s cycle)     |
+| Gradient | `text-gradient-rainbow`          | 8-color rainbow shift (5s cycle) |
+| Speed    | `text-slow`                      | 4s duration                      |
+| Speed    | `text-fast`                      | 1s duration                      |
+| Delay    | `text-delay-1` to `text-delay-5` | 0.1s to 0.5s delay               |
+| Depth    | `text-shadow-depth`              | 3-layer 3D drop-shadow           |
 
-**Reveal Up Effect** (`text-reveal-up`)
+#### Color Presets
 
-- Text slides up from bottom with opacity fade-in
-- Can animate entire blocks or individual words/letters
-- Container class: `text-reveal-up-container` with `text-reveal-up-word` children
-- Auto-stagger: Add `text-stagger-auto` for automatic delays
+Bortx ships with drop-in CSS color preset classes. Combine with any gradient/glitch/glow modifier.
 
-**Glitch Effect** (`text-glitch`)
+| Category | Available presets                                                                                                                                                                                                          |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gradient | `text-colors-sunset`, `text-colors-ocean`, `text-colors-cyberpunk`, `text-colors-forest`, `text-colors-fire`, `text-colors-twilight`, `text-colors-neon`, `text-colors-candy`, `text-colors-midnight`, `text-colors-ember` |
+| Glitch   | `text-glitch-colors-error`, `text-glitch-colors-neon`, `text-glitch-colors-matrix`, `text-glitch-colors-vaporwave`, `text-glitch-colors-cyber`, `text-glitch-colors-toxic`                                                 |
+| Glow     | `text-glow-purple`, `text-glow-cyan`, `text-glow-orange`, `text-glow-pink`, `text-glow-green`, `text-glow-red`, `text-glow-gold`, `text-glow-white`                                                                        |
 
-- Digital distortion with color separation and position jitter
-- Variants: `text-glitch-intense` (uses pseudo-elements), `text-glitch-subtle`
-- Customizable colors via `--text-effect-glitch-color-1/2`
-
-#### Modifiers (can combine with any effect):
-
-**Glow** (`text-glow`)
-
-- Adds text-shadow glow effect
-- Variants: `text-glow-pulse` (animated), `text-glow-intense`
-- Variables: `--text-effect-glow-color`, `--text-effect-glow-intensity`
-
-**Gradient** (`text-gradient`)
-
-- Applies linear gradient to text using `background-clip: text`
-- Variants: `text-gradient-animated`, `text-gradient-rainbow`
-- Variables: `--text-effect-gradient-start/end/angle`
-
-**Timing Modifiers**:
-
-- `text-slow` / `text-fast` - Adjust animation speed
-- `text-delay-1` through `text-delay-5` - Preset delays
-
-### 3. CSS Variables (Customization)
-
-The system uses CSS custom properties for easy customization:
+### 3. CSS Variables
 
 ```css
 /* Timing */
@@ -98,84 +103,71 @@ The system uses CSS custom properties for easy customization:
 --text-effect-delay: 0s;
 
 /* Colors */
---text-effect-color: inherit;
 --text-effect-accent: #8b52fd;
 --text-effect-glow-color: currentColor;
+--text-effect-glow-intensity: 10px;
 
-/* Effect-specific */
---text-effect-chars: 20; /* Typewriter */
---text-effect-glitch-intensity: 2px; /* Glitch */
---text-effect-glow-intensity: 10px; /* Glow */
---text-effect-gradient-start: #8b52fd; /* Gradient */
+/* Typewriter */
+--text-effect-chars: 20; /* Required: number of characters */
+--text-effect-cursor-width: 3px;
+--text-effect-cursor-color: currentColor;
+
+/* Gradient */
+--text-effect-gradient-start: #8b52fd;
+--text-effect-gradient-end: #00ffff;
+--text-effect-gradient-angle: 90deg;
+
+/* Glitch */
+--text-effect-glitch-color-1: #ff0000;
+--text-effect-glitch-color-2: #00ffff;
+--text-effect-glitch-intensity: 2px;
 ```
 
 ### 4. Component Integration Pattern
 
-Components follow this pattern:
+1. **Import CSS**: `import '@itsect3r/bortx/text'` (done once in `src/main.tsx`)
+2. **Import hook**: `import { useAnimateOnScroll } from '@itsect3r/bortx/react'`
+3. **Apply classes**: `text-effect` + effect class + optional modifiers/color presets
+4. **Attach ref**: Connect the hook ref to the element
+5. **Set `--text-effect-chars`**: Required for typewriter effect
 
-1. **Import Hook**: `import { useAnimateOnScroll } from '../hooks';`
-2. **Import Styles**: `import '../styles/text';` (or specific effect files)
-3. **Create Hook Instance**: Configure options per element
-4. **Apply Classes**: Combine `text-effect` + effect class + modifiers
-5. **Attach Ref**: Connect element to hook
-6. **Set Variables**: Use inline styles for dynamic values
-
-#### Complete Example:
+#### Complete Example
 
 ```tsx
-import { useAnimateOnScroll } from '../hooks';
-import '../styles/text';
+import { useAnimateOnScroll } from '@itsect3r/bortx/react';
 
 export default function MyComponent() {
-  const { ref: titleRef } = useAnimateOnScroll({ threshold: 0.5 });
-  const { ref: subtitleRef } = useAnimateOnScroll({
-    threshold: 0.3,
-    delay: 300,
+  const { ref: titleRef } = useAnimateOnScroll<HTMLHeadingElement>({
+    threshold: 0.5,
+    delay: 200,
   });
 
   return (
-    <>
-      <h1
-        ref={titleRef}
-        className="text-effect text-typewriter text-glow text-fast"
-        style={
-          {
-            '--text-effect-chars': 15,
-            '--text-effect-glow-color': '#00d4ff',
-          } as React.CSSProperties
-        }
-      >
-        Welcome to My Site
-      </h1>
-
-      <h2
-        ref={subtitleRef}
-        className="text-effect text-glitch text-gradient-animated"
-      >
-        Full Stack Developer
-      </h2>
-    </>
+    <h1
+      ref={titleRef}
+      className="text-effect text-typewriter text-glow text-glow-purple"
+      style={{ '--text-effect-chars': '15' } as React.CSSProperties}
+    >
+      Welcome to My Site
+    </h1>
   );
 }
 ```
 
-### 5. Animation States
+### 5. Usage in This Project
 
-- **Before Animation**: Element has base classes but no `is-animated` → animations paused/hidden
-- **During Animation**: Hook detects intersection → adds `is-animated` → CSS animations run
-- **After Animation**: Element stays animated (unless `triggerOnce: false`)
+| Page           | Element                    | Effect                                       | Trigger                                                    |
+| -------------- | -------------------------- | -------------------------------------------- | ---------------------------------------------------------- |
+| Home           | "Full-Stack Developer"     | `text-glitch text-gradient`                  | Scroll hook                                                |
+| Home           | Description paragraph      | `text-reveal-up`                             | Scroll hook                                                |
+| Home           | "Luis A Marin"             | `text-typewriter`                            | Scroll hook, `--text-effect-chars: 13` (set in CSS module) |
+| Projects       | "Projects" heading         | `text-typewriter text-glow text-glow-purple` | Always-on, `--text-effect-chars: 8`                        |
+| Skills         | "Certifications" heading   | `text-reveal-up`                             | Always-on                                                  |
+| Skills         | "Technical Skills" heading | `text-reveal-up`                             | Always-on                                                  |
+| ProjectDetails | Title                      | `text-reveal-up`                             | Always-on                                                  |
 
-### 6. Performance Considerations
+### 6. Browser Support & Accessibility
 
-- Uses `IntersectionObserver` (efficient, no polling)
-- CSS-only animations (GPU accelerated)
-- Lazy loading: animations only start when elements are visible
-- Minimal JavaScript: hooks are lightweight wrappers around native APIs
-
-### 7. Browser Support
-
-- Modern browsers with CSS custom properties and IntersectionObserver
-- Fallbacks: Elements remain readable even without animations
-- Graceful degradation: Non-supporting browsers show static text
-
-This system provides a flexible, performant way to add engaging text animations that enhance the user experience without compromising accessibility or performance.
+- `@property` animations are Chromium-only (Chrome/Edge/Opera); Firefox/Safari degrade gracefully
+- `prefers-reduced-motion: reduce` disables all animations and shows static text
+- `forced-colors: active` strips gradient fills for readability

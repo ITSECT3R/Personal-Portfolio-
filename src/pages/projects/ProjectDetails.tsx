@@ -33,8 +33,8 @@ export default function ProjectDetails() {
   // Hero border follows the same convention as ProjectCard
   const heroBorderClass =
     project.kind === 'project'
-      ? 'border-effect border-rainbow'
-      : 'border-effect border-shimmer';
+      ? 'border-effect border-rainbow border-glow'
+      : 'border-effect border-neon border-glow';
 
   const prevImage = () =>
     setImageIndex(i => (i === 0 ? project.imageUrl.length - 1 : i - 1));
@@ -95,7 +95,7 @@ export default function ProjectDetails() {
 
       {/* ── Content panel ──────────────────────────────────────────── */}
       <div
-        className={`${styles.contentPanel} border-effect border-gradient border-slow`}
+        className={`${styles.contentPanel} border-effect border-light-trail border-glow`}
       >
         {/* Title + meta chips */}
         <div className={styles.header}>

@@ -19,7 +19,10 @@ export default function ProjectsPage() {
 
   return (
     <div className={styles.page}>
-      <h1 className={`${styles.heading} text-effect text-glitch is-animated`}>
+      <h1
+        className={`${styles.heading} text-effect text-typewriter is-animated text-glow text-glow-purple`}
+        style={{ '--text-effect-chars': '9' } as React.CSSProperties}
+      >
         Projects
       </h1>
       <ProjectFilter

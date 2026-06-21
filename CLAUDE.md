@@ -16,19 +16,20 @@
 
 ## Tech Stack
 
-| Concern           | Tool                                            |
-| ----------------- | ----------------------------------------------- |
-| Framework         | React 19 (functional components)                |
-| Language          | TypeScript (strict mode ON)                     |
-| Build tool        | Vite 6 + @vitejs/plugin-react-swc               |
-| Routing           | React Router v7                                 |
-| Styling           | CSS Modules + global CSS classes                |
-| Icons             | @iconify/react + custom SVG components          |
-| Linting           | ESLint 9 (flat config) + eslint-plugin-jsx-a11y |
-| Formatting        | Prettier                                        |
-| Git hooks         | Husky + lint-staged                             |
-| Package manager   | Bun                                             |
-| Testing (planned) | Vitest + @testing-library/react                 |
+| Concern         | Tool                                             |
+| --------------- | ------------------------------------------------ |
+| Framework       | React 19 (functional components)                 |
+| Language        | TypeScript (strict mode ON)                      |
+| Build tool      | Vite 6 + @vitejs/plugin-react-swc                |
+| Routing         | React Router v7                                  |
+| Styling         | CSS Modules + global CSS classes                 |
+| Icons           | @iconify/react + custom SVG components           |
+| Animations      | @itsect3r/bortx (border + text CSS, React hooks) |
+| Linting         | ESLint 9 (flat config) + eslint-plugin-jsx-a11y  |
+| Formatting      | Prettier                                         |
+| Git hooks       | Husky + lint-staged                              |
+| Package manager | Bun                                              |
+| Testing         | Vitest + @testing-library/react                  |
 
 ---
 
@@ -64,9 +65,7 @@ src/
     certifications/ # Certification filter hooks
   pages/            # Route-level components — one file per route
     projects/       # Sub-routes under /projects
-  styles/           # CSS Modules + global animation classes
-    borders/        # Border animation system
-    text/           # Text animation system
+  styles/           # CSS Modules
     cv/             # CV-specific module CSS
     projects/       # Project-specific module CSS
     skills/         # Skills-specific module CSS
@@ -112,15 +111,15 @@ src/
 
 ### Text Animations
 
+- Provided by `@itsect3r/bortx/text` — import in `src/main.tsx`
 - Apply with `text-effect` base class + modifier (`text-glitch`, `text-typewriter`, `text-reveal-up`)
-- Animations trigger via JS adding `is-animated` class (driven by `useAnimateOnScroll` hook)
-- See `project/text-animations.md`
+- Animations trigger via JS adding `is-animated` class (driven by `useAnimateOnScroll` hook from `@itsect3r/bortx/react`)
 
 ### Border Animations
 
+- Provided by `@itsect3r/bortx/borders` — import in `src/main.tsx`
 - Apply with `border-effect` base class + modifier (`border-dual-spin`, `border-gradient`, etc.)
 - Modifiers: `border-thick`, `border-hover-only`
-- See `project/border-animations.md`
 
 ---
 
@@ -173,7 +172,7 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 
 ---
 
-## Testing Strategy (not yet implemented)
+## Testing Strategy (4 unit tests exist, component/integration tests deferred)
 
 - **Unit tests:** Vitest — domain types, util functions, hooks in isolation
 - **Component tests:** @testing-library/react — components with mock repositories
@@ -184,11 +183,9 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 
 ## Current Known Issues / Tech Debt
 
-1. `src/data/experience.ts` exports `jobs` without `Job[]` annotation
-2. `Job` interface has 4 overlapping optional date fields — needs normalization
-3. `calculateAge()` is recomputed on every render in `Home.Page.tsx`
-4. Components in `cv/` still import data directly (partially fixed) — finish container pattern
-5. No tests exist yet
+1. Full component and integration test suite is not yet implemented (4 unit tests exist)
+2. `src/data/` is still the direct data layer — awaiting hexagonal refactor
+3. Project documentation files in `project/` may reference the old embedded animation library (now replaced by `@itsect3r/bortx`) — update as encountered
 
 ---
 

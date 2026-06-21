@@ -1,28 +1,7 @@
-import {
-  programmingSkills,
-  frontendSkills,
-  backendAndDatabase,
-  testingAndQA,
-  devOpsAndCICD,
-  cloudPlatforms,
-  developmentTools,
-  softSkills,
-} from '../../data/skills';
 import type { SkillSet } from '../../types/cv';
 import { TECH_ICON_MAP } from '../common/icons/tech';
 import styles from '../../styles/skills/skillsGrid.module.css';
 
-const TECH_SKILL_GROUPS: SkillSet[] = [
-  programmingSkills,
-  frontendSkills,
-  backendAndDatabase,
-  testingAndQA,
-  devOpsAndCICD,
-  cloudPlatforms,
-  developmentTools,
-];
-
-// Border effect per category — cycles through the library palette
 const CARD_BORDER_EFFECTS = [
   'border-effect border-dual-spin border-hover-only',
   'border-effect border-rainbow border-hover-only',
@@ -37,11 +16,16 @@ const CARD_BORDER_EFFECTS = [
   'border-effect border-dots border-hover-only',
 ];
 
-export function SkillsGrid() {
+interface SkillsGridProps {
+  techGroups: SkillSet[];
+  softSkills: SkillSet;
+}
+
+export function SkillsGrid({ techGroups, softSkills }: SkillsGridProps) {
   return (
     <section>
       <div className={styles.grid}>
-        {TECH_SKILL_GROUPS.map((group, groupIdx) => {
+        {techGroups.map((group, groupIdx) => {
           const borderClass =
             CARD_BORDER_EFFECTS[groupIdx % CARD_BORDER_EFFECTS.length];
           return (

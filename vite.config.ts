@@ -6,6 +6,10 @@ import react from '@vitejs/plugin-react-swc';
 export default defineConfig({
   plugins: [react()],
 
+  resolve: {
+    dedupe: ['react', 'react-dom'],
+  },
+
   test: {
     // Makes describe/it/expect available without imports
     globals: true,

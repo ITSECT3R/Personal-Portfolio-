@@ -14,9 +14,9 @@ type Props = {
 
 /** Border effect per issuer — gives each issuer a distinct visual identity. */
 const ISSUER_BORDER_MAP: Record<CertificationIssuer, string> = {
-  epam: 'border-effect border-dual-spin border-hover-only',
-  freecodecamp: 'border-effect border-rainbow border-hover-only',
-  aws: 'border-effect border-corner-highlight border-hover-only',
+  epam: 'border-effect border-dual-spin border-hover-only border-glow',
+  freecodecamp: 'border-effect border-rainbow border-hover-only border-glow',
+  aws: 'border-effect border-corner-highlight border-hover-only border-glow',
 };
 
 export function CertificationCard({ cert }: Props) {

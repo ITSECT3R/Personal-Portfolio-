@@ -1,8 +1,11 @@
 # Code Review: Core Components & Hooks
 
-Date: May 18, 2026
-Files reviewed: `useDownloadCV.ts`, `useAnimateOnScroll.ts`, `Home.Page.tsx`,
+Date: May 18, 2026 (updated June 2026)
+Files reviewed: `useDownloadCV.ts`, `Home.Page.tsx`,
 `experience.Component.tsx`, `sideBar.Component.tsx`, `data/experience.ts`
+
+> **June 2026 update**: `useAnimateOnScroll.ts` replaced by `@itsect3r/bortx/react`.
+> Several issues below have been resolved; see annotations.
 
 ---
 
@@ -57,104 +60,9 @@ wrap it in `useCallback` with an empty dependency array.
 
 ---
 
-## `useAnimateOnScroll.ts`
-
-### Issue 1: `setTimeout` inside `IntersectionObserver` can fire after unmount [MEDIUM]
-
-If `triggerOnce = false` and `delay > 0`, the `setTimeout` callback can fire after the component
-unmounts, causing a state update on an unmounted component. The `observer.disconnect()` cleanup
-does not cancel pending timeouts.
-
-```ts
-// ❌ Current — timeout can fire after component unmounts
-if (delay > 0) {
-  setTimeout(() => {
-    setIsAnimated(true); // may fire after unmount
-    element.classList.add('is-animated');
-  }, delay);
-}
-
-// ✅ Fix — collect timer ids and clear them in the cleanup
-useEffect(() => {
-  const element = ref.current;
-  if (!element) return;
-
-  const timers: ReturnType<typeof setTimeout>[] = [];
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (delay > 0) {
-            const id = setTimeout(() => {
-              setIsAnimated(true);
-              element.classList.add('is-animated');
-            }, delay);
-            timers.push(id);
-          } else {
-            setIsAnimated(true);
-            element.classList.add('is-animated');
-          }
-          if (triggerOnce) observer.unobserve(element);
-        } else if (!triggerOnce) {
-          setIsAnimated(false);
-          element.classList.remove('is-animated');
-        }
-      });
-    },
-    { threshold, rootMargin }
-  );
-
-  observer.observe(element);
-
-  return () => {
-    observer.disconnect();
-    timers.forEach(clearTimeout); // ← cancel any pending animations
-  };
-}, [threshold, rootMargin, triggerOnce, delay]);
-```
-
-### Issue 2: `reset` callback mutates DOM directly [LOW]
-
-The `reset` function calls `ref.current.classList.remove(...)` outside a `useEffect`.
-While not an error in practice, DOM mutations outside effects are harder to reason about.
-This is acceptable here since `reset` is imperative by design — just document it.
-
-### Positive Notes
-
-- Generic `<T extends HTMLElement>` is correct and flexible.
-- Options with defaults pattern is clean and easy to extend.
-- `triggerOnce = true` default is the right choice for performance.
-- `observer.disconnect()` in cleanup is correct.
-
----
-
 ## `Home.Page.tsx`
 
-### Issue 1: `new Date()` and `calculateAge` on every render [MEDIUM]
-
-`birthDate` and `age` are recomputed on every render. Since they are constants, move them outside
-the component:
-
-```tsx
-// ❌ Current — recomputed every render
-export default function Home() {
-  const birthDate = new Date(2000, 6, 27);
-  const age = calculateAge(birthDate);
-  ...
-}
-
-// ✅ Fix — computed once at module load
-const BIRTH_DATE = new Date(2000, 6, 27);
-
-export default function Home() {
-  const age = calculateAge(BIRTH_DATE);
-  // age still needs to be inside the component if you want it
-  // to re-check at the new year ... but for a static portfolio,
-  // module-level is fine and runs only once.
-  ...
-}
-```
+### Issue 1: ~~`new Date()` and `calculateAge` on every render~~ [RESOLVED — June 2026]
 
 ### Issue 2: Three separate `useAnimateOnScroll` calls are fine [NOTE — not an issue]
 
@@ -171,29 +79,9 @@ duplicate. Prefer a `data-testid` for testing purposes and remove the `id`.
 
 ## `experience.Component.tsx`
 
-### Issue 1: Inline date fallback logic should be extracted [LOW]
+### Issue 1: ~~Inline date fallback logic should be extracted~~ [RESOLVED — June 2026]
 
-```tsx
-// ❌ Current — complex ternary inline in JSX map
-const date =
-  job.dates ??
-  job.date ??
-  (job.startDate && job.endDate
-    ? `${job.startDate} - ${job.endDate}`
-    : (job.startDate ?? job.endDate ?? ''));
-
-// ✅ Fix 1 (best): Normalize the Job type to use displayDate (see typescript-strategy.md)
-// Then this just becomes:
-const date = job.displayDate;
-
-// ✅ Fix 2 (interim): Extract to a pure function in utils/
-export function resolveJobDate(job: Job): string {
-  if (job.dates) return job.dates;
-  if (job.date) return job.date;
-  if (job.startDate && job.endDate) return `${job.startDate} - ${job.endDate}`;
-  return job.startDate ?? job.endDate ?? '';
-}
-```
+`Job` type normalized to `displayDate: string`. The complex date fallback is no longer needed — components use `job.displayDate` directly.
 
 ### Positive Notes
 
@@ -238,38 +126,25 @@ If you want better UX, a spinner icon would be a clean improvement — but not r
 
 ## `data/experience.ts`
 
-### Issue 1: No `Job[]` type annotation [HIGH]
+### Issue 1: ~~No `Job[]` type annotation~~ [RESOLVED — June 2026]
 
-```ts
-// ❌ Current — TS infers a messy structural type, not Job[]
-export const jobs = [ ... ];
+`export const jobs: Job[] = [...]` — annotation added with `import type`.
 
-// ✅ Fix
-import type { Job } from '../types/cv';
+### Issue 2: ~~Inconsistent date field usage~~ [RESOLVED — June 2026]
 
-export const jobs: Job[] = [ ... ];
-```
-
-This immediately surfaces the fact that none of the jobs have an `id` field — which is fine since
-`Job.id` is optional, but the annotation makes the intent clear.
-
-### Issue 2: Inconsistent date field usage [MEDIUM]
-
-Some jobs use `dates`, some could use `date`. Once `Job` type is updated to use `displayDate`,
-update each job entry to use `displayDate` as the single field.
+`Job` type normalized to single `displayDate: string` field.
 
 ---
 
 ## Summary by Priority
 
-| Priority | File                       | Issue                                         | Action                     |
-| -------- | -------------------------- | --------------------------------------------- | -------------------------- |
-| HIGH     | `data/experience.ts`       | Missing `Job[]` annotation                    | Add annotation             |
-| HIGH     | `data/projects.ts`         | Empty array, no type                          | Add `Project[]`            |
-| MEDIUM   | `types/cv.ts`              | 4 overlapping date fields on `Job`            | Normalize to `displayDate` |
-| MEDIUM   | `useDownloadCV.ts`         | Dead try/catch, `target="_blank"` conflict    | Simplify + fix             |
-| MEDIUM   | `useAnimateOnScroll.ts`    | setTimeout not cleared on unmount             | Track and clear            |
-| MEDIUM   | `Home.Page.tsx`            | `new Date()` recomputed on every render       | Move outside component     |
-| LOW      | `sideBar.Component.tsx`    | `import React` unnecessary                    | Use `{ Fragment }`         |
-| LOW      | `experience.Component.tsx` | Inline date fallback logic                    | Extract to util            |
-| LOW      | `sideBar.Component.tsx`    | `id="download-btn"` duplicates if rendered 2x | Remove or use data-testid  |
+| Priority   | File                           | Issue                                         | Status                                 |
+| ---------- | ------------------------------ | --------------------------------------------- | -------------------------------------- |
+| ~~HIGH~~   | ~~`data/experience.ts`~~       | ~~Missing `Job[]` annotation~~                | Resolved — June 2026                   |
+| ~~MEDIUM~~ | ~~`types/cv.ts`~~              | ~~4 overlapping date fields on `Job`~~        | Resolved — normalized to `displayDate` |
+| MEDIUM     | `useDownloadCV.ts`             | Dead try/catch, `target="_blank"` conflict    | Open                                   |
+| ~~MEDIUM~~ | ~~`useAnimateOnScroll.ts`~~    | ~~setTimeout not cleared on unmount~~         | Replaced by `@itsect3r/bortx/react`    |
+| ~~MEDIUM~~ | ~~`Home.Page.tsx`~~            | ~~`new Date()` recomputed on every render~~   | Resolved — June 2026                   |
+| LOW        | `sideBar.Component.tsx`        | `import React` unnecessary                    | Open                                   |
+| ~~LOW~~    | ~~`experience.Component.tsx`~~ | ~~Inline date fallback logic~~                | Resolved — `displayDate` field         |
+| LOW        | `sideBar.Component.tsx`        | `id="download-btn"` duplicates if rendered 2x | Open                                   |

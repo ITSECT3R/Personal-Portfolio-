@@ -1,5 +1,7 @@
-import { useAnimateOnScroll, calculateAge, useDownloadCV } from '../hooks';
+import { calculateAge, useDownloadCV } from '../hooks';
+import { useAnimateOnScroll } from '@itsect3r/bortx/react';
 import usePageBackground from '../hooks/usePageBackground';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   AboutMeIcon,
@@ -9,11 +11,12 @@ import {
 } from '../components/common/icons';
 import styles from '../styles/home.module.css';
 
+const BIRTH_DATE = new Date(2000, 6, 27);
+
 export default function Home() {
   usePageBackground('home', 'linear-gradient(120deg, #000000, #717171)');
-  // Calculate age
-  const birthDate = new Date(2000, 6, 27); // July 27, 2000 (month is 0-based)
-  const age = calculateAge(birthDate);
+
+  const age = useMemo(() => calculateAge(BIRTH_DATE), []);
 
   // CV download hook
   const { downloadCV, isDownloading } = useDownloadCV();
@@ -36,7 +39,7 @@ export default function Home() {
     <>
       <h1
         ref={glitchRef}
-        className="text-effect text-glitch text-gradient home-subtitle"
+        className="text-effect text-glitch is-animated text-gradient-animated text-colors-sunset home-subtitle"
       >
         Full-Stack Developer
       </h1>
@@ -89,7 +92,7 @@ export default function Home() {
           <div className={styles.downloadCvContainer}>
             <p
               ref={typewriter}
-              className={`${styles.myName} text-effect text-typewriter`}
+              className={`${styles.myName} text-effect text-typewriter is-animated text-glow text-glow-gold`}
             >
               Luis A Marin
             </p>

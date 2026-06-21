@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@iconify/react": "^6.0.2",
+    "@itsect3r/bortx": "https://github.com/ITSECT3R/Bortx",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0"

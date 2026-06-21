@@ -1,8 +1,8 @@
 import type { Project } from '../../types/project';
 
-export const realProjects: Project[] = [
+export const webApps: Project[] = [
   {
-    id: '1',
+    id: '1-web-app',
     slug: 'shadow',
     title: 'Shadow',
     description:
@@ -12,8 +12,14 @@ export const realProjects: Project[] = [
     kind: 'project',
     category: 'fullstack',
     languages: ['TypeScript', 'JavaScript', 'CSS'],
-    technologies: ['React', 'Vite', 'Node.js'],
-    imageUrl: [],
+    technologies: ['React', 'Vite', 'Node.js', 'PostgreSQL'],
+    imageUrl: [
+      '/projects/web-apps/shadow/Shadow-main.webp',
+      '/projects/web-apps/shadow/Shadow-cv-1.webp',
+      '/projects/web-apps/shadow/Shadow-cv-2.webp',
+      '/projects/web-apps/shadow/Shadow-cv-3.webp',
+    ],
     githubUrl: 'https://github.com/ITSECT3R/Shadow',
+    liveUrl: 'https://shadow-gilt-phi.vercel.app/',
   },
 ];

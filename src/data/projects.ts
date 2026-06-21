@@ -1,7 +1,8 @@
 // Data has moved to src/data/projects/ — re-exported here for backwards compatibility.
 export {
   projects,
-  realProjects,
+  webApps,
   personalProjects,
   demoProjects,
+  libraries,
 } from './projects/index';

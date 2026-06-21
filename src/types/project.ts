@@ -1,4 +1,4 @@
-export type ProjectKind = 'demo' | 'project';
+export type ProjectKind = 'demo' | 'project' | 'library';
 export type ProjectCategory =
   | 'frontend'
   | 'backend'

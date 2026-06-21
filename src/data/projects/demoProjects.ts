@@ -3,7 +3,7 @@ import type { Project } from '../../types/project';
 export const demoProjects: Project[] = [
   // ── Front End Libraries ──────────────────────────────────────────────
   {
-    id: '4',
+    id: '1-demo',
     slug: 'clock-app',
     title: 'Clock App',
     description:
@@ -19,7 +19,7 @@ export const demoProjects: Project[] = [
     liveUrl: 'https://clock-app-freecodecamp.pages.dev/',
   },
   {
-    id: '5',
+    id: '2-demo',
     slug: 'calculator',
     title: 'Calculator',
     description:
@@ -35,7 +35,7 @@ export const demoProjects: Project[] = [
     liveUrl: 'https://calculator-freecodecamp.pages.dev/',
   },
   {
-    id: '6',
+    id: '3-demo',
     slug: 'drum-machine',
     title: 'Drum Machine',
     description:
@@ -51,7 +51,7 @@ export const demoProjects: Project[] = [
     liveUrl: 'https://drum-machine-freecodecamp.pages.dev/',
   },
   {
-    id: '7',
+    id: '4-demo',
     slug: 'markdown-previewer',
     title: 'Markdown Previewer',
     description:
@@ -67,7 +67,7 @@ export const demoProjects: Project[] = [
     liveUrl: 'https://markdown-previewer-bgy.pages.dev/',
   },
   {
-    id: '8',
+    id: '5-demo',
     slug: 'quote-generator',
     title: 'Quote Generator',
     description:
@@ -83,7 +83,7 @@ export const demoProjects: Project[] = [
   },
   // ── Data Visualization ───────────────────────────────────────────────
   {
-    id: '9',
+    id: '6-demo',
     slug: 'treemap-diagram',
     title: 'Treemap Diagram',
     description:
@@ -101,7 +101,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-5-Treemap-Diagram/',
   },
   {
-    id: '10',
+    id: '7-demo',
     slug: 'choropleth-map',
     title: 'Choropleth Map',
     description:
@@ -119,7 +119,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-4-Choropleth-Map/',
   },
   {
-    id: '11',
+    id: '8-demo',
     slug: 'heat-map',
     title: 'Heat Map',
     description:
@@ -137,7 +137,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-3-Heat-Map/',
   },
   {
-    id: '12',
+    id: '9-demo',
     slug: 'scatterplot-graph',
     title: 'Scatterplot Graph',
     description:
@@ -155,7 +155,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/Data-Visualization/Project-2-Scatterplot-Graph/',
   },
   {
-    id: '13',
+    id: '10-demo',
     slug: 'bar-chart',
     title: 'Bar Chart',
     description:
@@ -173,7 +173,7 @@ export const demoProjects: Project[] = [
   },
   // ── JavaScript Algorithms & Data Structures ──────────────────────────
   {
-    id: '14',
+    id: '11-demo',
     slug: 'pokemon-search-app',
     title: 'Pokémon Search App',
     description:
@@ -191,7 +191,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-5-Pokemon-App/',
   },
   {
-    id: '15',
+    id: '12-demo',
     slug: 'cash-register',
     title: 'Cash Register',
     description:
@@ -209,7 +209,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-4-Cash-Register/',
   },
   {
-    id: '16',
+    id: '13-demo',
     slug: 'telephone-number-validator',
     title: 'Telephone Number Validator',
     description:
@@ -227,7 +227,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-3-Telephone-Number-Validator/',
   },
   {
-    id: '17',
+    id: '14-demo',
     slug: 'roman-numeral-converter',
     title: 'Roman Numeral Converter',
     description:
@@ -245,7 +245,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/JavaScript-Algorithms-and-Data-Structures/Project-2-Roman-Numeral-Converter/',
   },
   {
-    id: '18',
+    id: '15-demo',
     slug: 'palindrome-checker',
     title: 'Palindrome Checker',
     description:
@@ -264,7 +264,7 @@ export const demoProjects: Project[] = [
   },
   // ── Responsive Web Design ────────────────────────────────────────────
   {
-    id: '19',
+    id: '16-demo',
     slug: 'knights-pc-store',
     title: '"Knights" PC Store',
     description:
@@ -282,7 +282,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-4-ProductLandingPage/',
   },
   {
-    id: '20',
+    id: '17-demo',
     slug: 'how-to-build-your-pc',
     title: 'How to Build Your PC',
     description:
@@ -300,7 +300,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-3-TechnicalDocumentationPage/',
   },
   {
-    id: '21',
+    id: '18-demo',
     slug: 'tribute-page',
     title: 'Tribute Page',
     description:
@@ -317,7 +317,7 @@ export const demoProjects: Project[] = [
       'https://fenix-8nz.pages.dev/freeCodeCamp/Resonsive-web-design/Project-2-TributePage/',
   },
   {
-    id: '22',
+    id: '19-demo',
     slug: 'survey-form',
     title: 'Survey Form',
     description:

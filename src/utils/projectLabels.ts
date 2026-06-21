@@ -7,6 +7,7 @@ import type { ProjectCategory, ProjectKind } from '../types/project';
 export const KIND_LABEL_MAP: Record<ProjectKind, string> = {
   demo: 'Demo',
   project: 'Project',
+  library: 'Library',
 };
 
 /**

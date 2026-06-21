@@ -1,14 +1,17 @@
-import { realProjects } from './realProjects';
+import { webApps } from './web-apps';
 import { personalProjects } from './personalProjects';
 import { demoProjects } from './demoProjects';
+import { libraries } from './libraries';
 import type { Project } from '../../types/project';
 
-export { realProjects } from './realProjects';
+export { webApps } from './web-apps';
 export { personalProjects } from './personalProjects';
 export { demoProjects } from './demoProjects';
+export { libraries } from './libraries';
 
 export const projects: Project[] = [
-  ...realProjects,
+  ...webApps,
+  ...libraries,
   ...personalProjects,
   ...demoProjects,
 ];

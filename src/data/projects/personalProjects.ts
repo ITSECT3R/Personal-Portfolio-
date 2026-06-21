@@ -2,7 +2,7 @@ import type { Project } from '../../types/project';
 
 export const personalProjects: Project[] = [
   {
-    id: '2',
+    id: '1-personal',
     slug: 'ecommerce-artes-sacro',
     title: 'Ecommerce — Artes Sacro',
     description:
@@ -13,12 +13,12 @@ export const personalProjects: Project[] = [
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['React'],
-    imageUrl: ['/personal-pictures/Picture-2-portfolio.webp'],
+    imageUrl: ['/projects/personal/Picture-2-portfolio.webp'],
     githubUrl: 'https://github.com/ITSECT3R/E-commerce-Artes-Sacro',
     liveUrl: 'https://itsect3r.github.io/E-commerce-Artes-Sacro/',
   },
   {
-    id: '3',
+    id: '2-personal',
     slug: 'snake-game',
     title: 'Snake Game',
     description:
@@ -29,7 +29,7 @@ export const personalProjects: Project[] = [
     category: 'frontend',
     languages: ['JavaScript', 'CSS', 'HTML'],
     technologies: ['Canvas API'],
-    imageUrl: ['/personal-pictures/Picture-1-portfolio.webp'],
+    imageUrl: ['/projects/personal/Picture-1-portfolio.webp'],
     githubUrl: 'https://github.com/ITSECT3R/Snake-ITSECT3R',
     liveUrl: 'https://itsect3r.github.io/Snake-ITSECT3R/',
   },

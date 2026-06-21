@@ -1,7 +1,7 @@
 /**
  * Tests for filterProjects using REAL project data.
  *
- * Reality: 22 total — 21 demos (19 freeCodeCamp + 2 personal) + 1 real project.
+ * Reality: 23 total — 21 demos (19 freeCodeCamp + 2 personal) + 1 real project + 1 library.
  * All filters use OR logic within a type, AND logic between types.
  */
 
@@ -10,7 +10,7 @@ import { allProjects, emptyFilter } from './data/filterProjects.data';
 
 describe('filterProjects', () => {
   it('returns all projects when no filters are active', () => {
-    expect(filterProjects(allProjects, emptyFilter)).toHaveLength(22);
+    expect(filterProjects(allProjects, emptyFilter)).toHaveLength(23);
   });
 
   // ── Kind filter ──
@@ -40,6 +40,15 @@ describe('filterProjects', () => {
         kinds: ['demo', 'project'],
       });
       expect(result).toHaveLength(22);
+    });
+
+    it('includes library kind', () => {
+      const result = filterProjects(allProjects, {
+        ...emptyFilter,
+        kinds: ['library'],
+      });
+      expect(result).toHaveLength(1);
+      expect(result[0].kind).toBe('library');
     });
   });
 
@@ -77,7 +86,7 @@ describe('filterProjects', () => {
       expect(result.every(p => p.languages.includes('JavaScript'))).toBe(true);
     });
 
-    it('finds the TypeScript project (only Shadow)', () => {
+    it('finds projects using TypeScript (Shadow + Bortx)', () => {
       const result = filterProjects(allProjects, {
         ...emptyFilter,
         languages: ['TypeScript'],

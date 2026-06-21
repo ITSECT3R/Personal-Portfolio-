@@ -176,6 +176,22 @@ export const GitHubCopilotIcon = (props: TechIconProps) => (
   <Icon icon="simple-icons:githubcopilot" {...props} />
 );
 
+export const VitepressIcon = (props: TechIconProps) => (
+  <Icon icon="vscode-icons:folder-type-vitepress" {...props} />
+);
+
+export const VueIcon = (props: TechIconProps) => (
+  <Icon icon="skill-icons:vuejs-dark" {...props} />
+);
+
+export const VitestIcon = (props: TechIconProps) => (
+  <Icon icon="logos:vitest" {...props} />
+);
+
+export const BunIcon = (props: TechIconProps) => (
+  <Icon icon="logos:bun" {...props} />
+);
+
 // ─── Map: technology name → icon component ─────────────────────────────────
 // Technologies not present here render as a text fallback badge in ProjectCard.
 type TechIconComponent = (props: TechIconProps) => ReactElement;
@@ -233,6 +249,10 @@ export const TECH_ICON_MAP: Record<string, TechIconComponent> = {
   'GitHub Copilot': GitHubCopilotIcon,
   'Visual Studio Code': VSCodeIcon,
   'D3.js': D3Icon,
+  Vitepress: VitepressIcon,
+  Vue: VueIcon,
+  Vitest: VitestIcon,
+  Bun: BunIcon,
   // Legacy / kept for backwards compat
   'CSS Modules': CssIcon,
 };

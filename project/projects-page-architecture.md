@@ -10,11 +10,12 @@
 ```
 src/
   data/projects/
-    realProjects.ts       # Production / in-development apps (kind: 'project')
-    personalProjects.ts   # Personal builds outside certifications (kind: 'project')
+    web-apps.ts           # Production / in-development apps (kind: 'project')
+    libraries.ts          # Published npm libraries (kind: 'library')
+    personalProjects.ts   # Personal builds outside certifications (kind: 'demo')
     demoProjects.ts       # FreeCodeCamp certification projects (kind: 'demo')
     filterLabels.ts       # DEPRECATED — label maps moved to src/utils/projectLabels.ts
-    index.ts              # Barrel — combines all three, exports named arrays + projects[]
+    index.ts              # Barrel — combines all four source files, exports named arrays + projects[]
   data/projects.ts        # Backwards-compat re-export shim — do not add data here
   utils/
     filterProjects.ts     # Pure filter function — no React, unit-testable
@@ -37,12 +38,12 @@ src/
 
 ## Data Model — `Project` (see `src/types/project.ts`)
 
-| Field          | Type            | Role                                                                                     |
-| -------------- | --------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------- |
-| `kind`         | `'demo'         | 'project'`                                                                               | High-level bucket — drives card accent colour |
-| `category`     | `'frontend'\|…` | Architecture category — multi-select dropdown filter (see `ProjectCategory` union)       |
-| `languages`    | `string[]`      | **Programming languages only**: `HTML`, `CSS`, `JS`, `TS`, future: `Java`, `C#`, `C++`   |
-| `technologies` | `string[]`      | **Frameworks / libraries / APIs / tools**: `React`, `D3.js`, `REST API`, `GraphQL`, etc. |
+| Field          | Type                               | Role                                                                                     |
+| -------------- | ---------------------------------- | ---------------------------------------------------------------------------------------- |
+| `kind`         | `'demo' \| 'project' \| 'library'` | High-level bucket — drives card accent colour                                            |
+| `category`     | `'frontend'\|…`                    | Architecture category — multi-select dropdown filter (see `ProjectCategory` union)       |
+| `languages`    | `string[]`                         | **Programming languages only**: `HTML`, `CSS`, `JS`, `TS`, future: `Java`, `C#`, `C++`   |
+| `technologies` | `string[]`                         | **Frameworks / libraries / APIs / tools**: `React`, `D3.js`, `REST API`, `GraphQL`, etc. |
 
 ### `languages` vs `technologies` — the distinction matters
 
@@ -101,14 +102,73 @@ To add a new filter dimension in the future (e.g. `apiStyle: 'REST'|'GraphQL'`):
 - `kind` and `category` display human-readable labels via `KIND_LABEL_MAP` / `CATEGORY_LABEL_MAP` in `src/utils/projectLabels.ts`, while the raw type union values are used internally.
 - All filter logic lives exclusively in `src/utils/filterProjects.ts`
 
+---
+
+## Project ID Convention
+
+Each data file uses a **prefixed sequential ID** scheme to guarantee uniqueness across files
+and make the source file immediately identifiable from the ID alone:
+
+| File                  | Prefix         | Examples                   |
+| --------------------- | -------------- | -------------------------- |
+| `web-apps.ts`         | `{n}-web-app`  | `1-web-app`                |
+| `libraries.ts`        | `{n}-lib`      | `1-lib`                    |
+| `personalProjects.ts` | `{n}-personal` | `1-personal`, `2-personal` |
+| `demoProjects.ts`     | `{n}-demo`     | `1-demo`, `19-demo`        |
+
+- Numbering restarts at 1 within each file — zero collision risk
+- React uses `project.id` as the `key` prop in `Projects.Page.tsx` — collisions cause state bleeding between cards
+- Slugs remain the routing identifier (`/projects/{slug}`) and must also be unique
+
+---
+
+## KIND_CONFIG Lookup Map
+
+Both `ProjectCard.tsx` and `ProjectDetails.tsx` use a single lookup map instead of nested
+ternaries for kind-specific CSS classes. This makes adding a new kind a one-line operation:
+
+```ts
+const KIND_CONFIG: Record<
+  ProjectKind,
+  { kindClass: string; borderClass: string }
+> = {
+  project: { kindClass: styles.project, borderClass: '...' },
+  demo: { kindClass: styles.demo, borderClass: '...' },
+  library: { kindClass: styles.library, borderClass: '...' },
+};
+const { kindClass, borderClass } = KIND_CONFIG[project.kind];
+```
+
+ProjectDetails uses an extended map that also carries `chipClass` and `heroBorderClass`.
+Adding a 4th kind = one new entry in each map. No conditional logic changes needed.
+
+---
+
+## Card Overlay
+
+The overlay (summary + links) is **click-to-toggle**, not hover-triggered. This prevents
+interference with the image carousel navigation buttons:
+
+- Clicking anywhere on the card body toggles the overlay
+- Carousel prev/next buttons use `e.stopPropagation()` — they change the image without toggling the overlay
+- The ↑ arrow button toggles the overlay directly (same behavior)
+- Keyboard: Enter or Space on the card body toggles the overlay
+
+The CSS uses the `.overlayOpen` class driven by React state. The old `.cardInner:hover .overlay`
+rule has been removed.
+
+---
+
 ## Border Convention (ProjectCard + ProjectDetails)
 
-| `kind`      | Card border        | Hero border      |
-| ----------- | ------------------ | ---------------- |
-| `'project'` | `border-rainbow`   | `border-rainbow` |
-| `'demo'`    | `border-dual-spin` | `border-shimmer` |
+| `kind`      | Card border                           | Hero border                           |
+| ----------- | ------------------------------------- | ------------------------------------- |
+| `'project'` | `border-rainbow`                      | `border-rainbow border-glow`          |
+| `'demo'`    | `border-dual-spin`                    | `border-neon border-glow`             |
+| `'library'` | `border-corner-highlight border-glow` | `border-corner-highlight border-glow` |
 
-Content panel on the details page always uses `border-gradient border-slow`.
+All card borders use `border-hover-only` (animation only on hover).
+Content panel on the details page always uses `border-light-trail border-glow`.
 
 ---
 

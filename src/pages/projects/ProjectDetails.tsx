@@ -1,10 +1,32 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { projects } from '../../data/projects';
+import type { ProjectKind } from '../../types/project';
 import usePageBackground from '../../hooks/usePageBackground';
 import { TECH_ICON_MAP } from '../../components/common/icons/tech';
 import { KIND_LABEL_MAP, CATEGORY_LABEL_MAP } from '../../utils/projectLabels';
 import styles from '../../styles/projects/details.module.css';
+
+const KIND_CONFIG: Record<
+  ProjectKind,
+  { kindClass: string; chipClass: string; heroBorderClass: string }
+> = {
+  project: {
+    kindClass: styles.project,
+    chipClass: styles.chipProject,
+    heroBorderClass: 'border-effect border-rainbow border-glow',
+  },
+  demo: {
+    kindClass: styles.demo,
+    chipClass: styles.chipDemo,
+    heroBorderClass: 'border-effect border-neon border-glow',
+  },
+  library: {
+    kindClass: styles.library,
+    chipClass: styles.chipLibrary,
+    heroBorderClass: 'border-effect border-corner-highlight border-glow',
+  },
+};
 
 export default function ProjectDetails() {
   usePageBackground('projects', 'linear-gradient(120deg,#1a1a2e,#2b2b55)');
@@ -26,15 +48,7 @@ export default function ProjectDetails() {
 
   const hasImage = project.imageUrl.length > 0;
   const hasMultipleImages = project.imageUrl.length > 1;
-  const kindClass = project.kind === 'demo' ? styles.demo : styles.project;
-  const kindChipClass =
-    project.kind === 'demo' ? styles.chipDemo : styles.chipProject;
-
-  // Hero border follows the same convention as ProjectCard
-  const heroBorderClass =
-    project.kind === 'project'
-      ? 'border-effect border-rainbow border-glow'
-      : 'border-effect border-neon border-glow';
+  const { kindClass, chipClass, heroBorderClass } = KIND_CONFIG[project.kind];
 
   const prevImage = () =>
     setImageIndex(i => (i === 0 ? project.imageUrl.length - 1 : i - 1));
@@ -107,7 +121,7 @@ export default function ProjectDetails() {
             </h1>
           </div>
           <div className={styles.meta}>
-            <span className={`${styles.chip} ${kindChipClass}`}>
+            <span className={`${styles.chip} ${chipClass}`}>
               {KIND_LABEL_MAP[project.kind]}
             </span>
             <span className={`${styles.chip} ${styles.chipCategory}`}>

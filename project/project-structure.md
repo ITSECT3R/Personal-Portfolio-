@@ -42,9 +42,24 @@ Personal-Portfolio/
 │   │   ├── Picture-8-freeCodeCamp.webp
 │   │   └── Picture-9-freeCodeCamp.webp
 │   │
-│   ├── personal-pictures/
-│   │   ├── Picture-1-portfolio.webp
-│   │   └── Picture-2-portfolio.webp
+│   ├── projects/
+│   │   ├── libraries/
+│   │   │   └── bortx/
+│   │   │       ├── bortx-borders-demo-1.webp
+│   │   │       ├── bortx-main.webp
+│   │   │       ├── bortx-text-demo-1.webp
+│   │   │       └── bortx-text-demo-2.webp
+│   │   │
+│   │   ├── personal/
+│   │   │   ├── Picture-1-portfolio.webp
+│   │   │   └── Picture-2-portfolio.webp
+│   │   │
+│   │   └── web-apps/
+│   │       └── shadow/
+│   │           ├── Shadow-cv-1.webp
+│   │           ├── Shadow-cv-2.webp
+│   │           ├── Shadow-cv-3.webp
+│   │           └── Shadow-main.webp
 │   │
 │   ├── CV-Luis-Angel-Marin-Rodriguez_compressed.pdf
 │   ├── profile-picture.jpg
@@ -101,8 +116,9 @@ Personal-Portfolio/
 │   │   ├── projects/
 │   │   │   ├── demoProjects.ts
 │   │   │   ├── index.ts              # Barrel export
+│   │   │   ├── libraries.ts
 │   │   │   ├── personalProjects.ts
-│   │   │   └── realProjects.ts
+│   │   │   └── web-apps.ts
 │   │   │
 │   │   ├── contacts.tsx
 │   │   ├── experience.ts

@@ -8,6 +8,7 @@ export const frontendSkills = {
   skills: [
     'React',
     'React Native',
+    'Vue',
     'Redux',
     'Tailwind CSS',
     'Bootstrap',
@@ -34,6 +35,7 @@ export const testingAndQA = {
     'WebDriverIO',
     'Playwright',
     'Jest',
+    'Vitest',
     'Mocha',
     'Chai',
     'Cucumber',
@@ -69,6 +71,7 @@ export const developmentTools = {
     'Visual Studio Code',
     'GitHub Copilot',
     'Vite',
+    'Bun',
   ],
 };
 

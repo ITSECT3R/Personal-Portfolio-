@@ -1,12 +1,32 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { Project } from '../../types/project';
+import type { Project, ProjectKind } from '../../types/project';
 import { TECH_ICON_MAP } from '../common/icons/tech';
 import styles from '../../styles/projects/card.module.css';
 
 // Threshold: at or below this number, badges sit static. Above it they marquee.
 // Icons are ~4× narrower than text pills so the threshold is raised accordingly.
 const MARQUEE_THRESHOLD = 8;
+
+// Lookup map for kind → CSS classes. Add a new entry here to support a new kind.
+const KIND_CONFIG: Record<
+  ProjectKind,
+  { kindClass: string; borderClass: string }
+> = {
+  project: {
+    kindClass: styles.project,
+    borderClass: 'border-effect border-rainbow border-hover-only',
+  },
+  demo: {
+    kindClass: styles.demo,
+    borderClass: 'border-effect border-dual-spin border-hover-only',
+  },
+  library: {
+    kindClass: styles.library,
+    borderClass:
+      'border-effect border-corner-highlight border-glow border-hover-only',
+  },
+};
 
 type Props = {
   project: Project;
@@ -20,7 +40,7 @@ export function ProjectCard({ project }: Props) {
   const hasImage = project.imageUrl.length > 0;
   const allBadges = [...project.languages, ...project.technologies];
   const shouldMarquee = allBadges.length > MARQUEE_THRESHOLD;
-  const kindClass = project.kind === 'demo' ? styles.demo : styles.project;
+  const { kindClass, borderClass } = KIND_CONFIG[project.kind];
 
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -37,16 +57,30 @@ export function ProjectCard({ project }: Props) {
     setOverlayOpen(open => !open);
   };
 
-  const borderClass =
-    project.kind === 'project'
-      ? 'border-effect border-rainbow border-hover-only'
-      : 'border-effect border-dual-spin border-hover-only';
+  const handleCardClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest('a, button')) return;
+    setOverlayOpen(open => !open);
+  };
+
+  const handleCardKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if ((e.target as HTMLElement).closest('a, button')) return;
+      setOverlayOpen(open => !open);
+    }
+  };
 
   return (
     <article
       className={`${styles.card} ${kindClass} ${overlayOpen ? styles.overlayOpen : ''} ${borderClass}`}
     >
-      <div className={styles.cardInner}>
+      <div
+        className={styles.cardInner}
+        role="button"
+        tabIndex={0}
+        onClick={handleCardClick}
+        onKeyDown={handleCardKeyDown}
+      >
         {/* ── Image section ──────────────────────────────────────────── */}
         <div className={styles.imageSection}>
           {hasImage ? (

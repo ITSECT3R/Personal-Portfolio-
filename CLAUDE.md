@@ -161,11 +161,15 @@ The refactor is **incremental** — new code goes into the new structure; old `s
 
 ## Projects Section
 
-- Data split across `src/data/projects/` — `realProjects.ts`, `personalProjects.ts`, `demoProjects.ts`
+- Data split across `src/data/projects/` — `web-apps.ts`, `libraries.ts`, `personalProjects.ts`, `demoProjects.ts`
+- Three project kinds: `'project'` (web apps), `'library'` (npm packages), `'demo'` (certification/toy projects)
+- **Prefixed sequential IDs** — each file uses its own prefix (`1-web-app`, `1-lib`, `1-personal`, `1-demo`) to prevent collisions and make source immediately identifiable
+- **KIND_CONFIG lookup map** — both `ProjectCard.tsx` and `ProjectDetails.tsx` use a `Record<ProjectKind, {...}>` map instead of nested ternaries for kind-specific styles/borders — add a new kind by adding one entry to the map
 - All four filters (kind, category, languages, technologies) are data-driven multi-select dropdowns — adding a value to any project's arrays updates the dropdowns automatically
 - Display labels for `kind` and `category` live in `src/utils/projectLabels.ts` (`KIND_LABEL_MAP`, `CATEGORY_LABEL_MAP`)
 - `languages` = programming languages only; `technologies` = frameworks, libraries, APIs, tools
 - Details page (`src/pages/projects/ProjectDetails.tsx`) — hero carousel + content panel with badges, chips, and external links
+- **Card overlay** is click-to-toggle (not hover) — prevents interference with carousel navigation
 - See `project/projects-page-architecture.md` for full conventions, data model, border convention, and how to extend filters
 
 ---

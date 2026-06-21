@@ -13,6 +13,9 @@
 .project {
   --kind-accent: #ffd54f;
 }
+.library {
+  --kind-accent: #a78bfa;
+}
 
 /* ─── Back link ──────────────────────────────────────────────────── */
 .back {
@@ -209,6 +212,12 @@
   background: rgba(255, 213, 79, 0.1);
   border-color: rgba(255, 213, 79, 0.35);
   color: #ffd54f;
+}
+
+.chipLibrary {
+  background: rgba(167, 139, 250, 0.1);
+  border-color: rgba(167, 139, 250, 0.35);
+  color: #a78bfa;
 }
 
 .chipCategory {

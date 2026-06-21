@@ -1,5 +1,5 @@
-declare module '@itsect3r/bortx/borders';
-declare module '@itsect3r/bortx/text';
+declare module '@itsect3r/bortx/borders/styles';
+declare module '@itsect3r/bortx/text/styles';
 
 declare module '@itsect3r/bortx/react' {
   interface AnimateOnScrollOptions {

@@ -14,7 +14,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "postinstall": "if [ ! -f node_modules/@itsect3r/bortx/dist/borders/index.js ]; then cd node_modules/@itsect3r/bortx && bun install --ignore-scripts && (bun run build || true) && rm -rf node_modules; fi",
+    "postinstall": "if [ ! -f node_modules/@itsect3r/bortx/dist/borders/index.js ]; then cd node_modules/@itsect3r/bortx && bun install --ignore-scripts && (bun run build || true) && rm -rf node_modules && sed -i 's|\\./dist/borders/base\\.css|./dist/borders/index.css|; s|\\./dist/text/base\\.css|./dist/text/index.css|' package.json; fi",
     "generate-structure": "node scripts/generate-structure.js"
   },
   "lint-staged": {

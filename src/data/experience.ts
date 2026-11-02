@@ -3,7 +3,7 @@ import type { Job } from '../types/cv';
 export const jobs: Job[] = [
   {
     company: 'Nielsen',
-    position: 'Quality Analyst',
+    position: 'QA & Automation Specialist',
     displayDate: '8/25 - Present',
     location: 'Hybrid - Guadalajara, Jalisco',
     responsibilities: [

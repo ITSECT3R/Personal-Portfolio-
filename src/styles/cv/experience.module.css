@@ -47,6 +47,16 @@
   margin-top: 0;
 }
 
+.achievements {
+  font-size: 1rem;
+  font-weight: 700;
+  text-shadow:
+    0 0 1px rgb(0, 0, 0),
+    0 0 2px rgb(255, 160, 0),
+    0 0 2px rgb(255, 200, 0);
+  margin-top: 0;
+}
+
 .contentJobs ul {
   font-size: 1rem;
   font-weight: 500;

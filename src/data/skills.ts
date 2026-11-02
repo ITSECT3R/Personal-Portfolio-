@@ -72,6 +72,7 @@ export const developmentTools = {
     'GitHub Copilot',
     'Vite',
     'Bun',
+    'Google Apps Script',
   ],
 };
 

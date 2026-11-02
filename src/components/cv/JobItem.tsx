@@ -6,6 +6,7 @@ type Props = { job: Job };
 
 export const JobItem = ({ job }: Props) => {
   const date = job.displayDate;
+  const achievements = job.achievements ?? [];
 
   return (
     <div className={`${styles.job1} ${styles.jobs}`}>
@@ -22,6 +23,18 @@ export const JobItem = ({ job }: Props) => {
             <li key={idx}>{task}</li>
           ))}
         </ul>
+
+        {achievements.length > 0 && (
+          <>
+            <p className={styles.achievements}>Key Achievements</p>
+            <ul>
+              {achievements.map((achievement, idx) => (
+                <li key={idx}>{achievement}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
         <p className={styles.contactInfo}>Location</p>
         <div className={styles.contactDiv}>
           <span>

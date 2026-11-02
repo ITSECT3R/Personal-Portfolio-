@@ -47,14 +47,13 @@ export default function Cv() {
           <div className={styles.summary}>
             <h2>Summary</h2>
             <p>
-              Passionate Full-Stack Developer and QA Engineer with experience in
-              building and testing web applications. Skilled in JavaScript,
-              Python, React, Cloud solutions and automated testing frameworks.
-              Adept at collaborating with cross-functional teams to deliver
-              high-quality software solutions. Committed to continuous learning
-              and staying updated with the latest industry trends to enhance
-              development and testing processes. Eager to pursue excellence and
-              continuous improvement.
+              Full-Stack Developer with experience building web applications,
+              internal tools and dashboards. Skilled in JavaScript, TypeScript,
+              Python, React, Node.js, SQL and cloud solutions. Adept at turning
+              requirements into working products end to end while collaborating
+              with cross-functional teams and delivering high-quality software
+              with automated tests. Committed to continuous learning and staying
+              current with industry trends.
             </p>
           </div>
           <Experience jobs={jobs} />

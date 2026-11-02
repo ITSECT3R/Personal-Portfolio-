@@ -7,6 +7,7 @@ export interface Job {
   displayDate: string;
   location?: string;
   responsibilities: string[];
+  achievements?: string[];
 }
 
 export interface Certificate {
